@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd ">
+	<alias name="helloWorld1" alias="anotherHelloWorld"/>
+	<!-- HelloWorld -->
+	<bean name="helloWorld helloWorld1" class="test.spring.helloworld.impl.DefaultHelloWorld">
+		<property name="greeting" value="Hello, World" />
+	</bean>
+	
+	<!-- ioc example -->
+	<bean name="aBoy" class="test.spring.sample.Boy" autowire="byName">
+		<constructor-arg index="0" value="xieding"></constructor-arg>
+		
+	</bean>
+	
+	<!-- method injection -->
+	<bean id="commandManager"
+		class="test.spring.methodinjection.CommandManager" abstract="true">
+		<lookup-method name="createCommand" bean="command"/>
+	</bean>
+	<bean id="command" class="test.spring.methodinjection.impl.ConcreteCommand"/>
+	
+	<bean id="beanCounter" class="test.spring.container.BeanCounter" />
+
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:jdbc.properties</value>
+		</property>
+	</bean>
+
+	<bean id="databaseConfig" class="test.spring.DatabaseConfig">
+		<property name="url">
+			<value>${database.url}</value>
+		</property>
+		<property name="driverClassName">
+			<value>${database.driver}</value>
+		</property>
+		<property name="userName">
+			<value>${database.user}</value>
+		</property>
+		<property name="password">
+			<value>${database.password}</value>
+		</property>
+	</bean>
+
+	<bean id="infoPhone" class="org.suw.learn.spring.propertyeditor.PhoneNumber">
+		<constructor-arg index="0">
+			<value>010</value>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<value>888</value>
+		</constructor-arg>
+		<constructor-arg index="2">
+			<value>1212</value>
+		</constructor-arg>
+	</bean>
+
+	<bean id="contact" class="org.suw.learn.spring.propertyeditor.Contact">
+		<property name="phoneNumber">
+			<value>010-555-1212</value>
+		</property>
+	</bean>
+
+	<bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+		<property name="customEditors">
+			<map>
+				<entry key="org.suw.learn.spring.propertyeditor.PhoneNumber">
+					<bean id="phoneEditor" class="org.suw.learn.spring.propertyeditor.PhoneEditor" />
+				</entry>
+			</map>
+		</property>
+	</bean>
+
+	<!-- aop example -->
+</beans>

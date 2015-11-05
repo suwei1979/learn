@@ -1,0 +1,22 @@
+package org.suw.learn.validate.beanvalidate.constraintsvalidator;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+import org.suw.learn.validate.beanvalidate.constraints.DateParametersConsistent;
+
+public class DateParametersConsistentValidator implements ConstraintValidator<DateParametersConsistent, String> {
+
+	@Override
+	public void initialize(DateParametersConsistent constraintAnnotation) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public boolean isValid(String value, ConstraintValidatorContext context) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}
