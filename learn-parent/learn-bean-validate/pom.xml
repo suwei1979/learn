@@ -5,7 +5,21 @@
     <artifactId>learn-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>learn-java</artifactId>
+  <properties>
+		<java.version>1.7</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+  </properties>
+  <groupId>org.suw.learn.validate</groupId>
+  <artifactId>learn-bean-validate</artifactId>
+  <packaging>pom</packaging>
+  <modules>
+  	
+  	<module>learn-bean-validate-spring</module>
+  	
+  	
+  </modules>
 	<build>
 		<plugins>
 			<plugin>

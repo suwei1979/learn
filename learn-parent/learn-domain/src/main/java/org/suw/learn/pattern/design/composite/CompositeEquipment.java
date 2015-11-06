@@ -14,7 +14,7 @@ public class CompositeEquipment extends Equipment {
 
 	@Override
 	public Currency netPrice() {
-		Iterator<Equipment> it = iterator();
+		ArrayList<Equipment> it = iterator();
 		for (Equipment equipment : it) {
 			equipment.netPrice();
 		}

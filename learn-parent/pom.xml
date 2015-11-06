@@ -8,8 +8,8 @@
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.8</source>
-					<target>1.8</target>
+					<source>1.7</source>
+					<target>1.7</target>
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
@@ -74,11 +74,12 @@
 		</dependency>
 	</dependencies>
 	<modules>
-		<module>bean-validate</module>
-		<module>domain</module>
-		<module>spring</module>
 		<module>learn-java</module>
-		<module>event-sourcing</module>
+		<module>learn-spring</module>
+		<module>learn-domain</module>
+		<module>learn-domain-event-sourcing</module>
+
+		<module>learn-bean-validate</module>
 		<module>learn-build</module>
 	</modules>
 	<artifactId>learn-parent</artifactId>

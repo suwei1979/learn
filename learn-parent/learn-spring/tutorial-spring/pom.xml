@@ -4,6 +4,7 @@
     <groupId>org.suw.learn</groupId>
     <artifactId>learn-spring</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <relativePath>..</relativePath>
   </parent>
   <artifactId>spring-tutorial</artifactId>
   <packaging>pom</packaging>

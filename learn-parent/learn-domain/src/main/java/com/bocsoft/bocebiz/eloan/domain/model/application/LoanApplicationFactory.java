@@ -1,6 +1,7 @@
 package com.bocsoft.bocebiz.eloan.domain.model.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.suw.learn.metis.commons.exception.BusinessException;
 
 import com.bocsoft.bocebiz.eloan.domain.repository.LoanApplicationRepository;
 import com.bocsoft.bocebiz.eloan.domain.repository.LoanLimitRepository;
@@ -9,7 +10,6 @@ import com.bocsoft.bocebiz.eloan.domain.service.apply.PartyFactoryLoader;
 import com.bocsoft.bocebiz.eloan.domain.service.apply.impl.SpringPartyFactoryLoader;
 import com.bocsoft.bocebiz.eloan.domain.service.exceptions.DuplicatedApplicationException;
 import com.bocsoft.bocebiz.eloan.domain.service.exceptions.UnexistsProductException;
-import com.bocsoft.metis.commons.exception.BusinessException;
 
 public class LoanApplicationFactory {
     private final ProductRepository productRepository;

@@ -7,13 +7,13 @@ import org.junit.rules.ExpectedException;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.suw.learn.metis.commons.utils.SpringUtils;
 
 import com.bocsoft.bocebiz.eloan.domain.ITContext;
 import com.bocsoft.bocebiz.eloan.domain.service.apply.ApplyService;
 import com.bocsoft.bocebiz.eloan.domain.service.spi.impl.ExtensionProcessFactory;
 import com.bocsoft.bocebiz.eloan.domain.service.spi.impl.ProcessRouteTableFactory;
 import com.bocsoft.bocebiz.eloan.domain.service.spi.impl.spring.ExtensionProcessAssembler;
-import com.bocsoft.metis.commons.utils.SpringUtils;
 
 public class ExtensionProcessAssemblerTest  extends ITContext implements ApplicationContextAware {
 

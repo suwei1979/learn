@@ -38,11 +38,12 @@
   </properties>
   <packaging>pom</packaging>
   <modules>
-  	<module>../validate/spring-validate</module>
-  	<module>spring-boot</module>
-  	<module>spring-aop</module>
-  	<module>spring-beans</module>
-  	<module>spring-tutorial</module>
+  	
+  	<module>learn-spring-boot</module>
+  	<module>learn-spring-aop</module>
+  	<module>learn-spring-beans</module>
+  	
+  	<module>tutorial-spring</module>
   </modules>
   <dependencyManagement>
   	<dependencies>
@@ -78,4 +79,18 @@
   		</dependency>
   	</dependencies>
   </dependencyManagement>
+  	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+  
 </project>

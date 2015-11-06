@@ -10,13 +10,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.FilterType;
+import org.suw.learn.metis.commons.loader.Loader;
+import org.suw.learn.metis.commons.log.listener.AppArgsLogInitializationListener;
+import org.suw.learn.metis.commons.utils.SpringUtils;
 
 import com.bocsoft.bocebiz.eloan.domain.service.apply.ApplyService;
 import com.bocsoft.bocebiz.eloan.domain.service.apply.impl.ApplyServiceImpl;
 import com.bocsoft.bocebiz.eloan.domain.service.spi.impl.spring.ExtensionProcessAssembler;
-import com.bocsoft.metis.commons.loader.Loader;
-import com.bocsoft.metis.commons.log.listener.AppArgsLogInitializationListener;
-import com.bocsoft.metis.commons.utils.SpringUtils;
 
 /**
  * Top Configuration of spring.
