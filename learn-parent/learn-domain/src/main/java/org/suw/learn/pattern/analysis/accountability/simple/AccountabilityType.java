@@ -1,31 +1,32 @@
 package org.suw.learn.pattern.analysis.accountability.simple;
 
 public class AccountabilityType {
-	private String name;
-	private boolean isHierarchic = false;
+    private String name;
+    private boolean isHierarchic = false;
 
-	public AccountabilityType(String name) {
-		this.name = name;
-	}
+    public AccountabilityType(String name) {
+        this.name = name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public boolean isHierarchic() {
-		return isHierarchic;
-	}
+    public boolean isHierarchic() {
+        return isHierarchic;
+    }
 
-	public void setHierarchic(boolean isHierarchic) {
-		this.isHierarchic = isHierarchic;
-	}
+    public void setHierarchic(boolean isHierarchic) {
+        this.isHierarchic = isHierarchic;
+    }
 
-	boolean canCreateAccountability(Party parent, Party child) {
-		if (isHierarchic && child.getParents(this).size() != 0) return false;
-		return areValidPartyTypes(parent, child);
-	}
+    boolean canCreateAccountability(Party parent, Party child) {
+        if (isHierarchic && child.getParents(this).size() != 0)
+            return false;
+        return areValidPartyTypes(parent, child);
+    }
 
-	protected boolean areValidPartyTypes(Party parent, Party child) {
-		return true;
-	}
+    protected boolean areValidPartyTypes(Party parent, Party child) {
+        return true;
+    }
 }

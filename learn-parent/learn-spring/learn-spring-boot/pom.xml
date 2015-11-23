@@ -16,4 +16,7 @@
 		</plugins>
 
 	</build>
+	<properties>
+		<version.spring.boot>1.7.0.RELEASE</version.spring.boot>
+	</properties>
 </project>

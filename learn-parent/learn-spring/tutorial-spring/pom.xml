@@ -9,6 +9,6 @@
   <artifactId>spring-tutorial</artifactId>
   <packaging>pom</packaging>
   <modules>
-  	<module>spring-rest</module>
+  	<module>tutorial-spring-rest</module>
   </modules>
 </project>

@@ -8,8 +8,5 @@
   <groupId>org.suw.learn.build</groupId>
   <artifactId>learn-build</artifactId>
   <packaging>pom</packaging>
-  <modules>
-  	<module>learn-build-gradle</module>
-  </modules>
   <description>Project to learn build tools</description>
 </project>
