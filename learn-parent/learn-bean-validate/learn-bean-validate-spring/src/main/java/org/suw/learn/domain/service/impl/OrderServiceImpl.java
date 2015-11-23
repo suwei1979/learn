@@ -36,7 +36,6 @@ public class OrderServiceImpl implements OrderService {
 		threadPool.initialize();
 		threadPool.execute(new Runnable() {
 			
-			@Override
 			public void run() {
 				orderState.orderCreated();
 			}

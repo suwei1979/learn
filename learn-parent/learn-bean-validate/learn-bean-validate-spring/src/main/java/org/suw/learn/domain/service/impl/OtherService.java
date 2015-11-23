@@ -4,7 +4,7 @@ import org.suw.learn.domain.service.OrderStateAware;
 
 public class OtherService implements OrderStateAware {
 
-	@Override
+    @Override
 	public void orderCreated() {
 		// TODO Auto-generated method stub
 		System.out.println("orderCreate begin" + System.currentTimeMillis());

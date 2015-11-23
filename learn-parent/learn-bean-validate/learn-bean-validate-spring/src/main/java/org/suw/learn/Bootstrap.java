@@ -1,4 +1,4 @@
-package org.suw.learn.validate;
+package org.suw.learn;
 
 import java.util.Set;
 

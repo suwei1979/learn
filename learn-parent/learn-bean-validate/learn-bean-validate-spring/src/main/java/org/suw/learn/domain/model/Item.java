@@ -2,8 +2,10 @@ package org.suw.learn.domain.model;
 
 import javax.validation.constraints.NotNull;
 
+import org.springframework.stereotype.Component;
 import org.suw.learn.validate.beanvalidate.constraints.ZipCode;
 
+@Component
 public class Item {
 	@NotNull(message="validate.notnull.item.message")
 	private String name;
