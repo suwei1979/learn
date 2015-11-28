@@ -15,6 +15,9 @@ public class Item {
 	@ZipCode(countryCode = "CN")
 	private String zipCode;
 	
+	@ZipCode(countryCode = "US")
+	private String zipCode2;
+	
 	public String getName() {
 		return name;
 	}

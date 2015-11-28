@@ -9,8 +9,7 @@
 		<maven.compiler.source>${java.version}</maven.compiler.source>
 		<maven.compiler.target>${java.version}</maven.compiler.target>
 		<spring-boot.version>1.2.7.RELEASE</spring-boot.version>
-		<spring.version>4.1.6.RELEASE</spring.version>
-		<spring.boot.version>1.2.4.RELEASE</spring.boot.version>
+		<spring.version>4.1.8.RELEASE</spring.version>
 	</properties>
 	<build>
 		<pluginManagement>
@@ -24,21 +23,21 @@
 						<encoding>${project.build.sourceEncoding}</encoding>
 					</configuration>
 				</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${spring.boot.version}</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>repackage</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<mainClass>${start-class}</mainClass>
-				</configuration>
-			</plugin>
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring.boot.version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<mainClass>${start-class}</mainClass>
+					</configuration>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
@@ -105,5 +104,5 @@
 		<module>learn-aspectj</module>
 	</modules>
 	<artifactId>learn-parent</artifactId>
-	
+
 </project>

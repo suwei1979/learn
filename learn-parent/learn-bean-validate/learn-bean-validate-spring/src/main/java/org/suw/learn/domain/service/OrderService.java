@@ -11,16 +11,29 @@ import org.suw.learn.domain.model.Order;
 
 @Validated
 public interface OrderService {
-	/**
-	 * 
-	 * @param customerCode
-	 * @param item
-	 * @param quantity
-	 * @return
-	 */
-	@NotNull
-	public Order placeOrder(
-			@NotNull @Size(min = 3, max = 20) String customerCode,
-			@NotNull @Valid Item item, @Min(1) int quantity);
+    /**
+     * 
+     * @param customerCode
+     * @param item
+     * @param quantity
+     * @return
+     */
+    @NotNull
+    public Order placeOrder(
+            //test
+            @NotNull 
+            @Size(min = 3, max = 20) 
+            String customerCode, 
+            
+            @NotNull 
+            @Valid 
+            Item item,
+            
+            @Min(1) 
+            int quantity);
+
+    Order insert(
+            @Valid
+            Order toInsert);
 
 }

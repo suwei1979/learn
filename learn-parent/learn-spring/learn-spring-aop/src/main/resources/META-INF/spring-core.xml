@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:aop="http://www.springframework.org/schema/aop"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd ">
-	<alias name="helloWorld1" alias="anotherHelloWorld"/>
+	<alias name="helloWorld1" alias="anotherHelloWorld" />
 	<!-- HelloWorld -->
 	<bean name="helloWorld helloWorld1" class="test.spring.helloworld.impl.DefaultHelloWorld">
 		<property name="greeting" value="Hello, World" />
 	</bean>
-	
+
 	<!-- ioc example -->
 	<bean name="aBoy" class="test.spring.sample.Boy" autowire="byName">
 		<constructor-arg index="0" value="xieding"></constructor-arg>
-		
+
 	</bean>
-	
+
 	<!-- method injection -->
-	<bean id="commandManager"
-		class="test.spring.methodinjection.CommandManager" abstract="true">
-		<lookup-method name="createCommand" bean="command"/>
+	<bean id="commandManager" class="test.spring.methodinjection.CommandManager"
+		abstract="true">
+		<lookup-method name="createCommand" bean="command" />
 	</bean>
-	<bean id="command" class="test.spring.methodinjection.impl.ConcreteCommand"/>
-	
+	<bean id="command" class="test.spring.methodinjection.impl.ConcreteCommand" />
+
 	<bean id="beanCounter" class="test.spring.container.BeanCounter" />
 
-	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location">
 			<value>classpath:jdbc.properties</value>
 		</property>
@@ -62,7 +63,8 @@
 		</property>
 	</bean>
 
-	<bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+	<bean id="customEditorConfigurer"
+		class="org.springframework.beans.factory.config.CustomEditorConfigurer">
 		<property name="customEditors">
 			<map>
 				<entry key="org.suw.learn.spring.propertyeditor.PhoneNumber">

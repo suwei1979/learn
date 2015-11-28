@@ -13,16 +13,16 @@ import org.springframework.beans.factory.BeanNameAware;
  */
 public class TestBean implements ITestBean, BeanFactoryAware, BeanNameAware {
 
-	private BeanFactory bf;
-	
-	private String beanName;
+//	private BeanFactory bf;
+//	
+//	private String beanName;
 		
 	public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-		this.bf = beanFactory;
+//		this.bf = beanFactory;
 	}
 
 	public void setBeanName(String name) {
-		this.beanName = name;
+//		this.beanName = name;
 	}
 	
 	public void testBean() {

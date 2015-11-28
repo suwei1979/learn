@@ -6,12 +6,12 @@
 		http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
 	<bean class="test.spring.beanfactory.TestBean" />
-	
+
 	<bean id="testBean" class="test.spring.beanfactory.TestBean" />
-	
+
 	<!-- name指定源POJO，alias指定别名 -->
 	<alias name="testBean" alias="tb" />
-     
+
 	<bean name="tB" class="test.spring.beanfactory.TestBean" />
-	
+
 </beans>

@@ -1,0 +1,8 @@
+/**
+ * Copyright (C) 2015 Baidu, Inc. All Rights Reserved.
+ */
+package org.suw.learn.domain.model;
+
+public enum EventType {
+    CREATE,UPDATE
+}

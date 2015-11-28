@@ -2,9 +2,15 @@ package org.suw.learn.domain.model;
 
 import java.util.HashSet;
 
+import javax.validation.Valid;
+
+import org.suw.learn.validate.beanvalidate.constraints.ZipCode;
+
 
 public class Order {
+    @ZipCode(countryCode = "CN")
 	private String orderId;
+    @Valid
 	private HashSet<Item> orderItems;
 	private String customerId;
 	private int amount;

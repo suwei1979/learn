@@ -5,25 +5,23 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
-     <bean id="helloWorld1" factory-method="getHelloWorld"
-          class="test.spring.beanfactory.HelloWorld">
-          <constructor-arg ref="fileHello" />
-     </bean>
-     
-     <bean id="helloWorld2" factory-bean="helloWorldFactory"
-     		factory-method="makeHelloWorld" >
-          <constructor-arg ref="fileHello" />
-     </bean>
-     
-     <bean id="helloWorldFactory"
-          class="test.spring.beanfactory.HelloWorld">
-     </bean>
-     
-     <bean name="fileHello" 
-          class="test.spring.beanfactory.FileHelloStrImpl">
-          <constructor-arg>
-               <value>helloworld.properties</value>
-          </constructor-arg>  
-     </bean>
-     
+	<bean id="helloWorld1" factory-method="getHelloWorld"
+		class="test.spring.beanfactory.HelloWorld">
+		<constructor-arg ref="fileHello" />
+	</bean>
+
+	<bean id="helloWorld2" factory-bean="helloWorldFactory"
+		factory-method="makeHelloWorld">
+		<constructor-arg ref="fileHello" />
+	</bean>
+
+	<bean id="helloWorldFactory" class="test.spring.beanfactory.HelloWorld">
+	</bean>
+
+	<bean name="fileHello" class="test.spring.beanfactory.FileHelloStrImpl">
+		<constructor-arg>
+			<value>helloworld.properties</value>
+		</constructor-arg>
+	</bean>
+
 </beans>

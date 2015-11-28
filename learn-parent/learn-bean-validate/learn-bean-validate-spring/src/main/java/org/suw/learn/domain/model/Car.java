@@ -6,10 +6,10 @@ import javax.validation.constraints.Size;
 
 public class Car {
 
-	@NotNull
+	@NotNull(groups = {EventType.class})
 	private String manufacturer;
 
-	@NotNull
+	@NotNull(groups = {Create.class})
 	@Size(min = 2, max = 14)
 	private String licensePlate;
 
