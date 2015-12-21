@@ -18,7 +18,7 @@ public class CosntraintValidatorUsedServiceImpl implements ConstraintValidatorUs
      */
     @Override
     public void test() {
-        System.out.println("Spring容器可以自动装配在ConstraintValidator中标记为@Autowired的对象，牛掰！");
+        System.out.println("-------------------------custom validator processing");
 
     }
 

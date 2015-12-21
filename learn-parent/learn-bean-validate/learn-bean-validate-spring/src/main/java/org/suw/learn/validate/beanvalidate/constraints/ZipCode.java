@@ -14,7 +14,7 @@ import javax.validation.constraints.Pattern;
 import org.suw.learn.validate.beanvalidate.constraintsvalidator.ZipCodeValidator;
 
 @Documented
-@Pattern(regexp = "[0-9]*")
+@Pattern(regexp = "^[0-9]*$")
 @Constraint(validatedBy = {ZipCodeValidator.class})
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })
 @Retention(RUNTIME)

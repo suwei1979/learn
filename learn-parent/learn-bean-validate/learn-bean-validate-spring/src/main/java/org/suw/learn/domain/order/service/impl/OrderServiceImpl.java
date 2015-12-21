@@ -1,4 +1,4 @@
-package org.suw.learn.domain.service.impl;
+package org.suw.learn.domain.order.service.impl;
 
 import javax.validation.Valid;
 import javax.validation.Validator;
@@ -11,14 +11,16 @@ import org.springframework.stereotype.Service;
 import org.suw.learn.domain.model.Create;
 import org.suw.learn.domain.model.Item;
 import org.suw.learn.domain.model.Order;
-import org.suw.learn.domain.service.BizEntityManager;
+import org.suw.learn.domain.order.service.OrderService;
+import org.suw.learn.domain.order.service.OrderStateAware;
+import org.suw.learn.domain.service.EntityManager;
 import org.suw.learn.domain.service.CreditCardProcessor;
-import org.suw.learn.domain.service.OrderService;
-import org.suw.learn.domain.service.OrderStateAware;
+import org.suw.learn.domain.service.impl.OtherService;
 
 @Service("orderService")
 public class OrderServiceImpl implements OrderService {
-    private BizEntityManager<Order> orderManager;
+    @Autowired
+    private EntityManager<Order> orderManager;
     OrderStateAware orderState = new OtherService();
     @NotNull
     @Autowired
@@ -35,28 +37,20 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public Order placeOrder(String customerCode, Item item, int quantity) {
-        System.out.println("placeOrder begin");
-        Order order = new Order("OD00001");
+        System.out.println("---------------------placeOrder begin");
+        final Order order = new Order("");
         order.setCustomerId(customerCode);
         order.addItem(item);
-        threadPool.initialize();
-        threadPool.execute(new Runnable() {
-
-            public void run() {
-                orderState.orderCreated();
-            }
-        });
-        System.out.println("placeOrder end");
+        orderManager.insert(order);
+//        //Order created
+//        threadPool.initialize();
+//        threadPool.execute(new Runnable() {
+//            public void run() {
+                orderState.orderCreated(order);
+//            }
+//        });
+        System.out.println("---------------------placeOrder end");
         return order;
-    }
-
-    @Override
-    public Order insert(Order toInsert) {
-        System.out.println("insert order begin");
-        
-        System.out.println("insert order end");
-//        validator.validate(toInsert, Create.class);
-        return null;
     }
 
 }

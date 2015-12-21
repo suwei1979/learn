@@ -3,6 +3,7 @@ package org.suw.learn.validate.beanvalidate.constraintsvalidator;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import org.springframework.stereotype.Component;
 import org.suw.learn.validate.beanvalidate.constraints.OrderNumber;
 
 public class OrderNumberValidator implements ConstraintValidator<OrderNumber, String> {

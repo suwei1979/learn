@@ -7,6 +7,7 @@ package org.suw.learn.domain.service;
  * @author suwei
  *
  */
-public interface BizEntityManager<T> {
+public interface EntityManager<T> {
     public T insert(T entity);
+    public T update(T entity);
 }

@@ -1,4 +1,4 @@
-package org.suw.learn.domain.service;
+package org.suw.learn.domain.order.service;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
@@ -31,9 +31,4 @@ public interface OrderService {
             
             @Min(1) 
             int quantity);
-
-    Order insert(
-            @Valid
-            Order toInsert);
-
 }

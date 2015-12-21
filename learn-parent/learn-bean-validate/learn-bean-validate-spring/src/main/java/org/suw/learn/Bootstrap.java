@@ -16,7 +16,11 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.validation.beanvalidation.MethodValidationPostProcessor;
 import org.suw.learn.domain.model.Item;
 import org.suw.learn.domain.model.Order;
-import org.suw.learn.domain.service.OrderService;
+import org.suw.learn.domain.order.service.OrderService;
+import org.suw.learn.domain.service.EntityManager;
+import org.suw.learn.domain.service.impl.EntityManagerImpl;
+import org.suw.learn.mdm.spi.ServiceLocator;
+import org.suw.learn.mdm.spi.spring.SpringServiceLocator;
 
 @Configuration
 @EnableAutoConfiguration
@@ -26,15 +30,11 @@ public class Bootstrap {
     
 	public static void main(String[] args) {
 	
-//		ConfigurableApplicationContext applicationContext = SpringApplication.run(Bootstrap.class, args);
         ApplicationContext context = new SpringApplicationBuilder().web(false).sources(Bootstrap.class).run(args);
         
 		System.out.println("application started");
 		doSomething(context);
 		
-//		ValidatorFactory validatorFactory = Validation.buildDefaultValidatorFactory();
-//		System.out.println(validatorFactory);
-//		System.out.println(validatorFactory.getValidator());
 	}
 
 	private static void doSomething(ApplicationContext context) {
@@ -48,17 +48,18 @@ public class Bootstrap {
 		Order order = null;
 		try {
 			order = orderService.placeOrder(customerId, item, 3);
-			orderService.insert(order);
 		} catch (ConstraintViolationException e) {
 			// TODO Auto-generated catch block
 			Set<ConstraintViolation<?>> results = e.getConstraintViolations();
 			for (ConstraintViolation<?> result : results) {
-				System.out.println( result.getPropertyPath().toString() +  result.getMessage());
+//			    System.out.println("校验错误信息模板： " + result.getMessageTemplate());
+				System.out.println("" + result.getLeafBean().getClass().getName() + "." + result.getPropertyPath() + ": " + result.getMessage());
+//				System.out.println(result.getConstraintDescriptor());
 			}
 			
 //			System.out.println(results);
 		}
-		System.out.println(order);
+		System.out.println("返回的订单信息： " + order);
 	}
 	@Bean
 	ValidatorFactory validatorFactory() {
@@ -67,9 +68,19 @@ public class Bootstrap {
 	}
 	
 	@Bean
+	ServiceLocator serviceFactory() {
+	    return new SpringServiceLocator();
+	}
+	
+	@Bean
 	MethodValidationPostProcessor vethodValidationPostProcessor() {
 	    MethodValidationPostProcessor result = new MethodValidationPostProcessor();
 	    result.setValidatorFactory(validatorFactory());
 	    return result;
+	}
+	
+	@Bean 
+	EntityManager<Order> orderManager() {
+	    return new EntityManagerImpl<>(Order.class);
 	}
 }
