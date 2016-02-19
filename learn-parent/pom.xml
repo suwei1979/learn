@@ -102,6 +102,7 @@
 		<module>learn-bean-validate</module>
 		<module>learn-build</module>
 		<module>learn-aspectj</module>
+		<module>learn-mybatis</module>
 	</modules>
 	<artifactId>learn-parent</artifactId>
 

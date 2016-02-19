@@ -41,6 +41,7 @@
 		<module>learn-spring-aop</module>
 		<module>learn-spring-beans</module>
 		<module>tutorial-spring</module>
+		<module>learn-spring-batch</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
