@@ -62,7 +62,12 @@
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
-				<version>1.7.11</version>
+				<version>1.7.12</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>log4j-over-slf4j</artifactId>
+				<version>1.7.12</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -98,12 +103,10 @@
 		<module>learn-spring</module>
 		<module>learn-domain</module>
 		<module>learn-domain-event-sourcing</module>
-
 		<module>learn-bean-validate</module>
 		<module>learn-build</module>
 		<module>learn-aspectj</module>
 		<module>learn-mybatis</module>
 	</modules>
 	<artifactId>learn-parent</artifactId>
-
 </project>
