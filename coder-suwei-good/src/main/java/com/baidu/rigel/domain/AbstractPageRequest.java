@@ -16,7 +16,15 @@ public abstract class AbstractPageRequest implements Pageable, Serializable {
      * Generated Serial Version UUID
      */
     private static final long serialVersionUID = -227712514337968827L;
+
+    /**
+     * the currently page.
+     */
     private int page;
+
+    /**
+     * the currently page size.
+     */
     private int size;
 
     /**
@@ -40,11 +48,6 @@ public abstract class AbstractPageRequest implements Pageable, Serializable {
         this.size = size;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.trustvocrm.domain.Pageable#getPageSize()
-     */
     public int getPageSize() {
         return size;
     }
@@ -58,77 +61,42 @@ public abstract class AbstractPageRequest implements Pageable, Serializable {
         this.size = size;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.trustvocrm.domain.Pageable#getPageNumber()
-     */
     public int getPageNum() {
         return page;
     }
 
     /**
-     * 设置当前页
+     * Set the page number
      *
-     * @param size
+     * @param page the page number.
      */
     public void setPageNum(int page) {
         this.page = page;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.trustvocrm.domain.Pageable#getOffset()
-     */
     public int getOffset() {
         return page * size;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.trustvocrm.domain.Pageable#hasPrevious()
-     */
     public boolean hasPrevious() {
         return page > 0;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.trustvocrm.domain.Pageable#previousOrFirst()
-     */
     public Pageable previousOrFirst() {
         return hasPrevious() ? previous() : first();
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.trustvocrm.domain.Pageable#next()
-     */
     public abstract Pageable next();
 
     /**
      * Returns the {@link Pageable} requesting the previous {@link Page}.
      *
-     * @return
+     * @return the previous pageable.
      */
     public abstract Pageable previous();
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.trustvocrm.domain.Pageable#first()
-     */
     public abstract Pageable first();
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#hashCode()
-     */
     @Override
     public int hashCode() {
 
@@ -141,11 +109,6 @@ public abstract class AbstractPageRequest implements Pageable, Serializable {
         return result;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
     @Override
     public boolean equals(Object obj) {
 

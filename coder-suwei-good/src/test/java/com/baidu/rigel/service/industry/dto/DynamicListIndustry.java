@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
+ * Request Object for dynamic query of industry information.
  * @author suwei
  *
  */
@@ -16,20 +17,26 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class DynamicListIndustry extends PageRequest {
     /**
-     * 
+     * Generated Serial Version
      */
     private static final long serialVersionUID = 3411850788450295512L;
     /**
-     * 查询条件：行业代码，like
+     * Query condition: industry code，like
      */
     private String code;
     /**
-     * 查询条件：行业名称，like
+     * Query condition: industry name，like
      */
     private String name;
     
+    /**
+     * Query condition: industry level id，equal
+     */
     private String level;
-    
+
+    /**
+     * Query condition: industry parent code，equal
+     */
     private String parentCode;
 
 }

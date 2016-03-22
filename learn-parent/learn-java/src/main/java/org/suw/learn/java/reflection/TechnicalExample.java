@@ -18,7 +18,8 @@ public class TechnicalExample {
     private PagingRepository<Account, TestPageRequest, Long> listAccountRepo;
 
     public void test() {
-        listAccountRepo.listByPage(null);
+//        listAccountRepo.listByPage(null);
+        listAccountRepo.testNoArgs();
     }
     
     public static void main(String[] args) throws Exception {

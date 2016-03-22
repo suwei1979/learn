@@ -7,6 +7,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Proxy;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
@@ -17,6 +18,12 @@ import com.baidu.rigel.repository.PagingRepository;
 import com.baidu.rigel.util.ReflectionUtils;
 
 /**
+ * Paging Repository Proxy Factory<br>
+ * Configure this object in the spring container will automatically detect all classes that use the PagingRepository,
+ * and create the {@link PagingRepositoryProxy} for every Field which type is PagingRepository. That is, all classes
+ * that use the PagingRepository do not need to create any implementation, and do not need to write any code for
+ * implementation.
+ * 
  * @author suwei
  *
  */
@@ -43,10 +50,17 @@ public class PagingRepositoryProxyFactory implements InitializingBean, BeanPostP
     }
 
     /**
-     * 为所有使用了PagingRepository的对象，自动生成代理
-     *
-     * @see org.springframework.beans.factory.config.BeanPostProcessor#postProcessAfterInitialization(java.lang.Object,
-     *      java.lang.String)
+     * For all the class that in the spring container which have declared {@code PagingRepository } as it's <br>
+     * fields, auto detect the bind types of Entity(say the <E> in the {@code PagingRepository} interface, <br>
+     * generate the {@link PagingRepositoryProxy} instance, and inject it as fied value.
+     * 
+     * @param bean the new bean instance.
+     * @param beanName the name of the bean instance.
+     * 
+     * @return return the bean instance to use, the field of {@link PagingRepository} type has been wired to
+     *         {@link PagingRepositoryProxy}
+     * @throws BeansException in case of errors.
+     * 
      */
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         List<Field> declaredPagingRepositories = ReflectionUtils.getDeclaredFields(bean, PagingRepository.class);
@@ -62,10 +76,8 @@ public class PagingRepositoryProxyFactory implements InitializingBean, BeanPostP
         return bean;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
+    /**
+     * Assert that the {@link SqlSession} can not be null.
      */
     public void afterPropertiesSet() throws Exception {
         Assert.notNull(sqlSessionFactory);

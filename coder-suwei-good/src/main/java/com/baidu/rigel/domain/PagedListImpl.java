@@ -12,17 +12,32 @@ import java.util.List;
 import com.baidu.rigel.util.Asserts;
 
 /**
- * 分页列表实现
+ * Paged List Implementation
  *
  * @author suwei
  *
  */
 public class PagedListImpl<T> implements PagedList<T>, Serializable {
 
+    /**
+     * Generated serial version id.
+     */
     private static final long serialVersionUID = 7129008327726721057L;
+
+    /**
+     * the content of current paged list.
+     */
     private final List<T> content = new ArrayList<T>();
+
+    /**
+     * The current page information.
+     */
     private final Pageable pageable;
-    private final long total;
+
+    /**
+     * The total elements of the whole list.
+     */
+    private final long totalElement;
 
     /**
      * Creates a new {@link PagedListImpl} with the given content. This will result in the created {@link PageList}
@@ -49,25 +64,19 @@ public class PagedListImpl<T> implements PagedList<T>, Serializable {
 
         this.content.addAll(content);
         this.pageable = pageable;
-        this.total =
+        // adjust the total value：
+        // 1. 当前的内容不为空、并且分页对象不为空，并且分页对象的位移与分页大小之和大于总数时，取位移+当前页
+        // 内容大小之和作为所有元素的统计结果
+        // 2. 否则返回total的值
+        this.totalElement =
                 !content.isEmpty() && (pageable != null) && ((pageable.getOffset() + pageable.getPageSize()) > total)
                         ? pageable.getOffset() + content.size() : total;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.domain.PagedList#currentPageable()
-     */
     public Pageable currentPageable() {
         return pageable;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
     @Override
     public boolean equals(Object obj) {
 
@@ -81,165 +90,76 @@ public class PagedListImpl<T> implements PagedList<T>, Serializable {
 
         PagedListImpl<?> that = (PagedListImpl<?>) obj;
 
-        return (this.total == that.total) && super.equals(obj);
+        return (this.totalElement == that.totalElement) && super.equals(obj);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.domain#getContent()
-     */
     public List<T> getContent() {
         return Collections.unmodifiableList(content);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.domain.PagedList#getNumber()
-     */
     public int getNumber() {
-        return pageable == null ? 0 : pageable.getPageNum();
+        return null == pageable ? 0 : pageable.getPageNum();
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.domain.PagedList#getNumberOfElements()
-     */
     public int getNumberOfElements() {
         return content.size();
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.domain.PagedList#getSize()
-     */
     public int getSize() {
         return pageable == null ? 0 : pageable.getPageSize();
     }
 
-    /**
-     * getter method for property total
-     *
-     * @return the total
-     */
-    public long getTotal() {
-        return total;
-    }
-
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.domain.PagedList#getTotalElements()
-     */
     public long getTotalElements() {
-        return total;
+        return totalElement;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see PagedList#getTotalPages()
-     */
     public int getTotalPages() {
-        return getSize() == 0 ? 1 : (int) Math.ceil((double) total / (double) getSize());
+        return getSize() == 0 ? 1 : (int) Math.ceil((double) totalElement / (double) getSize());
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.domain.PagedList#hasContent()
-     */
     public boolean hasContent() {
         return !content.isEmpty();
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#hashCode()
-     */
     @Override
     public int hashCode() {
 
         int result = 17;
 
-        result += 31 * (int) (total ^ (total >>> 32));
+        result += 31 * (int) (totalElement ^ (totalElement >>> 32));
         result += 31 * super.hashCode();
 
         return result;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.domain.PagedList#hasNext()
-     */
     public boolean hasNext() {
         return (getNumber() + 1) < getTotalPages();
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.domain.PagedList#hasPrevious()
-     */
     public boolean hasPrevious() {
         return getNumber() > 0;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.domain.PagedList#isFirst()
-     */
     public boolean isFirst() {
         return !hasPrevious();
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.domain.PagedList#isLast()
-     */
     public boolean isLast() {
         return !hasNext();
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Iterable#iterator()
-     */
     public Iterator<T> iterator() {
         return content.iterator();
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.domain.PagedList#nextPageable()
-     */
     public Pageable nextPageable() {
         return hasNext() ? pageable.next() : null;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.domain.PagedList#previousPageable()
-     */
     public Pageable previousPageable() {
         return hasPrevious() ? pageable.previousOrFirst() : null;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
 

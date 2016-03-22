@@ -15,5 +15,6 @@ public interface PagingRepository<E, R extends Pageable, ID extends Serializable
      * @param object
      */
     void listByPage(R request);
+    void testNoArgs();
     
 }

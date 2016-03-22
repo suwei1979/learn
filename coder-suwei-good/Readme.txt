@@ -18,3 +18,43 @@
 4. 运行说明：
 	1) mvn test
 	2) 也可以在eclipse中，选择任意一个单独的测试案例进行运行测试
+
+5. 目录结构
+|-src
+ |---main 本次申请评审内容
+ |-----java
+ |-------com
+ |---------baidu
+ |-----------rigel
+ |-------------domain 基础领域对象包，包括用于封装分页查询请求的基础对象
+ |---------------support 目前仅一个类，PagedListHelper，用于转换PagedList
+ |-------------repository Repository公共接口
+ |---------------mybatis 基于Mybatis的PagingRepository实现
+ |-------------util  工具类
+ |-----resources
+ |---test
+ |-----java
+ |-------com
+ |---------baidu
+ |-----------rigel
+ |-------------domain
+ |---------------industry
+ |-------------repository
+ |---------------mybatis
+ |-------------service
+ |---------------industry
+ |-----------------dto
+ |-----------------impl
+ |-------------util
+ |-----resources
+ |-------com
+ |---------baidu
+ |-----------rigel
+ |-------------account
+ |---------------mapper
+ |-------------industry
+ |---------------mapper
+ |-------conf
+ |-------dozer
+ |-------prop
+ |-------script	

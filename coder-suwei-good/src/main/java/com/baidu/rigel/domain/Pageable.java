@@ -4,7 +4,7 @@
 package com.baidu.rigel.domain;
 
 /**
- * 分页查询接口
+ * Pageable interface for page request
  *
  * @author suwei
  *

@@ -29,24 +29,32 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class PagingRepositoryProxy implements InvocationHandler {
 
+    /**
+     * Delimiter for name space and statement name
+     */
+    private static final String NAMESPACE_DELIM = ".";
+    
     private SqlSessionFactory sqlSessionFactory;
     private Class<?> entityType;
 
     /**
-     * 构造函数
+     * Constructor
      *
-     * @param entityType 实体类型，对应于PagingRepository的泛型E在运行时绑定的类型
+     * @param entityType Entity type that corresponds to the binded type of E in the PagingRepository
      * @param sqlSessionFactory MyBatis SqlSessionFactory
      */
-    public PagingRepositoryProxy(Class<?> entityType, SqlSessionFactory sqlSessionFactory) {
+    PagingRepositoryProxy(Class<?> entityType, SqlSessionFactory sqlSessionFactory) {
         this.sqlSessionFactory = sqlSessionFactory;
         this.entityType = entityType;
     }
 
     /**
-     * @see java.lang.reflect.InvocationHandler#invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[])
+     * Perform the common list logic.
      */
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        // The RepositoryInterface must have only one parameter and the parameter type must be subclass of the Pageable
+        // interface.
+        Asserts.notNull(args);
         Asserts.isTrue(args.length == 1);
         Asserts.isTrue(Pageable.class.isAssignableFrom(args[0].getClass()));
 
@@ -76,7 +84,9 @@ public class PagingRepositoryProxy implements InvocationHandler {
     private String printUsageHint(Pageable request, Method method, Configuration configuration) {
         String namespace = entityType.getName();
         StringBuffer result = new StringBuffer("");
-        result.append("List Statement定义规则： \n");
+        result.append("Could not find approriate SQL statement，"
+                + "please define statement according the following rules:\n");
+        // result.append(" Definition Rule of List Statement： \n");
         result.append("Namespace: " + namespace + " \n");
         result.append("List Statement Name: \n");
         result.append(" 1. By Request: " + WordUtils.uncapitalize(request.getClass().getSimpleName()) + "\n");
@@ -91,25 +101,30 @@ public class PagingRepositoryProxy implements InvocationHandler {
     }
 
     /**
-     * 根据约定获取StatementName，优先级为：by request, by caller, by type
+     * Get the sql statement name according to the follow priority:by request, by caller, by type
      *
-     * @param configuration
-     * @return
+     * @param request the request object.
+     * @param currentMethod the current method be called.
+     * @param configuration the sql session configuration.
+     * @return the statement name or throw an runtime exception if none found.
      */
     private String getMappedStatementName(Pageable request, Method currentMethod, Configuration configuration) {
-        // 第一优先级，By Request：根据参数查找是否有匹配的Statement
         String result = null;
         String nameSpace = entityType.getName();
-        // configuration.getMappedStatementNames();
-        if (configuration.hasStatement(nameSpace + "." + WordUtils.uncapitalize(request.getClass().getSimpleName()))) {
-            result = nameSpace + "." + WordUtils.uncapitalize(request.getClass().getSimpleName());
-        } else if (configuration.hasStatement(nameSpace + "." + ReflectionUtils.getCallerMethod())) {
-            result = nameSpace + "." + ReflectionUtils.getCallerMethod();
-        } else if (configuration.hasStatement(nameSpace + "." + currentMethod.getName())) {
-            result = nameSpace + "." + currentMethod.getName();
+
+        if (configuration.hasStatement(nameSpace + NAMESPACE_DELIM + WordUtils.uncapitalize(request.getClass().getSimpleName()))) {
+            // First Priority，By Request：find whether there is a matching statement according to the parameters
+            result = nameSpace + NAMESPACE_DELIM + WordUtils.uncapitalize(request.getClass().getSimpleName());
+        } else if (configuration.hasStatement(nameSpace + NAMESPACE_DELIM + ReflectionUtils.getCallerMethod())) {
+            // Second Priority，By Caller：find whether there is a matching statement according to the last caller method
+            // of the outer class
+            result = nameSpace + NAMESPACE_DELIM + ReflectionUtils.getCallerMethod();
+        } else if (configuration.hasStatement(nameSpace + NAMESPACE_DELIM + currentMethod.getName())) {
+            // Third Priority，By Default：find whether there is a matching statement according to method been called
+            result = nameSpace + NAMESPACE_DELIM + currentMethod.getName();
         }
         Asserts.isTrue((result != null) && configuration.hasStatement(result + "Count"),
-                "没找到适合的Statement，请按规则定义SQL语句\n" + printUsageHint(request, currentMethod, configuration));
+                printUsageHint(request, currentMethod, configuration));
 
         return result;
     }

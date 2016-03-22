@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
+ * Request object that encapsulated the query conditions of the direct sub-industry.
+ * 
  * @author suwei
  *
  */
@@ -16,9 +18,9 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = true)
 public class ListChildrenIndustry extends PageRequest {
     private static final long serialVersionUID = 983809832821845996L;
-    
+
     /**
-     * 查询条件：上级行业代码
+     * Query condition: the code of parent industry, equal.
      */
     private String parentCode;
 }

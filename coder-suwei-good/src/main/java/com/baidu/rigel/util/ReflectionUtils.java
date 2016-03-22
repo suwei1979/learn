@@ -11,37 +11,37 @@ import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 
 /**
+ * The reflection utilities.
+ * 
  * @author suwei
  *
  */
 @Slf4j
 public class ReflectionUtils {
     /**
-     * 获取当前类调用方的全路径（className.methodName）
+     * 
+     * Gets the full path of external object's method that calls the current method （className.methodName）
      *
-     * @return 调用方代码行所在的类名+方法名
+     * @return the full path of the external object's method.
      */
     public static String getFullQualifiedCallerPath() {
         String result = null;
         StackTraceElement[] callStack = Thread.currentThread().getStackTrace();
 
-        // 调用堆栈顶部的两个元素将始终如下：
+        // The top two elements in the call stack will always be as follows:
         // 1. java.lang.Thread:getStackTrace
         // 2. com.baidu.rigel.util.ReflectionUtils:getFullQualifiedCallerPath
 
-        // callee：调用本方法的类
+        // callee：the class that call the ReflectrionUtils.getFullQualifiedCallerPath()
         String callee = callStack[2].getClassName();
         log.debug("获取调用" + callee + "." + callStack[2].getMethodName() + "方法的外部调用方");
-        // caller，调用callee的类
+        // caller，the called of the callee
         String callerClazzName = null;
         String callerMethodName = null;
         for (int i = 2; i < callStack.length; i++) {
             StackTraceElement element = callStack[i];
-            // 在调用堆栈中查找到第一个直接调用方后返回
             log.debug("调用堆栈[" + i + "] - " + element.getClassName() + "." + element.getMethodName());
-            if (element.getClassName().equals(callee) || element.getClassName().startsWith("com.sun.proxy.$")) {
-                continue;
-            } else {
+            if (!element.getClassName().equals(callee) && !element.getClassName().startsWith("com.sun.proxy.$")) {
                 callerClazzName = element.getClassName();
                 callerMethodName = element.getMethodName();
                 result = callerClazzName + "." + callerMethodName;
@@ -53,9 +53,9 @@ public class ReflectionUtils {
     }
 
     /**
-     * 获取当前类外部调用方的方法名
+     * Gets external method name that called the current method
      *
-     * @return 调用方代码行所在方法的名成
+     * @return the external method name.
      */
     public static String getCallerMethod() {
         String result = null;
@@ -65,9 +65,7 @@ public class ReflectionUtils {
         for (int i = 2; i < stackTrace.length; i++) {
             StackTraceElement element = stackTrace[i];
             log.debug("调用堆栈[" + i + "] - " + element.getClassName() + "." + element.getMethodName());
-            if (element.getClassName().equals(callee) || element.getClassName().startsWith("com.sun.proxy.$")) {
-                continue;
-            } else {
+            if (!element.getClassName().equals(callee) && !element.getClassName().startsWith("com.sun.proxy.$")) {
                 result = element.getMethodName();
                 log.debug("外部调用方：" + element.getClassName() + "." + result);
                 break;
@@ -78,9 +76,9 @@ public class ReflectionUtils {
     }
 
     /**
-     * 在方法中调用本方法，将返回当前执行的方法名
+     * Return the method name which call the ReflectionUtils.getCurrentMethod().
      *
-     * @return 调用本方法代码所在的方法名
+     * @return The method name of the line of code exists.
      */
     public static String getCurrentMethod() {
         StackTraceElement[] callStack = Thread.currentThread().getStackTrace();
@@ -89,11 +87,12 @@ public class ReflectionUtils {
     }
 
     /**
-     * 返回指定对象上的，类型为{@code expectType} 或{@code expectType子类}的Field
+     * Returns the Field of the specified object，which type is {@code expectType} or the sub-type of the
+     * {@code expectType}
      *
-     * @param object 指定的对象
-     * @param fieldType 预期的Field类型
-     * @return
+     * @param object the given object.
+     * @param fieldType the expected field type.
+     * @return the relevant field list or empty list if none found.
      */
     public static List<Field> getDeclaredFields(Object object, Class<?> fieldType) {
         List<Field> result = new ArrayList<Field>();
@@ -107,11 +106,11 @@ public class ReflectionUtils {
     }
 
     /**
-     * 设置Field的值
+     * 设置Field的值 Set the value to the given field of the bean.
      *
-     * @param bean 声明了field的对象
-     * @param field 指定的Field
-     * @param value 值，必须是声明的Field类型的子类
+     * @param bean the given java bean.
+     * @param field the field to be set.
+     * @param value the value of the field.
      */
     public static void setFieldValue(Object bean, Field field, Object value) {
         Asserts.notNull(bean);
@@ -131,7 +130,7 @@ public class ReflectionUtils {
     }
 
     /**
-     * 获取对象{@code bean}的Filed值
+     * Get the field value of the given {@code bean}
      *
      * @param bean
      * @param field
@@ -145,19 +144,26 @@ public class ReflectionUtils {
         try {
             result = field.get(bean);
         } catch (Exception e) {
+            log.error("Error occured when try to get field [" + field.getName() + "] value from bean ["
+                    + bean.getClass().getSimpleName() + "]");
             throw new RuntimeException(e);
+        } finally {
+            field.setAccessible(accessible);
         }
-        field.setAccessible(accessible);
 
         return result;
     }
 
     /**
-     * 获取在声明Filed时所绑定的泛型参数类型，其位置由index指定
-     *
+     * Gets the generic parameter type that is bound to the Filed when it is declared, and whose location is specified
+     * by the index.<br>
+     * <b>example: <b><br>
+     * for given bean which have declared an field named foo, which type is Foo<GType1,GType2>, and the
+     * {@code getBindingGenericType(fooField, 0)} will return GType1.
+     * 
      * @param field
      * @param index
-     * @return 处于index所指定位置的泛型参数的实际类型
+     * @return The actual type of generic parameters at the location specified by index.
      */
     public static Class<?> getBindingGenericType(Field field, int index) {
         ParameterizedType parameterizedType = (ParameterizedType) field.getGenericType();

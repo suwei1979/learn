@@ -16,39 +16,45 @@ import com.baidu.rigel.domain.PagedList;
 import com.baidu.rigel.domain.PagedListImpl;
 
 /**
- * 将PagedList内部对象类型进行转换的支持类。引入此类后，<br/>
- * 将自动引入Dozer Bean Mapper框架，因此需要在Spring <br/>
- * 中引入Dozer配置。参见： {@link http://dozer.sourceforge.net/documentation/usage.html}
- *
+ * The Helper class for converting the internal object of PagedList. Introducing <br>
+ * this class will also introduce the dozer bean mapper frame work. see dozer bean<br>
+ * mapper about how to configure the {@link Mapper} in spring container and inject <br>
+ * it into PagedListHelper.<br>
+ * 
+ * @see org.dozer.Mapper
+ * @see <a href="http://dozer.sourceforge.net/documentation/usage.html">dozer useage doc</a>
  * @author suwei
+ * 
  *
  */
 public class PagedListHelper implements BeanFactoryAware, InitializingBean {
+    /**
+     * Dozer bean mapper
+     */
     private static Mapper mapper;
+
+    /**
+     * Spring bean factory
+     */
     private BeanFactory beanFactory;
 
+    /**
+     * Convert the {@code <F>} in the source list to distinctClass, return a new PagedList as results.
+     * 
+     * @param source the source paged list.
+     * @param distinctClass the type of distinct class.
+     * @return a new PagedList which generic parameter is binding to {@code distinctClass}
+     */
     public static <F, T> PagedList<T> convert(PagedList<F> source, Class<T> distinctClass) {
         List<T> resultContent = new ArrayList<T>();
         mapper.map(source.getContent(), resultContent);
         return new PagedListImpl<T>(resultContent, source.currentPageable(), source.getTotalElements());
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
-     */
     public void afterPropertiesSet() throws Exception {
         mapper = beanFactory.getBean(Mapper.class);
-
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see
-     * org.springframework.beans.factory.BeanFactoryAware#setBeanFactory(org.springframework.beans.factory.BeanFactory)
-     */
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
         this.beanFactory = beanFactory;
     }

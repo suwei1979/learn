@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
+ * Test Class for Customized PageRequest.
  * @author suwei
  *
  */
@@ -20,7 +21,14 @@ public class TestPageRequest extends PageRequest {
      * Generated serial version id
      */
     private static final long serialVersionUID = -6846006035895088208L;
+    /**
+     * Account id, used as query condition.
+     */
     private Long id;
+    
+    /**
+     * Account name, used as query condition, fuzzy query
+     */
     private String name;
 
 }

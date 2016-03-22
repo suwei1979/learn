@@ -6,84 +6,84 @@ package com.baidu.rigel.domain;
 import java.util.List;
 
 /**
- * 分页列表
+ * Paged List Interface.
  *
  * @author suwei
  *
  */
 public interface PagedList<T> extends Iterable<T> {
     /**
-     * 返回总页数
+     * The total pages
      *
-     * @return the number of toral pages
+     * @return the number of total pages
      */
     int getTotalPages();
 
     /**
-     * 返回总记录数
+     * The total elements of the request
      *
      * @return the total amount of elements
      */
     long getTotalElements();
 
     /**
-     * 返回当前所在的页
+     * Page number of the current page.
      *
      * @return the number of the current {@link PagedList}.
      */
     int getNumber();
 
     /**
-     * 返回分页的大小
+     * The page size
      *
      * @return the size of the {@link PagedList}.
      */
     int getSize();
 
     /**
-     * 返回当前分页的元素数量
+     * The total elements of the currently {@link PagedList}.
      *
      * @return the number of elements currently on this {@link PagedList}.
      */
     int getNumberOfElements();
 
     /**
-     * 返回内容列表（通常应为领域对象）
-     *
-     * @return
+     * The content list（Usually The T should be the domain object）
+     * 
+     * @return The content list of the currently paged list.
      */
     List<T> getContent();
 
     /**
-     * 返回是否包含内容
+     * Whether the currently list has contents at all.
      *
-     * @return
+     * @return Whether the currently list has contents.
      */
     boolean hasContent();
 
     /**
-     * 返回当前列表是否最前一页
+     * Whether the paged list is the first one.
      *
      * @return
      */
     boolean isFirst();
 
     /**
-     * 返回当前列表是否最后一页
+     * Whether the paged list is the last one.
      *
      * @return
      */
     boolean isLast();
 
     /**
-     * 返回是否包含下一页
+     * Whether the list has next page at all.
      *
      * @return if there is a next {@link PagedList}.
      */
     boolean hasNext();
 
     /**
-     * 返回是否有上一页
+     * Whether the list has previous at all.
      *
      * @return if there is a previous {@link PagedList}.
      */

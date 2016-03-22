@@ -14,27 +14,26 @@ import org.springframework.beans.factory.BeanFactoryAware;
 
 import lombok.extern.slf4j.Slf4j;
 
-
 /**
- * 组装测试上下文
+ * The context for integration. the test cases for integration should extend this class.
+ * 
  * @author suwei
  *
  */
 @Slf4j
 public class ITContext implements BeanFactoryAware {
-    BeanFactory beanFactory;
-    
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.springframework.beans.factory.BeanFactoryAware#setBeanFactory(org.springframework.beans.factory.BeanFactory)
+    /**
+     * the spring bean factory.
      */
+    BeanFactory beanFactory;
+
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
         this.beanFactory = beanFactory;
-
     }
-    
+
+    /**
+     * Assert the main object for integration context
+     */
     @Test
     public void testUTContext() {
         log.info("test ut context");

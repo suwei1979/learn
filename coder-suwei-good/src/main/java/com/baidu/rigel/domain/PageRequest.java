@@ -4,7 +4,7 @@
 package com.baidu.rigel.domain;
 
 /**
- * 分页查询请求基类
+ * The basic implementation of PagedList
  *
  * @author suwei
  *
@@ -12,7 +12,7 @@ package com.baidu.rigel.domain;
 public class PageRequest extends AbstractPageRequest {
 
     /**
-     * 默认分页大小
+     * The default value of page size
      */
     public static final int DEFAULT_PAGE_SIZE = 10;
     private static final long serialVersionUID = 7105570396282668973L;
@@ -35,41 +35,21 @@ public class PageRequest extends AbstractPageRequest {
         super(0, DEFAULT_PAGE_SIZE);
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.trustvocrm.domain.Pageable#next()
-     */
     @Override
     public Pageable next() {
         return new PageRequest(getPageNum() + 1, getPageSize());
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.trustvocrm.domain.AbstractPageRequest#previous()
-     */
     @Override
     public PageRequest previous() {
         return getPageNum() == 0 ? this : new PageRequest(getPageNum() - 1, getPageSize());
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see com.baidu.rigel.trustvocrm.domain.Pageable#first()
-     */
     @Override
     public Pageable first() {
         return new PageRequest(0, getPageSize());
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
     @Override
     public boolean equals(final Object obj) {
 

@@ -3,12 +3,15 @@
  */
 package com.baidu.rigel.util;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Assert Utilities
  *
  * @author suwei
  *
  */
+@Slf4j
 public class Asserts {
 
     /**
@@ -39,15 +42,22 @@ public class Asserts {
     public static void notNull(Object object, String defaultMessage) {
         if (null == object) {
             // log.error(messageKey);
+            log.error(defaultMessage);
             throw new IllegalArgumentException(defaultMessage);
         }
     }
 
+    /**
+     * Assert that an arrays length must be the expected value.
+     * 
+     * @param stringArray the given array
+     * @param lengthExpected the expected length of the given array.
+     */
     public static void arrayLength(String[] stringArray, int lengthExpected) {
         notNull(stringArray);
         if (stringArray.length != lengthExpected) {
             String errorMsg = String.format("The array length must be %d", lengthExpected);
-            // log.error(errorMsg);
+            log.error(errorMsg);
             throw new IllegalArgumentException(errorMsg);
         }
     }
@@ -65,6 +75,7 @@ public class Asserts {
      */
     public static void isTrue(boolean expression, String message) {
         if (!expression) {
+            log.error(message);
             throw new IllegalArgumentException(message);
         }
     }
