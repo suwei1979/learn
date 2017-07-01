@@ -1,7 +1,5 @@
 package com.bocsoft.bocebiz.eloan.domain.service.apply;
 
-import org.suw.learn.metis.commons.exception.BusinessException;
-
 import com.bocsoft.bocebiz.eloan.domain.model.application.LoanApplication;
 import com.bocsoft.bocebiz.eloan.domain.model.application.customerDecision.CustomerDecisionInfo;
 import com.bocsoft.bocebiz.eloan.domain.service.spi.impl.ExtensionProcess;

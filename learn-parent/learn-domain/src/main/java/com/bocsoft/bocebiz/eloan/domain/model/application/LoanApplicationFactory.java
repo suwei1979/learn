@@ -1,7 +1,6 @@
 package com.bocsoft.bocebiz.eloan.domain.model.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.suw.learn.metis.commons.exception.BusinessException;
 
 import com.bocsoft.bocebiz.eloan.domain.repository.LoanApplicationRepository;
 import com.bocsoft.bocebiz.eloan.domain.repository.LoanLimitRepository;

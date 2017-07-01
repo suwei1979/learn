@@ -3,3 +3,13 @@
 */.settings
 */.classpath
 */target
+
+*.log
+
+*.DS_Store
+
+*.classpath
+
+*.project
+
+*.prefs
