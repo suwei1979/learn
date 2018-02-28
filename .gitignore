@@ -3,6 +3,7 @@
 */.settings
 */.classpath
 */target
+.idea
 
 *.log
 
