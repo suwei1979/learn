@@ -10,4 +10,6 @@ public class ProductType {
 	private AsignOperationBranchPolicy asignOperationBranchPolicy;
 	private PricingStrategy pricingStrategy;
 	private PartyType partyType;
+	private CalculateOperationBranchPolicy calculateOperationBranchPolicy;
+
 }

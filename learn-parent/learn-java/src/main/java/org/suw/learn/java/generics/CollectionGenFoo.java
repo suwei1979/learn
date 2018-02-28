@@ -20,9 +20,8 @@ public class CollectionGenFoo<T extends Collection<?>> {
 	}
 	
 	public static void main(String... args) {
-        CollectionGenFoo<ArrayList> listFoo = null;        
-        listFoo = new CollectionGenFoo<ArrayList>(new ArrayList<Object>());        
-        // 出错了,不让这么干。        
+        CollectionGenFoo<ArrayList<Object>> listFoo = null;
+		// 出错了,不让这么干。
         // 原来作者写的这个地方有误，需要将listFoo改为listFoo1        
         // 需要将CollectionGenFoo<Collection>改为CollectionGenFoo<ArrayList>        
 //         CollectionGenFoo<Collection> listFoo1 = null;        

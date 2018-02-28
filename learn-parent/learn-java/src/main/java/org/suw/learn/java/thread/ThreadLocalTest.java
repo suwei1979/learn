@@ -6,20 +6,21 @@ public class ThreadLocalTest {
     static ThreadLocal<HashMap<String, Object>> threadLocal = new ThreadLocal<HashMap<String, Object>>() {
         @Override
         protected HashMap<String, Object> initialValue() {
-            System.out.println(Thread.currentThread().getId() + " initialValue");
+            System.out.println("Thread - " + Thread.currentThread().getId() + " initialValue");
             //可以在这里为各线程的Map设置初始值
             
             HashMap<String, Object> result =  new HashMap<String, Object>();
             Long id = Thread.currentThread().getId();
-            System.out.println("Thread ID is" + id );
+            System.out.println("Thread ID is: " + id );
             for (int i = 0; i < 10; i++) {
-                result.put("Reserved Key " + i, i + id * 10);
+                result.put("Reserved Key: " + i, i + id * 10);
                 try {
                     Thread.sleep(100);
                 } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
             }
-            result.put("" + 99999, "Reserved Thread ID " + Thread.currentThread().getId());
+            result.put("" + 99999, "Reserved Thread ID - " + Thread.currentThread().getId());
             return result;
         }
     };

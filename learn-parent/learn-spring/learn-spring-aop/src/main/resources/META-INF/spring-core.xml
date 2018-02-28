@@ -67,9 +67,14 @@
 		class="org.springframework.beans.factory.config.CustomEditorConfigurer">
 		<property name="customEditors">
 			<map>
-				<entry key="org.suw.learn.spring.propertyeditor.PhoneNumber">
-					<bean id="phoneEditor" class="org.suw.learn.spring.propertyeditor.PhoneEditor" />
+				<entry key="org.suw.learn.spring.propertyeditor.PhoneNumber"
+					   value="org.suw.learn.spring.propertyeditor.PhoneEditor">
 				</entry>
+<!--  spring 4.1.8.Realease
+				<entry key="org.suw.learn.spring.propertyeditor.PhoneNumber">
+				<bean id="phoneEditor" class="org.suw.learn.spring.propertyeditor.PhoneEditor" />
+				</entry>
+-->
 			</map>
 		</property>
 	</bean>

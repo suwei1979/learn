@@ -6,8 +6,25 @@
 		<artifactId>learn-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jmh.version>1.11.2</jmh.version>
+		<javac.target>1.8</javac.target>
+		<uberjar.name>benchmarks</uberjar.name>
+	</properties>
 	<artifactId>learn-java</artifactId>
 	<dependencies>
+`
+		<dependency>
+			<groupId>org.openjdk.jmh</groupId>
+			<artifactId>jmh-core</artifactId>
+			<version>${jmh.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjdk.jmh</groupId>
+			<artifactId>jmh-generator-annprocess</artifactId>
+            <version>${jmh.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -35,7 +52,6 @@
 					<source>1.8</source>
 					<target>1.8</target>
 					<encoding>UTF-8</encoding>
-					<verbal>true</verbal>
 				</configuration>
 			</plugin>
 		</plugins>

@@ -1,7 +1,7 @@
 /**
  * Copyright (C) 2015 Baidu, Inc. All Rights Reserved.
  */
-package org.suw.learn.java.array;
+package org.suw.learn.java.container.array;
 
 /**
  * @author suwei
