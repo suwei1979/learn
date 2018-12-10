@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2018 Wei Su(suwei1979@139.com). All Rights Reserved.
+ */
 package com.ideature.loanapp.caching;
 
 import java.util.List;

@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2018 Wei Su(suwei1979@139.com). All Rights Reserved.
+ */
 package org.suw.learn.eventsourcing;
 
 import java.util.Date;
@@ -10,6 +13,10 @@ import lombok.Setter;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class ArrivalEvent extends DomainEvent {
+
+	public Port getPort() {
+		return port;
+	}
 
 	@Setter(value = AccessLevel.NONE)
 	private Port port;

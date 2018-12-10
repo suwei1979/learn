@@ -1,5 +1,5 @@
-/**
- * Copyright (C) 2015 Baidu, Inc. All Rights Reserved.
+/*
+ * Copyright (C) 2018 Wei Su(suwei1979@139.com). All Rights Reserved.
  */
 package com.baidu.rigel.mdm.spi.spring;
 

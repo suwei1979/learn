@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2018 Wei Su(suwei1979@139.com). All Rights Reserved.
+ */
 package org.suw.learn.eventsourcing;
 
 import java.util.Date;
@@ -16,7 +19,15 @@ public class LoadEvent extends DomainEvent {
 	
 	@Getter(value = AccessLevel.NONE)
 	private String cargoCode;
-	
+
+	public Port getPriorPort() {
+		return priorPort;
+	}
+
+	public void setPriorPort(Port priorPort) {
+		this.priorPort = priorPort;
+	}
+
 	private Port priorPort;
 
 	private LoadEvent(Date occurred, int shipCode, String cargoCode) {

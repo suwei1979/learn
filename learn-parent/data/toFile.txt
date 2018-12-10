@@ -1,0 +1,4 @@
+this is an example file for FileChannelDemo
+this is line 2
+the end!
+ddd

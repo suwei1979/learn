@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2018 Wei Su(suwei1979@139.com). All Rights Reserved.
+ */
 package com.ideature.loanapp.test;
 
 import org.junit.runner.RunWith;

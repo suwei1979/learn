@@ -1,11 +1,6 @@
-/**
- * Project Name:eloan-domain-application
- * File Name:WarnItem.java
- * Package Name:com.bocsoft.bocebiz.eloan.domain.model.application.customerDecision
- * Date:2015年6月27日下午3:52:39
- * Copyright (c) 2015, chenzhou1025@126.com All Rights Reserved.
- *
-*/
+/*
+ * Copyright (C) 2018 Wei Su(suwei1979@139.com). All Rights Reserved.
+ */
 
 package com.bocsoft.bocebiz.eloan.domain.model.application.customerDecision;
 

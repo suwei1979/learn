@@ -14,5 +14,6 @@
 *.project
 
 *.prefs
+*.iml
 
 .DS_Store
