@@ -10,7 +10,7 @@ public class TestProcessRouteTable implements ProcessRouteTable {
 
 	@Override
 	public String route(Object... args) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated provider stub
 		return "testExtensionProcess";
 	}
 

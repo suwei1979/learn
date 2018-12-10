@@ -25,19 +25,19 @@ public class TestApplyService implements ApplyService {
 
 	@Override
 	public LoanApplication bookNewApplication(LoanApplication newApplication) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated provider stub
 		return null;
 	}
 
 	@Override
 	public void preCaculateLimit(CustomerDecisionInfo customerDecision) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated provider stub
 
 	}
 
 	@Override
 	public void finishApplication(LoanApplication approvedApplication) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated provider stub
 
 	}
 

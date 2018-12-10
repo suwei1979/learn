@@ -72,7 +72,7 @@ class BusinessManagerImpl<E> implements BusinessManager<E> {
      */
     @Override
     public E insert(E entity) {
-        // TODO Auto-generated method stub
+        // TODO Auto-generated provider stub
         return null;
     }
     

@@ -52,7 +52,7 @@ public class DefaultProcessAgent implements ProcessAgent {
 	@Override
 	public Object process(Method method, Object... args) {
 		if ( !proxyedMethods.contains(method.getName()) )
-			throw new MainProcessExecutionException("The method fired didn't in the proxyed interface.");
+			throw new MainProcessExecutionException("The provider fired didn't in the proxyed interface.");
 		String extensionProcessName = routeTable.route(args);
 		ExtensionProcess extensionProcess = extensionFactory.load(extensionProcessName);
 		if ( extensionProcess.getType() == ExtensionProcessType.PRE_PROCESS ) {

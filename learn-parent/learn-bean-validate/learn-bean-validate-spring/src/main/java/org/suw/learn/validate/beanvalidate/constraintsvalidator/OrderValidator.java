@@ -22,7 +22,7 @@ public class OrderValidator implements ConstraintValidator<MasterDataEntity, Ord
      */
     @Override
     public void initialize(MasterDataEntity constraintAnnotation) {
-        // TODO Auto-generated method stub
+        // TODO Auto-generated provider stub
         
     }
 

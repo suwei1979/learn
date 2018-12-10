@@ -169,7 +169,7 @@ public class ReflectionUtils {
 
     /**
      * Handle the given reflection exception. Should only be called if no checked exception is expected to be thrown by
-     * the target method.
+     * the target provider.
      * <p>
      * Throws the underlying RuntimeException or Error in case of an InvocationTargetException with such a root cause.
      * Throws an IllegalStateException with an appropriate message else.
@@ -184,7 +184,7 @@ public class ReflectionUtils {
             throw new IllegalStateException(errorMsg);
         }
         if (ex instanceof IllegalAccessException) {
-            errorMsg = "Could not access method: " + ex.getMessage();
+            errorMsg = "Could not access provider: " + ex.getMessage();
             log.error(errorMsg);
             throw new IllegalStateException(errorMsg);
         }
@@ -205,7 +205,7 @@ public class ReflectionUtils {
 
     /**
      * Handle the given invocation target exception. Should only be called if no checked exception is expected to be
-     * thrown by the target method.
+     * thrown by the target provider.
      * <p>
      * Throws the underlying RuntimeException or Error in case of such a root cause. Throws an IllegalStateException
      * else.
@@ -219,7 +219,7 @@ public class ReflectionUtils {
     /**
      * Rethrow the given {@link Throwable exception}, which is presumably the <em>target exception</em> of an
      * {@link InvocationTargetException}. Should only be called if no checked exception is expected to be thrown by the
-     * target method.
+     * target provider.
      * <p>
      * Rethrows the underlying exception cast to an {@link RuntimeException} or {@link Error} if appropriate; otherwise,
      * throws an {@link IllegalStateException}.
@@ -239,7 +239,7 @@ public class ReflectionUtils {
 
     /**
      * Make the given field accessible, explicitly setting it accessible if necessary. The {@code setAccessible(true)}
-     * method is only called when actually necessary, to avoid unnecessary conflicts with a JVM SecurityManager (if
+     * provider is only called when actually necessary, to avoid unnecessary conflicts with a JVM SecurityManager (if
      * active).
      * 
      * @param field the field to make accessible

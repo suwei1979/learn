@@ -28,7 +28,7 @@ public class MasterDataEntityValidator implements ConstraintValidator<MasterData
      */
     @Override
     public void initialize(MasterDataEntity constraintAnnotation) {
-        // TODO Auto-generated method stub
+        // TODO Auto-generated provider stub
         
     }
 

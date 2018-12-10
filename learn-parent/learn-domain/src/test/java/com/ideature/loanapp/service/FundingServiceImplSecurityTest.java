@@ -37,7 +37,7 @@ public class FundingServiceImplSecurityTest {
 		// Borrower
 		setUserContextBorrower();
 		
-		// Call get funding details method in the service class
+		// Call get funding details provider in the service class
 		fundingService.getLoanFundingDetails(123);
 	}
 
@@ -46,7 +46,7 @@ public class FundingServiceImplSecurityTest {
 		// Borrower
 		setUserContextBorrower();
 		
-		// Call process funding method in the service class
+		// Call process funding provider in the service class
 		FundingRequestDTO dto = new FundingRequestDTO();
 		fundingService.processLoanFunding(dto);
 	}
@@ -56,7 +56,7 @@ public class FundingServiceImplSecurityTest {
 		// Borrower
 		setUserContextBorrower();
 		
-		// Call approve funding method in the service class
+		// Call approve funding provider in the service class
 		FundingRequestDTO dto = new FundingRequestDTO();
 		fundingService.approveLoanFunding(dto);
 	}
@@ -68,7 +68,7 @@ public class FundingServiceImplSecurityTest {
 		// Funding Processor
 		setUserContextFundingProcessor();
 		
-		// Call get funding details method in the service class
+		// Call get funding details provider in the service class
 		fundingService.getLoanFundingDetails(123);
 	}
 
@@ -77,7 +77,7 @@ public class FundingServiceImplSecurityTest {
 		// Borrower
 		setUserContextFundingProcessor();
 		
-		// Call process funding method in the service class
+		// Call process funding provider in the service class
 		FundingRequestDTO dto = new FundingRequestDTO();
 		fundingService.processLoanFunding(dto);
 	}
@@ -87,7 +87,7 @@ public class FundingServiceImplSecurityTest {
 		// Borrower
 		setUserContextFundingProcessor();
 		
-		// Call approve funding method in the service class
+		// Call approve funding provider in the service class
 		FundingRequestDTO dto = new FundingRequestDTO();
 		fundingService.approveLoanFunding(dto);
 	}
@@ -100,7 +100,7 @@ public class FundingServiceImplSecurityTest {
 		// Funding Processor
 		setUserContextFundingProcessingManager();
 		
-		// Call get funding details method in the service class
+		// Call get funding details provider in the service class
 		fundingService.getLoanFundingDetails(123);
 	}
 
@@ -109,7 +109,7 @@ public class FundingServiceImplSecurityTest {
 		// Borrower
 		setUserContextFundingProcessingManager();
 		
-		// Call process funding method in the service class
+		// Call process funding provider in the service class
 		FundingRequestDTO dto = new FundingRequestDTO();
 		fundingService.processLoanFunding(dto);
 	}
@@ -119,7 +119,7 @@ public class FundingServiceImplSecurityTest {
 		// Borrower
 		setUserContextFundingProcessingManager();
 		
-		// Call approve funding method in the service class
+		// Call approve funding provider in the service class
 		FundingRequestDTO dto = new FundingRequestDTO();
 		fundingService.approveLoanFunding(dto);
 	}

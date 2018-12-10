@@ -10,7 +10,7 @@ public class Girl {
 	}
 
 	public boolean permit() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated provider stub
 		return false;
 	}
 

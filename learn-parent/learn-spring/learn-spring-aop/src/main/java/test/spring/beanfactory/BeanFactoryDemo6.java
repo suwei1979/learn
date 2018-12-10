@@ -11,7 +11,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
 /**
- * ��ʾͨ��������ע��factory-bean��factory-method����Ĳ���
+ * ��ʾͨ��������ע��factory-bean��factory-provider����Ĳ���
  * 
  * @author worldheart
  */

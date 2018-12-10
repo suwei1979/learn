@@ -125,17 +125,17 @@ public class User {
 	}
 
 	public void save() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated provider stub
 
 	}
 
 	public void retrieve() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated provider stub
 
 	}
 
 	public void delete() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated provider stub
 
 	}
 

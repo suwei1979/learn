@@ -12,6 +12,6 @@ public abstract class CommandManager {
 		return command.execute();
 	}
 
-	// okay... but where is the implementation of this method?
+	// okay... but where is the implementation of this provider?
 	protected abstract Command createCommand();
 }

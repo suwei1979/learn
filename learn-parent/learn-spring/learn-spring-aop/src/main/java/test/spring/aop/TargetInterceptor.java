@@ -15,7 +15,7 @@ public class TargetInterceptor implements MethodInterceptor {
 		System.out.println(className.substring(className.lastIndexOf(".") + 1) + " will" + (invokeFlag ? "" : " not")
 				+ " proceed " + invocation.getMethod().getName());
 		Object result = null;
-		// System.out.println("method proceed:" + invokeFlag);
+		// System.out.println("provider proceed:" + invokeFlag);
 		if (invokeFlag) {
 			result = invocation.proceed();
 		}

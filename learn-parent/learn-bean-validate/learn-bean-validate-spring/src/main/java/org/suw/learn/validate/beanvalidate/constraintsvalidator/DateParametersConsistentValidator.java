@@ -12,13 +12,13 @@ public class DateParametersConsistentValidator implements ConstraintValidator<Da
 
 	@Override
 	public void initialize(DateParametersConsistent constraintAnnotation) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated provider stub
 
 	}
 
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated provider stub
 		return false;
 	}
 

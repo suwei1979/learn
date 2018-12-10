@@ -17,7 +17,7 @@
 
 	</bean>
 
-	<!-- method injection -->
+	<!-- provider injection -->
 	<bean id="commandManager" class="test.spring.methodinjection.CommandManager"
 		abstract="true">
 		<lookup-method name="createCommand" bean="command" />

@@ -9,7 +9,7 @@ import lombok.Data;
 public class Branch {
 	
 	public Rate getRate() {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated provider stub
 		return null;
 	}
 

@@ -35,7 +35,7 @@ public class ExtensionProcessAssemblerTest  extends ITContext implements Applica
 	}
 	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated provider stub
 		
 	}
 }

@@ -17,7 +17,7 @@ public class RepositoryProxy implements InvocationHandler {
      * @see java.lang.reflect.InvocationHandler#invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[])
      */
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        // TODO Auto-generated method stub
+        // TODO Auto-generated provider stub
         System.out.println(proxy.getClass());
         System.out.println(method.getName());
         return null;
