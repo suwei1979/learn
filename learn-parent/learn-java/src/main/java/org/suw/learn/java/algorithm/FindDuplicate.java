@@ -5,6 +5,20 @@ package org.suw.learn.java.algorithm;
 
 public class FindDuplicate {
 
+    public static void main(String[] args) {
+        int[] nums = {2, 3, 1, 0, 2, 5, 3};
+        int length = 7;
+        int[] duplication = new int[length];
+        FindDuplicate findDuplicate = new FindDuplicate();
+        findDuplicate.duplicate(nums, length, duplication);
+
+        for (int i = 0; i < duplication.length; i++) {
+            if (duplication[i] != 0) {
+                System.out.println(duplication[i]);
+            }
+        }
+    }
+
     public boolean duplicate(int[] nums, int length, int[] duplication) {
         if (nums == null || length <= 0) {
             return false;
@@ -27,19 +41,5 @@ public class FindDuplicate {
         int t = nums[i];
         nums[i] = nums[j];
         nums[j] = t;
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {2, 3, 1, 0, 2, 5, 3};
-        int length = 7;
-        int[] duplication = new int[length];
-        FindDuplicate findDuplicate = new FindDuplicate();
-        findDuplicate.duplicate(nums, length, duplication);
-
-        for (int i = 0; i < duplication.length; i++) {
-            if (duplication[i] != 0) {
-                System.out.println(duplication[i]);
-            }
-        }
     }
 }

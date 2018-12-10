@@ -22,6 +22,8 @@ public class ExceptionTest {
     }
 }
 
-class Annoyance extends Exception {}
+class Annoyance extends Exception {
+}
 
-class Sneeze extends Annoyance {}
+class Sneeze extends Annoyance {
+}

@@ -5,11 +5,11 @@ package org.suw.learn.aspectj;
 
 /**
  * @author suwei
- *
  */
 public class Line implements FigureElement {
     private Point start;
     private Point end;
+
     /* (non-Javadoc)
      * @see org.suw.learn.aspectj.FigureElement#setXY()
      */

@@ -11,6 +11,5 @@ public class AutoUnboxingTest {
         System.out.println(a == b);  //false, 非同一对象
         System.out.println(a == c);  //true, a自动拆箱成int类型再比较
 
-
     }
 }

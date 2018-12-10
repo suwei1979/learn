@@ -11,17 +11,11 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author suwei
- *
  */
 @Slf4j
 public class TechnicalExample {
     private PagingRepository<Account, TestPageRequest, Long> listAccountRepo;
 
-    public void test() {
-//        listAccountRepo.listByPage(null);
-        listAccountRepo.testNoArgs();
-    }
-    
     public static void main(String[] args) throws Exception {
         TechnicalExample testService = new TechnicalExample();
         Field field = testService.getClass().getDeclaredField("listAccountRepo");
@@ -30,17 +24,23 @@ public class TechnicalExample {
                 "The field type is equals to ListRepository: " + PagingRepository.class.isAssignableFrom(field.getType()));
         log.debug("The actrual parameter type[0] is: "
                 + ((ParameterizedType) field.getGenericType()).getActualTypeArguments()[0]);
-        
+
         boolean accessible = field.isAccessible();
-        Object proxy = Proxy.newProxyInstance(testService.getClass().getClassLoader(), new Class[]{PagingRepository.class}, new RepositoryProxy());
+        Object proxy = Proxy.newProxyInstance(testService.getClass().getClassLoader(), new Class[] {PagingRepository.class},
+                new RepositoryProxy());
         field.setAccessible(true);
-        field.set(testService , proxy);
+        field.set(testService, proxy);
         field.setAccessible(accessible);
-        
+
         testService.test();
         ClassB classB = new ClassB();
         ClassA classA = new ClassA(classB);
         classA.methodA();
 
+    }
+
+    public void test() {
+        //        listAccountRepo.listByPage(null);
+        listAccountRepo.testNoArgs();
     }
 }

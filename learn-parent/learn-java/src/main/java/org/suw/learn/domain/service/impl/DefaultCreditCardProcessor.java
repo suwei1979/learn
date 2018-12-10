@@ -15,7 +15,7 @@ public class DefaultCreditCardProcessor implements CreditCardProcessor {
     @Override
     public void test() {
         System.out.println("credit card processor proceed!");
-        
+
     }
 
 }

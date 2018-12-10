@@ -6,8 +6,19 @@ package org.suw.learn.java.thread;
 import java.util.concurrent.CountDownLatch;
 
 public class ThreadOrderTest {
-    private static long millisUnit = 1000;
     private static final int count = 2;
+    private static long millisUnit = 1000;
+
+    public static void main(String[] args) throws InterruptedException {
+        //Test PreserveOrder Via Join
+        ThreadOrderTest threadOrderTest = new ThreadOrderTest();
+        System.out.println(count == threadOrderTest.preserveOrderViaJoin() / millisUnit);
+
+        //Test PreserveOrder Via CountdownLatch
+        ThreadOrderTest threadOrderTest1 = new ThreadOrderTest();
+        System.out.println(1 == threadOrderTest1.preserveOrderViaCountdowwn() / millisUnit);
+
+    }
 
     public long preserveOrderViaJoin() throws InterruptedException {
         long startMillis = System.currentTimeMillis();
@@ -54,17 +65,5 @@ public class ThreadOrderTest {
 
         return System.currentTimeMillis() - startMillis;
     }
-
-    public static void main(String[] args) throws InterruptedException {
-        //Test PreserveOrder Via Join
-        ThreadOrderTest threadOrderTest = new ThreadOrderTest();
-        System.out.println(count == threadOrderTest.preserveOrderViaJoin() / millisUnit);
-
-        //Test PreserveOrder Via CountdownLatch
-        ThreadOrderTest threadOrderTest1 = new ThreadOrderTest();
-        System.out.println(1 == threadOrderTest1.preserveOrderViaCountdowwn() / millisUnit);
-
-    }
-
 
 }

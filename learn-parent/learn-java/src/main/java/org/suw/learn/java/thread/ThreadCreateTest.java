@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 public class ThreadCreateTest {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         test01();
         test02();
     }
@@ -49,9 +49,11 @@ public class ThreadCreateTest {
     }
 
 }
+
 abstract class AbstractTask {
     private int upperBounds;
     private int sum;
+
     protected AbstractTask(int upperBounds) {
         this.upperBounds = upperBounds;
     }

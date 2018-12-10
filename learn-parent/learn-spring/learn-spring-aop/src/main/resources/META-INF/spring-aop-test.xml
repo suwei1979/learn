@@ -11,13 +11,13 @@
 	<context:annotation-config></context:annotation-config>
 
 	<!-- <bean id="service" class="org.springframework.aop.framework.ProxyFactoryBean"> -->
-	<!-- <property name="proxyInterfaces" value="org.suw.learn.spring.aop.proxy.ServiceInterface" 
+	<!-- <property name="proxyInterfaces" value="ServiceInterface"
 		/> -->
 	<!-- </bean> -->
 
-	<bean id="service1" class="org.suw.learn.spring.aop.proxy.ConcreteService">
+	<bean id="service1" class="ConcreteService">
 	</bean>
-	<bean id="service2" class="org.suw.learn.spring.aop.proxy.ConcreteService1">
+	<bean id="service2" class="ConcreteService1">
 	</bean>
 
 	<bean id="targetBean" class="test.spring.aop.Target" />

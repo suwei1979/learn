@@ -5,7 +5,6 @@ package org.suw.learn.domain.repository;
 
 /**
  * @author suwei
- *
  */
 public interface EntityTypeRepository {
 

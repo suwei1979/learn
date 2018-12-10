@@ -3,6 +3,8 @@
  */
 package test.spring;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
@@ -10,6 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
+import org.suw.learn.spring.aop.proxy.ServiceInterface;
 
 import test.spring.helloworld.IHelloWorld;
 
@@ -50,4 +53,14 @@ public class TestApp {
 		System.out.println(helloWorld.equals(helloWorld1));
 		System.out.println(helloWorld == helloWorld1);
 	}
+
+	private static void doSomething(ApplicationContext context) {
+		Collection<ServiceInterface> serviceInterfaces = context.getBeansOfType(ServiceInterface.class).values();
+		System.out.println("nums of implementation of serviceinterface: " + serviceInterfaces.size());
+
+		for (ServiceInterface service: serviceInterfaces) {
+			service.dosomething();
+		}
+	}
+
 }

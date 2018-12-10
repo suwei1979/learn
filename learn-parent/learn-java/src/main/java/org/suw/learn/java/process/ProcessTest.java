@@ -11,6 +11,7 @@ import org.apache.log4j.Logger;
 
 public class ProcessTest {
     private static final Logger logger = Logger.getLogger(ProcessTest.class);
+
     public static void main(String[] args) throws Exception {
         String cmd = "./testshell";
         Process process = Runtime.getRuntime().exec(cmd);
@@ -25,7 +26,7 @@ public class ProcessTest {
                 shellOutput = reader.readLine();
             }
         }
-        
+
         logger.info("The result is: " + shellResult);
         logger.info("The exit code is: " + exitCode + "");
         setContext(shellResult);

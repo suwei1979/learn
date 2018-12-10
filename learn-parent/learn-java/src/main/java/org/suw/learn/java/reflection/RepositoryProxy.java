@@ -8,11 +8,9 @@ import java.lang.reflect.Method;
 
 /**
  * @author suwei
- *
  */
 public class RepositoryProxy implements InvocationHandler {
 
-   
     /* (non-Javadoc)
      * @see java.lang.reflect.InvocationHandler#invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[])
      */

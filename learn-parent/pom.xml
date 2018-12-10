@@ -6,6 +6,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.suw.learn</groupId>
 	<version>0.0.1-SNAPSHOT</version>
+	<parent>
+		<groupId>com.weibo.bop</groupId>
+		<artifactId>bop-build</artifactId>
+		<version>1.0.0</version>
+	</parent>
 	<properties>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -51,7 +56,7 @@
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
-				<version>5.0</version>
+				<version>4.9</version>
 			</dependency>
 			<dependency>
 				<groupId>javax.validation</groupId>
@@ -61,7 +66,7 @@
 			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
-				<version>1.16.4</version>
+				<version>1.16.20</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
@@ -94,6 +99,26 @@
 				<artifactId>hibernate-validator</artifactId>
 				<version>5.2.2.Final</version>
 			</dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>RELEASE</version>
+            </dependency>
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>2.0.1.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>20.0</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.17</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
@@ -101,13 +126,20 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 		</dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
 	</dependencies>
 	<modules>
 		<module>learn-java</module>
 		<module>learn-spring</module>
 		<module>learn-domain</module>
 		<module>learn-domain-event-sourcing</module>
-		<module>learn-bean-validate</module>
 		<module>learn-build</module>
 		<module>learn-aspectj</module>
 		<module>learn-mybatis</module>

@@ -9,17 +9,16 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 
  * @author suwei
  * @archetype moment-interval
  */
 @Data
 public class Sale {
 
-	public BigDecimal calcTotal() {
-		return BigDecimal.valueOf(0);
-	}
-	
-	private int number;
-	private Date date;
+    private int number;
+    private Date date;
+
+    public BigDecimal calcTotal() {
+        return BigDecimal.valueOf(0);
+    }
 }

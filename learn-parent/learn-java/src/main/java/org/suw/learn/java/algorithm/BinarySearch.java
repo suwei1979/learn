@@ -16,7 +16,7 @@ public class BinarySearch {
             if (key.compareTo(x[mid]) == 0) {
                 return mid;
             } else if (key.compareTo(x[mid]) < 0) {
-                return search(x, low, mid -1, key);
+                return search(x, low, mid - 1, key);
             } else {
                 return search(x, mid + 1, high, key);
             }
@@ -32,8 +32,7 @@ public class BinarySearch {
             int comp = comparator.compare(x[mid], key);
             if (comp < 0) {
                 low = mid + 1;
-            }
-            else if (comp > 0){
+            } else if (comp > 0) {
                 high = mid - 1;
             } else {
                 return mid;
@@ -41,6 +40,5 @@ public class BinarySearch {
         }
         return -1;
     }
-
 
 }

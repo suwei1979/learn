@@ -64,7 +64,6 @@ public class ThreadLockTest {
 
         System.out.println("账户余额 = " + account.getBalance());
 
-
     }
 }
 
@@ -143,7 +142,6 @@ class DepositMoneyWithLock implements Runnable {
         account.deposit(money);
     }
 }
-
 
 class DepositMoneyWithSync implements Runnable {
     private Account account;

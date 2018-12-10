@@ -5,7 +5,6 @@ package org.suw.learn.domain.model;
 
 /**
  * @author suwei
- *
  */
 public class CommandEvent extends EntityEvent {
 

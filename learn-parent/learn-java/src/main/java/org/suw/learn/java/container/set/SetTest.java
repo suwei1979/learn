@@ -18,7 +18,7 @@ public class SetTest {
         set.add(new Student("Bruce LEE", 60));
         set.add(new Student("Bob YANG", 22));
 
-        for(Student student : set) {
+        for (Student student : set) {
             System.out.println(student);
         }
 
@@ -38,7 +38,7 @@ public class SetTest {
             }
         });
 
-        for(Student student : list) {
+        for (Student student : list) {
             System.out.println(student);
         }
 
@@ -57,18 +57,18 @@ class Student implements Comparable<Student> {
     private String name;
     private int age;
 
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
+
+    }
+
     public String getName() {
         return name;
     }
 
     public int getAge() {
         return age;
-    }
-
-    public Student(String name, int age) {
-        this.name = name;
-        this.age = age;
-
     }
 
     @Override

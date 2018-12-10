@@ -5,8 +5,7 @@ package org.suw.learn.domain.service;
 
 /**
  * @author suwei
- *
  */
 public class EntityType {
-    
+
 }

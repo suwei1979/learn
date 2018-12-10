@@ -5,7 +5,6 @@ package org.suw.learn.domain.service;
 
 /**
  * @author suwei
- *
  */
 public interface ConstraintValidatorUsedService {
     public void test();

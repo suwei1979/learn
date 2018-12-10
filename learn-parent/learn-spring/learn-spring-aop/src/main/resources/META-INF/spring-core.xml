@@ -48,7 +48,7 @@
 		</property>
 	</bean>
 
-	<bean id="infoPhone" class="org.suw.learn.spring.propertyeditor.PhoneNumber">
+	<bean id="infoPhone" class="PhoneNumber">
 		<constructor-arg index="0">
 			<value>010</value>
 		</constructor-arg>
@@ -60,7 +60,7 @@
 		</constructor-arg>
 	</bean>
 
-	<bean id="contact" class="org.suw.learn.spring.propertyeditor.Contact">
+	<bean id="contact" class="Contact">
 		<property name="phoneNumber">
 			<value>010-555-1212</value>
 		</property>
@@ -70,11 +70,11 @@
 		class="org.springframework.beans.factory.config.CustomEditorConfigurer">
 		<property name="customEditors">
 			<map>
-				<entry key="org.suw.learn.spring.propertyeditor.PhoneNumber"
+				<entry key="PhoneNumber"
 					   value="org.suw.learn.spring.propertyeditor.PhoneEditor">
 				</entry>
 <!--  spring 4.1.8.Realease
-				<entry key="org.suw.learn.spring.propertyeditor.PhoneNumber">
+				<entry key="PhoneNumber">
 				<bean id="phoneEditor" class="org.suw.learn.spring.propertyeditor.PhoneEditor" />
 				</entry>
 -->

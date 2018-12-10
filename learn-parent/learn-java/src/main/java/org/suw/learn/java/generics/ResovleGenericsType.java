@@ -5,20 +5,23 @@ package org.suw.learn.java.generics;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.lang.reflect.TypeVariable;
 
 import lombok.Data;
 
+interface BusinessManager<E> {
+    E insert(E entity);
+}
+
 /**
  * @author suwei
- *
  */
 @Data
 public class ResovleGenericsType<E> {
     E genericType;
     Class<E> genericClass;
+
     /**
-     * 
+     *
      */
     @SuppressWarnings("unchecked")
     public ResovleGenericsType(E genericTypeParm) {
@@ -30,7 +33,6 @@ public class ResovleGenericsType<E> {
     public static void main(String[] args) {
         ResovleGenericsType<?> genericsType = new ResovleGenericsType<>("String");
         BusinessManager<String> bizManager = new BusinessManagerImpl<String>();
-        
 
         System.out.println("generic type by reflect is " + getGenericType(genericsType, 0));
 
@@ -61,10 +63,6 @@ public class ResovleGenericsType<E> {
     }
 }
 
-interface BusinessManager<E> {
-    E insert(E entity);
-}
-
 class BusinessManagerImpl<E> implements BusinessManager<E> {
 
     /* (non-Javadoc)
@@ -75,5 +73,5 @@ class BusinessManagerImpl<E> implements BusinessManager<E> {
         // TODO Auto-generated provider stub
         return null;
     }
-    
+
 }

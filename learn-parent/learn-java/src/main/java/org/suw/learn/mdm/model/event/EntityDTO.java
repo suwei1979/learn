@@ -3,12 +3,23 @@
  */
 package org.suw.learn.mdm.model.event;
 
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
 
 /**
- * 
+ *
  */
 public class EntityDTO {
+
+    /**
+     *
+     */
+    public long objectId;
+    public Map<String, String> values;
+    /**
+     *
+     */
+    public Set<EntityDTO> aggregateObjects;
 
     /**
      * Default constructor
@@ -20,15 +31,4 @@ public class EntityDTO {
     public long getObjectId() {
         return objectId;
     }
-
-    /**
-     * 
-     */
-    public long objectId;
-
-    public Map<String, String> values;
-    /**
-     * 
-     */
-    public Set<EntityDTO> aggregateObjects;
 }

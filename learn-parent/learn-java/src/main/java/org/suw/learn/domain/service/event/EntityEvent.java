@@ -7,10 +7,10 @@ import org.suw.learn.domain.service.EntityType;
 
 /**
  * @author suwei
- *
  */
 public interface EntityEvent<T> {
     EntityType getMetaType();
+
     T getData();
-//    public static abstract <E extends EntityEvent> E create();
+    //    public static abstract <E extends EntityEvent> E create();
 }

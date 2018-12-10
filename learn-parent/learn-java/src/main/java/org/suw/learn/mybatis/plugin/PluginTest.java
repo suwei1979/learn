@@ -19,7 +19,6 @@ import org.junit.Test;
 
 /**
  * @author suwei
- *
  */
 public class PluginTest {
 
@@ -37,10 +36,10 @@ public class PluginTest {
         assertFalse("Always".equals(map.toString()));
     }
 
-    @Intercepts({ @Signature(type = Map.class, method = "get", args = { Object.class }) })
+    @Intercepts({@Signature(type = Map.class, method = "get", args = {Object.class})})
     public static class AlwaysMapPlugin implements Interceptor {
         public Object intercept(Invocation invocation) throws Throwable {
-            
+
             return "Always";
         }
 

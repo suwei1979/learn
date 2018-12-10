@@ -10,12 +10,11 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * @author suwei
- *
  */
 @RequiredArgsConstructor(access = AccessLevel.PACKAGE)
 public class InsertEvent<T> implements EntityEvent<T> {
     private final T data;
-    
+
     /* (non-Javadoc)
      * @see org.suw.learn.domain.service.EntityEvent#getMetaType()
      */

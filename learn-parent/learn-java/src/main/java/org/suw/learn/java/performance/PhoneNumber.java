@@ -14,25 +14,30 @@ public class PhoneNumber {
         int result = 1;
         result = prime * result + areaCode;
         result = prime * result + ((lineNumber == null) ? 0 : lineNumber.hashCode());
-        result = prime * result + ((prefix == null) ? 0: prefix.hashCode());
+        result = prime * result + ((prefix == null) ? 0 : prefix.hashCode());
 
         return result;
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         PhoneNumber other = (PhoneNumber) obj;
-        if (areaCode != other.areaCode)
+        if (areaCode != other.areaCode) {
             return false;
+        }
         if (lineNumber == null) {
-            if (other.lineNumber != null)
+            if (other.lineNumber != null) {
                 return false;
+            }
         } else if (!lineNumber.equals(other.lineNumber)) {
             return false;
         }

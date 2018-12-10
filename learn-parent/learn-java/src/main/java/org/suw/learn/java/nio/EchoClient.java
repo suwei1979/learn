@@ -10,9 +10,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-
 public class EchoClient {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         Socket client = new Socket("localhost", 6789);
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入内容：");

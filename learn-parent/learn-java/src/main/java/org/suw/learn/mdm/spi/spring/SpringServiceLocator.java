@@ -13,15 +13,13 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.core.ResolvableType;
 import org.suw.learn.mdm.spi.ServiceLocator;
 import org.suw.learn.mdm.utils.Assert;
 
 /**
  * 服务提供者工程的Spring实现
- * 
- * @author suwei
  *
+ * @author suwei
  */
 public class SpringServiceLocator implements ServiceLocator, ApplicationContextAware {
     private ApplicationContext applicationContext;
@@ -50,11 +48,10 @@ public class SpringServiceLocator implements ServiceLocator, ApplicationContextA
     }
 
     /**
-     * 
      * @see org.suw.learn.mdm.spi.ServiceLocator#create(String, Class, Class...)
      */
     @Override
-    public <S> S create(String providerName, Class<S> serviceInterface, Class<?>...parameterizedTypes) {
+    public <S> S create(String providerName, Class<S> serviceInterface, Class<?>... parameterizedTypes) {
         S genericProvider = create(providerName, serviceInterface);
         // boolean isMatched = isCandidateMatch(genericProvider, parameterizedTypes);
         return (isCandidateMatch(genericProvider, serviceInterface, parameterizedTypes) ? genericProvider : null);
@@ -64,13 +61,14 @@ public class SpringServiceLocator implements ServiceLocator, ApplicationContextA
      * 判断{@code genericProvider}类上所声明的泛型与{@code expectedGenericTypes}是否匹配<br>
      * 判断逻辑：遍历expectedGeneric{@code expectedGenericType}，根据每个类型的索引取出 <br>
      * 声明的泛型，检查其类型是否匹配
-     * 
-     * @param genericProvider 容器中实现了{@code expectedInterface}的具体提供者
+     *
+     * @param genericProvider   容器中实现了{@code expectedInterface}的具体提供者
      * @param expectedInterface 待匹配的接口
-     * @param expectedTypeArgs 待匹配的类型参数
+     * @param expectedTypeArgs  待匹配的类型参数
+     *
      * @return
      */
-    private <S> boolean isCandidateMatch(S genericProvider, Class<S> expectedInterface, Class<?>...expectedTypeArgs) {
+    private <S> boolean isCandidateMatch(S genericProvider, Class<S> expectedInterface, Class<?>... expectedTypeArgs) {
         Type[] declaredGenericTypes = genericProvider.getClass().getGenericInterfaces();
         boolean isMatched = false;
         for (Type declaredGenericType : declaredGenericTypes) {
@@ -101,7 +99,7 @@ public class SpringServiceLocator implements ServiceLocator, ApplicationContextA
      * @see org.suw.learn.mdm.spi.ServiceLocator#create(java.lang.Class, java.lang.Class[])
      */
     @Override
-    public <S> S create(Class<S> serviceInterface, Class<?>...parameterizedTypes) {
+    public <S> S create(Class<S> serviceInterface, Class<?>... parameterizedTypes) {
         Map<String, S> providers = applicationContext.getBeansOfType(serviceInterface);
         List<S> results = new ArrayList<S>();
         for (S provider : providers.values()) {

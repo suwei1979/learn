@@ -6,17 +6,20 @@ package org.suw.learn.domain.model;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.stereotype.Component;
-import org.suw.learn.validate.beanvalidate.constraints.MasterDataEntity;
-import org.suw.learn.validate.beanvalidate.constraints.ZipCode;
+import org.suw.learn.validation.constraints.MasterDataEntity;
+import org.suw.learn.validation.constraints.ZipCode;
 
 @Component
 @MasterDataEntity
 public class Item {
-	@NotNull(message="validate.notnull.item.message")
-	private String name;
-	private int price;
-	
-	/**
+    @NotNull(message = "validate.notnull.item.message")
+    private String name;
+    private int price;
+    @NotNull
+    @ZipCode(countryCode = "CN")
+    private String zipCode;
+
+    /**
      * @return the price
      */
     public int getPrice() {
@@ -30,28 +33,20 @@ public class Item {
         this.price = price;
     }
 
-    @NotNull
-	@ZipCode(countryCode = "CN")
-	private String zipCode;
-	
-//	@ZipCode(countryCode = "US")
-//	private String zipCode2;
-	
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getZipCode() {
-		return zipCode;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setZipCode(String zipCode) {
-		this.zipCode = zipCode;
-	}
+    public String getZipCode() {
+        return zipCode;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
-	
-	
+    public void setZipCode(String zipCode) {
+        this.zipCode = zipCode;
+    }
+
 }

@@ -46,7 +46,7 @@ public class EchoServerNIO {
             serverChannel.configureBlocking(false);
             selector = Selector.open();
             serverChannel.register(selector, SelectionKey.OP_ACCEPT);
-            System.out.println("服务器已启动[" + ECHO_SERVER_PORT +"]");
+            System.out.println("服务器已启动[" + ECHO_SERVER_PORT + "]");
         } catch (Exception e) {
             throw new RuntimeException();
         }

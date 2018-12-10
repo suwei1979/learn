@@ -4,5 +4,5 @@
 package org.suw.learn.domain.model;
 
 public enum EventType {
-    CREATE,UPDATE
+    CREATE, UPDATE
 }

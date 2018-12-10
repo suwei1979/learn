@@ -6,9 +6,7 @@ package org.suw.learn.service.spi;
 import java.util.ServiceLoader;
 
 /**
- * 
  * @author suwei
- *
  */
 public class JvmServiceFactory<S> extends AbstractReloadableServiceFactory<S> {
     private ServiceLoader<S> jvmServiceLoader;
@@ -24,7 +22,6 @@ public class JvmServiceFactory<S> extends AbstractReloadableServiceFactory<S> {
     }
 
     /**
-     * 
      * @see org.suw.learn.mdm.common.spi.ReloadableServiceFactory#load(java.lang.Class, java.lang.String)
      */
     @Override
@@ -39,7 +36,7 @@ public class JvmServiceFactory<S> extends AbstractReloadableServiceFactory<S> {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see org.suw.learn.mdm.common.spi.ReloadableServiceFactory#reload()
      */
     @Override
@@ -52,8 +49,8 @@ public class JvmServiceFactory<S> extends AbstractReloadableServiceFactory<S> {
 
     }
 
-//    public static <S> ServiceFactory<S> getInstance(Class<S> serviceInterface) {
-//        return new JvmServiceFactory<S>(serviceInterface);
-//    }
+    //    public static <S> ServiceFactory<S> getInstance(Class<S> serviceInterface) {
+    //        return new JvmServiceFactory<S>(serviceInterface);
+    //    }
 
 }

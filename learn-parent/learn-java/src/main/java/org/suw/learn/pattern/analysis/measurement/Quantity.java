@@ -7,6 +7,6 @@ import lombok.Data;
 
 @Data
 public class Quantity {
-	private Number amount;
-	private Unit units;
+    private Number amount;
+    private Unit units;
 }

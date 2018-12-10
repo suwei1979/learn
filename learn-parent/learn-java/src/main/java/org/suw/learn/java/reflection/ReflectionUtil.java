@@ -23,7 +23,7 @@ public class ReflectionUtil {
                 clazz = target.getClass();
             }
 
-            Field f = clazz.getDeclaredField(fs[fs.length -1]);
+            Field f = clazz.getDeclaredField(fs[fs.length - 1]);
             f.setAccessible(true);
             result = f.get(target);
 

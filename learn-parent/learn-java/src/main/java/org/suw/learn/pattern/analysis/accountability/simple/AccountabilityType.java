@@ -24,8 +24,9 @@ public class AccountabilityType {
     }
 
     boolean canCreateAccountability(Party parent, Party child) {
-        if (isHierarchic && child.getParents(this).size() != 0)
+        if (isHierarchic && child.getParents(this).size() != 0) {
             return false;
+        }
         return areValidPartyTypes(parent, child);
     }
 

@@ -5,8 +5,7 @@ package org.suw.learn.domain.model;
 
 /**
  * @author suwei
- *
  */
-public interface UpdateEvent{
+public interface UpdateEvent {
 
 }

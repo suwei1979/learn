@@ -5,7 +5,6 @@ package org.suw.learn.domain.service.event;
 
 /**
  * @author suwei
- *
  */
 public class InsertEventFactory {
 

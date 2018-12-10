@@ -5,7 +5,6 @@ package org.suw.learn.aspectj;
 
 /**
  * @author suwei
- *
  */
 public class Point implements FigureElement {
 

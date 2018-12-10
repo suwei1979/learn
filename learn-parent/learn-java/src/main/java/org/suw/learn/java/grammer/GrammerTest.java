@@ -21,20 +21,23 @@ class Outer {
     private static int outerStaticProperty;
     private int outerProperty;
 
+    public static void main(String[] args) {
+        //        new Inner();
+    }
+
+    //    public static void foo() { new Inner(); }
+
+    public void bar() {
+        new Inner();
+    }
+
     class Inner {
         private int innerRefOuter;
+
         public Inner() {
             innerRefOuter = outerProperty;
             outerProperty = 4;
             outerStaticProperty = 3;
         }
-    }
-
-//    public static void foo() { new Inner(); }
-
-    public void bar() { new Inner(); }
-
-    public static void main(String[] args) {
-//        new Inner();
     }
 }

@@ -15,6 +15,10 @@ public class LoopBenchmarkMain {
     final int size = 100000;
     List<Integer> integers = null;
 
+    public static void main(String[] args) {
+        LoopBenchmarkMain benchmark = new LoopBenchmarkMain();
+
+    }
 
     public void populate(List<Integer> list) {
         Random rand = new Random();
@@ -26,7 +30,7 @@ public class LoopBenchmarkMain {
 
     public int iteratorMaxInteger() {
         int max = Integer.MIN_VALUE;
-        for (Iterator<Integer> it = integers.iterator(); it.hasNext();) {
+        for (Iterator<Integer> it = integers.iterator(); it.hasNext(); ) {
             max = Integer.max(max, it.next());
         }
         return max;
@@ -72,17 +76,12 @@ public class LoopBenchmarkMain {
         return max.get();
     }
 
-    public static class Wrapper {
-        public Integer inner;
-    }
-
     private int helper(int i, Wrapper wrapper) {
         wrapper.inner = Math.max(i, wrapper.inner);
         return wrapper.inner;
     }
 
-    public static void main(String[] args) {
-        LoopBenchmarkMain benchmark = new LoopBenchmarkMain();
-
+    public static class Wrapper {
+        public Integer inner;
     }
 }

@@ -12,10 +12,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 
- * @author suwei
- *
  * @param <S> 服务接口
+ *
+ * @author suwei
  */
 @Data
 public abstract class AbstractReloadableServiceFactory<S> implements ReloadableServiceFactory<S> {
@@ -45,8 +44,9 @@ public abstract class AbstractReloadableServiceFactory<S> implements ReloadableS
         if (result == null) {
             if (loadStrategy == LoadStrategy.LAZY) {
                 S providerFromContainer = load(serviceInterface, providerName);
-                if (providerFromContainer != null)
+                if (providerFromContainer != null) {
                     cachedProviders.put(providerName, providerFromContainer);
+                }
             }
         }
         return result;

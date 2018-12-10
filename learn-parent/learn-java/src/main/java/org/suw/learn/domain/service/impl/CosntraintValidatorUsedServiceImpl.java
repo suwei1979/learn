@@ -8,7 +8,6 @@ import org.suw.learn.domain.service.ConstraintValidatorUsedService;
 
 /**
  * @author suwei
- *
  */
 @Service("abcservcie")
 public class CosntraintValidatorUsedServiceImpl implements ConstraintValidatorUsedService {
@@ -18,7 +17,7 @@ public class CosntraintValidatorUsedServiceImpl implements ConstraintValidatorUs
      */
     @Override
     public void test() {
-        System.out.println("-------------------------custom validator processing");
+        System.out.println("-------------------------custom validation processing");
 
     }
 
