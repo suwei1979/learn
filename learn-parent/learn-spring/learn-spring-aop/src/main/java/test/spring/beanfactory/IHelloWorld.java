@@ -5,12 +5,11 @@ package test.spring.beanfactory;
 
 /**
  * IHelloWorld�ӿ�
- * 
- * @author worldheart
  *
+ * @author worldheart
  */
 public interface IHelloWorld {
 
-	public abstract String getContent();
+    public abstract String getContent();
 
 }

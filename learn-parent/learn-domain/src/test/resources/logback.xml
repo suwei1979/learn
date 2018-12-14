@@ -3,16 +3,16 @@
   ~ Copyright (C) 2018 Wei Su(suwei1979@139.com). All Rights Reserved.
   -->
 <configuration>
-	<!-- 配置文件 -->
-	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-		<encoder>
-			<pattern>[%5level]%logger{0}-%msg%n</pattern>
-		</encoder>
-	</appender>
-	<logger name="com.bocsoft.gaea.triton.web" level="INFO" />
-	<logger name="org.springframework" level="INFO" />
-	<root>
-		<level value="DEBUG" />
-		<appender-ref ref="STDOUT" />
-	</root>
+    <!-- 配置文件 -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%5level]%logger{0}-%msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="com.bocsoft.gaea.triton.web" level="INFO"/>
+    <logger name="org.springframework" level="INFO"/>
+    <root>
+        <level value="DEBUG"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
 </configuration>

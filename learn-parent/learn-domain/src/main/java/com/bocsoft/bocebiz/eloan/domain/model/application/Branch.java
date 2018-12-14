@@ -7,12 +7,12 @@ import lombok.Data;
 
 @Data
 public class Branch {
-	
-	public Rate getRate() {
-		// TODO Auto-generated provider stub
-		return null;
-	}
 
-	private String bizOperationBranchNo;//业务续作机构
+    private String bizOperationBranchNo;//业务续作机构
+
+    public Rate getRate() {
+        // TODO Auto-generated provider stub
+        return null;
+    }
 
 }

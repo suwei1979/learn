@@ -16,31 +16,31 @@ import com.yummynoodlebar.rest.domain.PaymentDetails;
 @RequestMapping("/aggregators/orders/{id}/paymentdetails")
 public class OrderPaymentDetailsController {
 
-  private OrderService orderService;
+    private OrderService orderService;
 
-  public void setOrderService(OrderService orderService) {
-    this.orderService = orderService;
-  }
+    public void setOrderService(OrderService orderService) {
+        this.orderService = orderService;
+    }
 
-  @RequestMapping(method = RequestMethod.GET)
-  public
-  @ResponseBody
-  PaymentDetails getPaymentDetails(@PathVariable String id) {
-    //TODO obtain the order
-    //TODO ensure payment details mapping is correct
+    @RequestMapping(method = RequestMethod.GET)
+    public
+    @ResponseBody
+    PaymentDetails getPaymentDetails(@PathVariable String id) {
+        //TODO obtain the order
+        //TODO ensure payment details mapping is correct
 
-    return null;
-  }
+        return null;
+    }
 
-  @RequestMapping(method = RequestMethod.PUT)
-  public
-  @ResponseBody
-  PaymentDetails updatePaymentDetails(@PathVariable String id) {
-    //TODO use a command object?
-    //TODO obtain the order
-    //TODO update the order payment details.
-    //TODO ensure payment details mapping is correct
+    @RequestMapping(method = RequestMethod.PUT)
+    public
+    @ResponseBody
+    PaymentDetails updatePaymentDetails(@PathVariable String id) {
+        //TODO use a command object?
+        //TODO obtain the order
+        //TODO update the order payment details.
+        //TODO ensure payment details mapping is correct
 
-    return null;
-  }
+        return null;
+    }
 }

@@ -8,32 +8,30 @@ import java.util.UUID;
 
 public class PaymentDetails {
 
-  private UUID key;
-  private Date dateTimeOfSubmission;
+    private UUID key;
+    private Date dateTimeOfSubmission;
 
+    public PaymentDetails() {
+        key = null;
+    }
 
+    public PaymentDetails(UUID key) {
+        this.key = key;
+    }
 
-  public PaymentDetails() {
-    key = null;
-  }
+    public Date getDateTimeOfSubmission() {
+        return this.dateTimeOfSubmission;
+    }
 
-  public PaymentDetails(UUID key) {
-    this.key = key;
-  }
+    public void setDateTimeOfSubmission(Date dateTimeOfSubmission) {
+        this.dateTimeOfSubmission = dateTimeOfSubmission;
+    }
 
-  public Date getDateTimeOfSubmission() {
-    return this.dateTimeOfSubmission;
-  }
+    public UUID getKey() {
+        return key;
+    }
 
-  public void setDateTimeOfSubmission(Date dateTimeOfSubmission) {
-    this.dateTimeOfSubmission = dateTimeOfSubmission;
-  }
-
-  public UUID getKey() {
-    return key;
-  }
-
-  public void setKey(UUID key) {
-    this.key = key;
-  }
+    public void setKey(UUID key) {
+        this.key = key;
+    }
 }

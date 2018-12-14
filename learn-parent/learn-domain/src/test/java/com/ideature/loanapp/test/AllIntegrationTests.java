@@ -11,7 +11,7 @@ import com.ideature.loanapp.service.FundingServiceImplTest;
 
 @RunWith(Suite.class)
 @SuiteClasses(value = {
-		FundingServiceImplTest.class
+        FundingServiceImplTest.class
 })
 public class AllIntegrationTests {
 }

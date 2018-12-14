@@ -12,20 +12,19 @@ import java.lang.reflect.UndeclaredThrowableException;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 
  * Reflection Utilities
- * 
- * @author suwei
  *
+ * @author suwei
  */
 @Slf4j
 public class ReflectionUtils {
 
     /**
      * Find the annotation on the class of object
-     * 
-     * @param object the object that was annotated by the annotationType
+     *
+     * @param object         the object that was annotated by the annotationType
      * @param annotationType the annotation type to be find
+     *
      * @return the corresponding annotation type, null if the given annotation type is not present
      */
     public static <A extends Annotation> A getAnnotation(Object object, Class<A> annotationType) {
@@ -38,9 +37,10 @@ public class ReflectionUtils {
 
     /**
      * Find the annotation on the class
-     * 
+     *
      * @param annotatedClass
      * @param annotationType
+     *
      * @return
      */
     public static <A extends Annotation> A getAnnotation(Class<?> annotatedClass, Class<A> annotationType) {
@@ -53,9 +53,10 @@ public class ReflectionUtils {
 
     /**
      * Find the field that is annotated by the corresponding annotationClass
-     * 
-     * @param clazz the class that is annotated by
+     *
+     * @param clazz          the class that is annotated by
      * @param annotationType the annotation class that annotated on the field
+     *
      * @return the field that is annotated by the annotation type
      */
     public static Field findField(Class<?> clazz, Class<? extends Annotation> annotationType) {
@@ -74,10 +75,11 @@ public class ReflectionUtils {
      * <p>
      * Thrown exceptions are handled via a call to {@link #handleReflectionException(Exception)}.
      * {@link IllegalArgumentException } is raised when the field value can not been cast to fiedValueType
-     * 
+     *
      * @param object
      * @param annotationClass
      * @param fieldValueType
+     *
      * @return the field's current value of the field value type
      */
     public static <T> T getField(Object object, Class<? extends Annotation> annotationClass, Class<T> fieldValueType) {
@@ -100,9 +102,10 @@ public class ReflectionUtils {
 
     /**
      * find the field that annotated by the annotationClass, and return the field value.
-     * 
-     * @param target The target object
+     *
+     * @param target          The target object
      * @param annotationClass The annotation
+     *
      * @return filed value
      */
     public static Object getField(Object target, Class<? extends Annotation> annotationClass) {
@@ -116,9 +119,10 @@ public class ReflectionUtils {
      * the underlying field has a primitive type.
      * <p>
      * Thrown exceptions are handled via a call to {@link #handleReflectionException(Exception)}.
-     * 
-     * @param field the field to get
+     *
+     * @param field  the field to get
      * @param target the target object from which to get the field
+     *
      * @return the field's current value
      */
     public static Object getField(Field field, Object target) {
@@ -137,12 +141,13 @@ public class ReflectionUtils {
 
     /**
      * 获取目标对象上的field值，其返回类型为指定的fieldValueType
-     * 
-     * @param fieldName 名称
-     * @param target 目标对象
+     *
+     * @param fieldName      名称
+     * @param target         目标对象
      * @param fieldValueType 预期的Filed类型
+     *
      * @return fieldValue which type is fieldValueType, an exception will raised if the fieldValueType<br>
-     *         and the exact field type are mismatched.
+     * and the exact field type are mismatched.
      */
     public static <F> F getField(String fieldName, Object target, Class<F> fieldValueType) {
         Assert.notNull(fieldName);
@@ -173,7 +178,7 @@ public class ReflectionUtils {
      * <p>
      * Throws the underlying RuntimeException or Error in case of an InvocationTargetException with such a root cause.
      * Throws an IllegalStateException with an appropriate message else.
-     * 
+     *
      * @param ex the reflection exception to handle
      */
     public static void handleReflectionException(Exception ex) {
@@ -209,7 +214,7 @@ public class ReflectionUtils {
      * <p>
      * Throws the underlying RuntimeException or Error in case of such a root cause. Throws an IllegalStateException
      * else.
-     * 
+     *
      * @param ex the invocation target exception to handle
      */
     public static void handleInvocationTargetException(InvocationTargetException ex) {
@@ -223,8 +228,9 @@ public class ReflectionUtils {
      * <p>
      * Rethrows the underlying exception cast to an {@link RuntimeException} or {@link Error} if appropriate; otherwise,
      * throws an {@link IllegalStateException}.
-     * 
+     *
      * @param ex the exception to rethrow
+     *
      * @throws RuntimeException the rethrown exception
      */
     public static void rethrowRuntimeException(Throwable ex) {
@@ -241,13 +247,14 @@ public class ReflectionUtils {
      * Make the given field accessible, explicitly setting it accessible if necessary. The {@code setAccessible(true)}
      * provider is only called when actually necessary, to avoid unnecessary conflicts with a JVM SecurityManager (if
      * active).
-     * 
+     *
      * @param field the field to make accessible
+     *
      * @see java.lang.reflect.Field#setAccessible
      */
     public static void makeAccessible(Field field) {
         if ((!Modifier.isPublic(field.getModifiers()) || !Modifier.isPublic(field.getDeclaringClass().getModifiers())
-                || Modifier.isFinal(field.getModifiers())) && !field.isAccessible()) {
+                     || Modifier.isFinal(field.getModifiers())) && !field.isAccessible()) {
             field.setAccessible(true);
         }
 
@@ -255,7 +262,8 @@ public class ReflectionUtils {
 
     /**
      * @param objToCast object to be casted
-     * @param target The class cast to
+     * @param target    The class cast to
+     *
      * @return
      */
     public static <T> T cast(Object objToCast, Class<T> target) {

@@ -17,53 +17,53 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.ideature.loanapp.domain.Borrower;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"/loanapp-dao.xml"})
+@ContextConfiguration(locations = {"/loanapp-dao.xml"})
 public class BorrowerRepositoryJpaImplTest {
 
-	@Autowired
-	private BorrowerRepository repository;
+    @Autowired
+    private BorrowerRepository repository;
 
-	@Test
-	public void testAddUpdateDeleteBorrower() throws Exception {
+    @Test
+    public void testAddUpdateDeleteBorrower() throws Exception {
 
-		long borrowerId = 131;
-		long loanId = 100;
+        long borrowerId = 131;
+        long loanId = 100;
 
-		Collection<Borrower> borrowers = repository.getBorrowers();
-		Assert.assertEquals(borrowers.size(), 0);
+        Collection<Borrower> borrowers = repository.getBorrowers();
+        Assert.assertEquals(borrowers.size(), 0);
 
-		// Add a new user
-		Borrower newBorr = new Borrower();
-		newBorr.setBorrowerId(borrowerId);
-		newBorr.setFirstName("BOB");
-		newBorr.setLastName("SMITH");
-		newBorr.setPhoneNumber("123-456-7890");
-		newBorr.setEmailAddress("test.borr@abc.com");
-		newBorr.setLoanId(loanId);
+        // Add a new user
+        Borrower newBorr = new Borrower();
+        newBorr.setBorrowerId(borrowerId);
+        newBorr.setFirstName("BOB");
+        newBorr.setLastName("SMITH");
+        newBorr.setPhoneNumber("123-456-7890");
+        newBorr.setEmailAddress("test.borr@abc.com");
+        newBorr.setLoanId(loanId);
 
-		repository.add(newBorr);
+        repository.add(newBorr);
 
-		borrowers = repository.getBorrowers();
-		Assert.assertEquals("New record was added so the count should now be 1.", borrowers.size(), 1);
+        borrowers = repository.getBorrowers();
+        Assert.assertEquals("New record was added so the count should now be 1.", borrowers.size(), 1);
 
-		// Modify some attributes
-		String newPhoneNumber = "999-99-9999";
-		String newFirstName = "JOHN";
-		Borrower updBorrower = repository.load(borrowerId);
-		updBorrower.setPhoneNumber(newPhoneNumber);
-		updBorrower.setFirstName(newFirstName);
+        // Modify some attributes
+        String newPhoneNumber = "999-99-9999";
+        String newFirstName = "JOHN";
+        Borrower updBorrower = repository.load(borrowerId);
+        updBorrower.setPhoneNumber(newPhoneNumber);
+        updBorrower.setFirstName(newFirstName);
 
-		// Do an update on the record
-		repository.update(updBorrower);
+        // Do an update on the record
+        repository.update(updBorrower);
 
-		// Get the borrower again
-		Borrower newUpdBorrower = repository.load(borrowerId);
+        // Get the borrower again
+        Borrower newUpdBorrower = repository.load(borrowerId);
 
-		assertEquals("New PhoneNumber didn't match with what's in the DB.",newUpdBorrower.getPhoneNumber(),newPhoneNumber);
+        assertEquals("New PhoneNumber didn't match with what's in the DB.", newUpdBorrower.getPhoneNumber(), newPhoneNumber);
 
-		assertEquals("New FirstName didn't match with what's in the DB.",newUpdBorrower.getFirstName(),newFirstName);
+        assertEquals("New FirstName didn't match with what's in the DB.", newUpdBorrower.getFirstName(), newFirstName);
 
-		// Finally, delete the newly added record
-		repository.delete(borrowerId);
-	}
+        // Finally, delete the newly added record
+        repository.delete(borrowerId);
+    }
 }

@@ -7,11 +7,11 @@ import com.bocsoft.bocebiz.eloan.domain.model.application.LoanApplication;
 
 public interface BlazeServiceFacade {
 
-	/**
-	 * 
-	 * @param applicationSaved
-	 * @return
-	 */
-	LoanApplication preCalculateLimit(LoanApplication applicationSaved);
+    /**
+     * @param applicationSaved
+     *
+     * @return
+     */
+    LoanApplication preCalculateLimit(LoanApplication applicationSaved);
 
 }

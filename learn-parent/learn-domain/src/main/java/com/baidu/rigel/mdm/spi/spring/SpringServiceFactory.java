@@ -19,9 +19,8 @@ import com.baidu.rigel.mdm.utils.Assert;
 
 /**
  * 服务提供者工程的Spring实现
- * 
- * @author suwei
  *
+ * @author suwei
  */
 public class SpringServiceFactory implements ServiceFactory, ApplicationContextAware {
     private ApplicationContext applicationContext;
@@ -50,11 +49,10 @@ public class SpringServiceFactory implements ServiceFactory, ApplicationContextA
     }
 
     /**
-     * 
      * @see com.baidu.rigel.mdm.spi.ServiceFactory#create(String, Class, Class...)
      */
     @Override
-    public <S> S create(String providerName, Class<S> serviceInterface, Class<?>...parameterizedTypes) {
+    public <S> S create(String providerName, Class<S> serviceInterface, Class<?>... parameterizedTypes) {
         S genericProvider = create(providerName, serviceInterface);
         // boolean isMatched = isCandidateMatch(genericProvider, parameterizedTypes);
         return (isCandidateMatch(genericProvider, parameterizedTypes) ? genericProvider : null);
@@ -64,12 +62,13 @@ public class SpringServiceFactory implements ServiceFactory, ApplicationContextA
      * 判断{@code genericProvider}类上所声明的泛型与{@code expectedGenericTypes}是否匹配<br>
      * 判断逻辑：遍历expectedGeneric{@code expectedGenericType}，根据每个类型的索引取出 <br>
      * 声明的泛型，检查其类型是否匹配
-     * 
+     *
      * @param genericProvider
      * @param expectedGenericTypes
+     *
      * @return
      */
-    private <S> boolean isCandidateMatch(S genericProvider, Class<?>...expectedGenericTypes) {
+    private <S> boolean isCandidateMatch(S genericProvider, Class<?>... expectedGenericTypes) {
         Type[] declaredGenericTypes = genericProvider.getClass().getGenericInterfaces();
         Assert.isTrue(declaredGenericTypes.length >= expectedGenericTypes.length,
                 String.format("传入参数中有%d个泛型类型，而类声明中只有%d个", expectedGenericTypes.length, declaredGenericTypes.length));
@@ -93,7 +92,7 @@ public class SpringServiceFactory implements ServiceFactory, ApplicationContextA
      * @see com.baidu.rigel.mdm.spi.ServiceFactory#create(java.lang.Class, java.lang.Class[])
      */
     @Override
-    public <S> S create(Class<S> serviceInterface, Class<?>...parameterizedTypes) {
+    public <S> S create(Class<S> serviceInterface, Class<?>... parameterizedTypes) {
         Map<String, S> genericProviders = applicationContext.getBeansOfType(serviceInterface);
         List<S> results = new ArrayList<S>();
         for (S genericProvider : genericProviders.values()) {

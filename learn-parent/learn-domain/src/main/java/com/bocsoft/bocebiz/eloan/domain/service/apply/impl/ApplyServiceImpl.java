@@ -14,58 +14,57 @@ import com.bocsoft.bocebiz.eloan.domain.service.spi.annotation.MainProcessConfig
 
 /**
  * @author sw0876
- *
  */
-@MainProcessConfiguration(routeTable="applicationRouteTable", proxyedInterfaces = {ApplyService.class})
+@MainProcessConfiguration(routeTable = "applicationRouteTable", proxyedInterfaces = {ApplyService.class})
 public class ApplyServiceImpl implements ApplyService {
-	private LoanApplicationRepository loanApplicationRepository;
-	private CCASServiceFacade ccasServiceFacade;
-	private BlazeServiceFacade blazeServiceFacade;
-	private LoanApplicationFactory loanApplicationFactory;
+    private LoanApplicationRepository loanApplicationRepository;
+    private CCASServiceFacade ccasServiceFacade;
+    private BlazeServiceFacade blazeServiceFacade;
+    private LoanApplicationFactory loanApplicationFactory;
 
-	@Override
-	public LoanApplication initApplication(String platformSeqNo, String productCode) {
-		LoanApplication newApplication = loanApplicationFactory.createNewApplication(platformSeqNo, productCode);
-		return newApplication;
-	}
+    @Override
+    public LoanApplication initApplication(String platformSeqNo, String productCode) {
+        LoanApplication newApplication = loanApplicationFactory.createNewApplication(platformSeqNo, productCode);
+        return newApplication;
+    }
 
-	/**
-	 * 贷款额度申请 Step2. 登记新增的贷款申请
-	 * 
-	 */
-	@Override
-	public LoanApplication bookNewApplication(LoanApplication newApplication) {
+    /**
+     * 贷款额度申请 Step2. 登记新增的贷款申请
+     */
+    @Override
+    public LoanApplication bookNewApplication(LoanApplication newApplication) {
 
-		// 1.登记客户决策信息
-		newApplication.book();
-		LoanApplication applicationSaved = loanApplicationRepository.store(newApplication);
-		ccasServiceFacade.queryCustomerDecisionInfo(newApplication);
-		return applicationSaved;
-	}
+        // 1.登记客户决策信息
+        newApplication.book();
+        LoanApplication applicationSaved = loanApplicationRepository.store(newApplication);
+        ccasServiceFacade.queryCustomerDecisionInfo(newApplication);
+        return applicationSaved;
+    }
 
-	@Override
-	public void preCaculateLimit(CustomerDecisionInfo customerDecision) {
+    @Override
+    public void preCaculateLimit(CustomerDecisionInfo customerDecision) {
 
-		LoanApplication restoredApplication = loanApplicationRepository.rebuild(customerDecision.getPlatformSeqNo(),customerDecision.getProductCode());
+        LoanApplication restoredApplication =
+                loanApplicationRepository.rebuild(customerDecision.getPlatformSeqNo(), customerDecision.getProductCode());
 
-		restoredApplication.attach(customerDecision);
-		// 分配叙做机构
-		restoredApplication.assignOperationBranch();
-		// 定价
-		restoredApplication.pricing();
-		LoanApplication preCalculatedApplication = blazeServiceFacade.preCalculateLimit(restoredApplication);
+        restoredApplication.attach(customerDecision);
+        // 分配叙做机构
+        restoredApplication.assignOperationBranch();
+        // 定价
+        restoredApplication.pricing();
+        LoanApplication preCalculatedApplication = blazeServiceFacade.preCalculateLimit(restoredApplication);
 
-		preCalculatedApplication.approve();
-		loanApplicationRepository.update(preCalculatedApplication);
-		ccasServiceFacade.approveLoanLimit(preCalculatedApplication);
-	}
+        preCalculatedApplication.approve();
+        loanApplicationRepository.update(preCalculatedApplication);
+        ccasServiceFacade.approveLoanLimit(preCalculatedApplication);
+    }
 
-	/**
-	 * 结束申请流程，贷款申请状态：{@code LoanApplication.State.APPROVED}
-	 */
-	@Override
-	public void finishApplication(final LoanApplication approvedApplication) {
-		approvedApplication.finish();
-		loanApplicationRepository.update(approvedApplication);
-	}
+    /**
+     * 结束申请流程，贷款申请状态：{@code LoanApplication.State.APPROVED}
+     */
+    @Override
+    public void finishApplication(final LoanApplication approvedApplication) {
+        approvedApplication.finish();
+        loanApplicationRepository.update(approvedApplication);
+    }
 }

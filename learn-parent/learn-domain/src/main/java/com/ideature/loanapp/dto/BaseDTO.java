@@ -13,8 +13,7 @@ public abstract class BaseDTO {
      *
      * @return retStr is string of fields listed in the DTO
      */
-    public String toString()
-    {
+    public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);
     }
 }

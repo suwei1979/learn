@@ -7,21 +7,21 @@ import java.util.UUID;
 
 public class OrderStatus {
 
-  private UUID key;
+    private UUID key;
 
-  public OrderStatus() {
-    key = null;
-  }
+    public OrderStatus() {
+        key = null;
+    }
 
-  public OrderStatus(UUID key) {
-    this.key = key;
-  }
+    public OrderStatus(UUID key) {
+        this.key = key;
+    }
 
-  public UUID getKey() {
-    return key;
-  }
+    public UUID getKey() {
+        return key;
+    }
 
-  public void setKey(UUID key) {
-    this.key = key;
-  }
+    public void setKey(UUID key) {
+        this.key = key;
+    }
 }

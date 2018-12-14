@@ -7,14 +7,14 @@ import test.spring.methodinjection.Command;
 
 public class ConcreteCommand implements Command {
 
-	public Object execute() {
-		// TODO Auto-generated provider stub
-		return null;
-	}
+    public Object execute() {
+        // TODO Auto-generated provider stub
+        return null;
+    }
 
-	public void setState(Object commandState) {
-		// TODO Auto-generated provider stub
+    public void setState(Object commandState) {
+        // TODO Auto-generated provider stub
 
-	}
+    }
 
 }

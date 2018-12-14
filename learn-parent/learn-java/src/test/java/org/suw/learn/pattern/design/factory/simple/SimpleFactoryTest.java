@@ -3,20 +3,18 @@
  */
 package org.suw.learn.pattern.design.factory.simple;
 
-import org.suw.learn.pattern.design.factory.simple.MessageSender;
-import org.suw.learn.pattern.design.factory.simple.SampleFactory;
+import org.suw.learn.pattern.design.factory.service.sender.Sender;
+import org.suw.learn.pattern.design.factory.service.sender.SenderType;
 
 public class SimpleFactoryTest {
-    public static final int SENDER_TYPE_MAIL = 1;
-    public static final int SENDER_TYPE_SMS = 2;
     public static void main(String[] args) {
-        MessageSender sender = SampleFactory.create(SENDER_TYPE_MAIL);
+        Sender sender = SimpleSenderFactory.create(SenderType.MAIL);
         sender.send();
-        sender = SampleFactory.create(SENDER_TYPE_SMS);
+        sender = SimpleSenderFactory.create(SenderType.SMS);
         sender.send();
-        sender = SampleFactory.produceMailSender();
+        sender = SimpleSenderFactory.createMailSender();
         sender.send();
-        sender = SampleFactory.produceSmsSender();
+        sender = SimpleSenderFactory.createSmsSender();
         sender.send();
     }
 }

@@ -13,12 +13,13 @@ import java.util.UUID;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-// {!begin import}
 import org.springframework.hateoas.ResourceSupport;
 
 import com.yummynoodlebar.core.events.orders.OrderDetails;
-// {!end import}
 import com.yummynoodlebar.rest.controller.OrderQueriesController;
+
+// {!begin import}
+// {!end import}
 
 //TODOCUMENT This is added so that we can do jaxb serialisation.
 //this type of annotation is fine here, as this
@@ -27,74 +28,74 @@ import com.yummynoodlebar.rest.controller.OrderQueriesController;
 @XmlRootElement
 // {!begin resourceSupport}
 public class Order extends ResourceSupport implements Serializable {
-// {!end resourceSupport}
+    // {!end resourceSupport}
 
-  private Date dateTimeOfSubmission;
+    private Date dateTimeOfSubmission;
 
-  private Map<String, Integer> items;
+    private Map<String, Integer> items;
 
-  private UUID key;
+    private UUID key;
 
-  public Date getDateTimeOfSubmission() {
-    return dateTimeOfSubmission;
-  }
+    // {!begin fromOrderDetails}
+    public static Order fromOrderDetails(OrderDetails orderDetails) {
+        Order order = new Order();
 
-  public UUID getKey() {
-    return key;
-  }
+        order.dateTimeOfSubmission = orderDetails.getDateTimeOfSubmission();
+        order.key = orderDetails.getKey();
+        order.setItems(orderDetails.getOrderItems());
 
-  public Map<String, Integer> getItems() {
-    return items;
-  }
+        //TODOCUMENT.  Adding the library, the above extends ResourceSupport and
+        //this section is all that is actually needed in our model to add hateoas support.
 
-  public void setItems(Map<String, Integer> items) {
-    if (items == null) {
-      this.items = Collections.emptyMap();
-    } else {
-      this.items = Collections.unmodifiableMap(items);
+        //Much of the rest of the framework is helping deal with the blending of domains that happens in many spring apps
+        //We have explicitly avoided that.
+        // {!begin selfRel}
+        order.add(linkTo(OrderQueriesController.class).slash(order.key).withSelfRel());
+        // {!end selfRel}
+        // {!begin status}
+        order.add(linkTo(OrderQueriesController.class).slash(order.key).slash("status").withRel("Order Status"));
+        // {!end status}
+        order.add(linkTo(OrderQueriesController.class).slash(order.key).slash("paymentdetails").withRel("Payment Details"));
+
+        return order;
     }
-  }
 
-  public void setDateTimeOfSubmission(Date dateTimeOfSubmission) {
-    this.dateTimeOfSubmission = dateTimeOfSubmission;
-  }
+    public Date getDateTimeOfSubmission() {
+        return dateTimeOfSubmission;
+    }
 
-  public void setKey(UUID key) {
-    this.key = key;
-  }
+    public void setDateTimeOfSubmission(Date dateTimeOfSubmission) {
+        this.dateTimeOfSubmission = dateTimeOfSubmission;
+    }
 
-  public OrderDetails toOrderDetails() {
-    OrderDetails details = new OrderDetails();
+    public UUID getKey() {
+        return key;
+    }
 
-    details.setOrderItems(items);
-    details.setKey(key);
-    details.setDateTimeOfSubmission(dateTimeOfSubmission);
+    public void setKey(UUID key) {
+        this.key = key;
+    }
 
-    return details;
-  }
+    public Map<String, Integer> getItems() {
+        return items;
+    }
 
-  // {!begin fromOrderDetails}
-  public static Order fromOrderDetails(OrderDetails orderDetails) {
-    Order order = new Order();
+    public void setItems(Map<String, Integer> items) {
+        if (items == null) {
+            this.items = Collections.emptyMap();
+        } else {
+            this.items = Collections.unmodifiableMap(items);
+        }
+    }
 
-    order.dateTimeOfSubmission = orderDetails.getDateTimeOfSubmission();
-    order.key = orderDetails.getKey();
-    order.setItems(orderDetails.getOrderItems());
+    public OrderDetails toOrderDetails() {
+        OrderDetails details = new OrderDetails();
 
-    //TODOCUMENT.  Adding the library, the above extends ResourceSupport and
-    //this section is all that is actually needed in our model to add hateoas support.
+        details.setOrderItems(items);
+        details.setKey(key);
+        details.setDateTimeOfSubmission(dateTimeOfSubmission);
 
-    //Much of the rest of the framework is helping deal with the blending of domains that happens in many spring apps
-    //We have explicitly avoided that.
-    // {!begin selfRel}
-    order.add(linkTo(OrderQueriesController.class).slash(order.key).withSelfRel());
-    // {!end selfRel}
-    // {!begin status}
-    order.add(linkTo(OrderQueriesController.class).slash(order.key).slash("status").withRel("Order Status"));
-    // {!end status}
-    order.add(linkTo(OrderQueriesController.class).slash(order.key).slash("paymentdetails").withRel("Payment Details"));
-
-    return order;
-  }
-  // {!end fromOrderDetails}
+        return details;
+    }
+    // {!end fromOrderDetails}
 }

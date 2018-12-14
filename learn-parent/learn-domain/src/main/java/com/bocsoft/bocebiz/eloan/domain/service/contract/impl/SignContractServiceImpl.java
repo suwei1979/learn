@@ -10,28 +10,28 @@ import com.bocsoft.bocebiz.eloan.domain.model.contract.SignContractTran;
 import com.bocsoft.bocebiz.eloan.domain.service.contract.SignContractService;
 import com.bocsoft.bocebiz.eloan.domain.service.spi.annotation.MainProcessConfiguration;
 
-@MainProcessConfiguration(routeTable="signContractRouteTable", proxyedInterfaces = { SignContractService.class})
+@MainProcessConfiguration(routeTable = "signContractRouteTable", proxyedInterfaces = {SignContractService.class})
 public class SignContractServiceImpl implements SignContractService {
-	CCASServiceFacade ccasServiceFacade;
-	CMSServiceFacade cmsServiceFacade;
-	SignContrantTranRepository signContrantTranRepository;
-	
-	@Override
-	public SignContractTran initContract(String transactionNo) {
-		Contract contract = ccasServiceFacade.queryContractInfo(transactionNo);
-		ContractTemplate template = cmsServiceFacade.queryContract(contract.getTemplate().getTemplateId());
-		contract.setTemplate(template);
-		SignContractTran transaction = new SignContractTran(contract);
-		return transaction;
-	}
+    CCASServiceFacade ccasServiceFacade;
+    CMSServiceFacade cmsServiceFacade;
+    SignContrantTranRepository signContrantTranRepository;
 
-	@Override
-	public SignContractTran signContract(SignContractTran contractToSign) {
-		contractToSign.signContract();//记状态
-		SignContractTran tranSigned = ccasServiceFacade.signContract(contractToSign);
-		tranSigned.signContract();//变状态
-		return signContrantTranRepository.store(tranSigned);
-	}
+    @Override
+    public SignContractTran initContract(String transactionNo) {
+        Contract contract = ccasServiceFacade.queryContractInfo(transactionNo);
+        ContractTemplate template = cmsServiceFacade.queryContract(contract.getTemplate().getTemplateId());
+        contract.setTemplate(template);
+        SignContractTran transaction = new SignContractTran(contract);
+        return transaction;
+    }
+
+    @Override
+    public SignContractTran signContract(SignContractTran contractToSign) {
+        contractToSign.signContract();//记状态
+        SignContractTran tranSigned = ccasServiceFacade.signContract(contractToSign);
+        tranSigned.signContract();//变状态
+        return signContrantTranRepository.store(tranSigned);
+    }
 
 }
 

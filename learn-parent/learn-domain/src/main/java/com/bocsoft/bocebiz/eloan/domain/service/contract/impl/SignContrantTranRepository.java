@@ -7,6 +7,6 @@ import com.bocsoft.bocebiz.eloan.domain.model.contract.SignContractTran;
 
 public interface SignContrantTranRepository {
 
-	SignContractTran store(SignContractTran contractToSign);
+    SignContractTran store(SignContractTran contractToSign);
 
 }

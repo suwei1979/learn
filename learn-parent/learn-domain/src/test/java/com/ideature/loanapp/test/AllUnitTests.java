@@ -18,14 +18,14 @@ import com.ideature.loanapp.service.LoanAppDozerDataMapperTest;
 
 @RunWith(Suite.class)
 @SuiteClasses(value = {
-		LoanRepositoryJpaImplTest.class,
-		BorrowerRepositoryJpaImplTest.class,
-		ProductRateRepositoryJpaImplTest.class,
-		FundingRepositoryJpaImplTest.class,
-		JBossCacheAspectTest.class,
-		FundingRequestDataMapperTest.class,
-		LoanAppDozerDataMapperTest.class,
-		FundingServiceImplSecurityTest.class
+        LoanRepositoryJpaImplTest.class,
+        BorrowerRepositoryJpaImplTest.class,
+        ProductRateRepositoryJpaImplTest.class,
+        FundingRepositoryJpaImplTest.class,
+        JBossCacheAspectTest.class,
+        FundingRequestDataMapperTest.class,
+        LoanAppDozerDataMapperTest.class,
+        FundingServiceImplSecurityTest.class
 })
 public class AllUnitTests {
 

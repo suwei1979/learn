@@ -5,9 +5,9 @@ package test.spring.sample;
 
 public class GirlFactory {
 
-	public static Girl giveMeAGirl() {
+    public static Girl giveMeAGirl() {
 
-		return null;
-	}
+        return null;
+    }
 
 }

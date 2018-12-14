@@ -18,15 +18,14 @@ import com.yummynoodlebar.core.services.OrderService;
 @Configuration
 public class CoreConfig {
 
+    @Bean
+    public OrderService createService(OrdersRepository repo) {
+        return new OrderEventHandler(repo);
+    }
 
-  @Bean
-  public OrderService createService(OrdersRepository repo) {
-    return new OrderEventHandler(repo);
-  }
-
-  @Bean
-  public OrdersRepository createRepo() {
-    return new OrdersMemoryRepository(new HashMap<UUID, Order>());
-  }
+    @Bean
+    public OrdersRepository createRepo() {
+        return new OrdersMemoryRepository(new HashMap<UUID, Order>());
+    }
 
 }

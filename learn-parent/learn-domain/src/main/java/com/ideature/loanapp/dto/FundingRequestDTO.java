@@ -6,199 +6,197 @@ package com.ideature.loanapp.dto;
 import java.math.BigDecimal;
 
 public class FundingRequestDTO extends BaseDTO {
-	
-	private long loanId;
 
-	private String productGroup;
+    private long loanId;
 
-	private BigDecimal loanAmount;
+    private String productGroup;
 
-	private BigDecimal purchasePrice;
+    private BigDecimal loanAmount;
 
-	private String propertyAddress;
+    private BigDecimal purchasePrice;
 
-	private String firstName;
+    private String propertyAddress;
 
-	private String lastName;
+    private String firstName;
 
-	private String phoneNumber;
+    private String lastName;
 
-	private String emailAddress;
+    private String phoneNumber;
 
-	private String fundType;
+    private String emailAddress;
 
-	private BigDecimal fundingAmount;
+    private String fundType;
 
-	private int termInMonths;
+    private BigDecimal fundingAmount;
 
-	/**
-	 * @return the loanId
-	 */
-	public long getLoanId() {
-		return loanId;
-	}
+    private int termInMonths;
 
-	/**
-	 * @param loanId the loanId to set
-	 */
-	public void setLoanId(long loanId) {
-		this.loanId = loanId;
-	}
+    /**
+     * @return the loanId
+     */
+    public long getLoanId() {
+        return loanId;
+    }
 
-	/**
-	 * @return the productGroup
-	 */
-	public String getProductGroup() {
-		return productGroup;
-	}
+    /**
+     * @param loanId the loanId to set
+     */
+    public void setLoanId(long loanId) {
+        this.loanId = loanId;
+    }
 
-	/**
-	 * @param productGroup the productGroup to set
-	 */
-	public void setProductGroup(String productGroup) {
-		this.productGroup = productGroup;
-	}
+    /**
+     * @return the productGroup
+     */
+    public String getProductGroup() {
+        return productGroup;
+    }
 
-	/**
-	 * @return the loanAmount
-	 */
-	public BigDecimal getLoanAmount() {
-		return loanAmount;
-	}
+    /**
+     * @param productGroup the productGroup to set
+     */
+    public void setProductGroup(String productGroup) {
+        this.productGroup = productGroup;
+    }
 
-	/**
-	 * @param loanAmount the loanAmount to set
-	 */
-	public void setLoanAmount(BigDecimal loanAmount) {
-		this.loanAmount = loanAmount;
-	}
+    /**
+     * @return the loanAmount
+     */
+    public BigDecimal getLoanAmount() {
+        return loanAmount;
+    }
 
-	/**
-	 * @return the purchasePrice
-	 */
-	public BigDecimal getPurchasePrice() {
-		return purchasePrice;
-	}
+    /**
+     * @param loanAmount the loanAmount to set
+     */
+    public void setLoanAmount(BigDecimal loanAmount) {
+        this.loanAmount = loanAmount;
+    }
 
-	/**
-	 * @param purchasePrice the purchasePrice to set
-	 */
-	public void setPurchasePrice(BigDecimal purchasePrice) {
-		this.purchasePrice = purchasePrice;
-	}
+    /**
+     * @return the purchasePrice
+     */
+    public BigDecimal getPurchasePrice() {
+        return purchasePrice;
+    }
 
-	/**
-	 * @return the propertyAddress
-	 */
-	public String getPropertyAddress() {
-		return propertyAddress;
-	}
+    /**
+     * @param purchasePrice the purchasePrice to set
+     */
+    public void setPurchasePrice(BigDecimal purchasePrice) {
+        this.purchasePrice = purchasePrice;
+    }
 
-	/**
-	 * @param propertyAddress the propertyAddress to set
-	 */
-	public void setPropertyAddress(String propertyAddress) {
-		this.propertyAddress = propertyAddress;
-	}
+    /**
+     * @return the propertyAddress
+     */
+    public String getPropertyAddress() {
+        return propertyAddress;
+    }
 
-	/**
-	 * @return the firstName
-	 */
-	public String getFirstName() {
-		return firstName;
-	}
+    /**
+     * @param propertyAddress the propertyAddress to set
+     */
+    public void setPropertyAddress(String propertyAddress) {
+        this.propertyAddress = propertyAddress;
+    }
 
-	/**
-	 * @param firstName the firstName to set
-	 */
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    /**
+     * @return the firstName
+     */
+    public String getFirstName() {
+        return firstName;
+    }
 
-	/**
-	 * @return the lastName
-	 */
-	public String getLastName() {
-		return lastName;
-	}
+    /**
+     * @param firstName the firstName to set
+     */
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	/**
-	 * @param lastName the lastName to set
-	 */
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    /**
+     * @return the lastName
+     */
+    public String getLastName() {
+        return lastName;
+    }
 
-	/**
-	 * @return the phoneNumber
-	 */
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
+    /**
+     * @param lastName the lastName to set
+     */
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	/**
-	 * @param phoneNumber the phoneNumber to set
-	 */
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
+    /**
+     * @return the phoneNumber
+     */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
-	/**
-	 * @return the emailAddress
-	 */
-	public String getEmailAddress() {
-		return emailAddress;
-	}
+    /**
+     * @param phoneNumber the phoneNumber to set
+     */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
-	/**
-	 * @param emailAddress the emailAddress to set
-	 */
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
-	}
+    /**
+     * @return the emailAddress
+     */
+    public String getEmailAddress() {
+        return emailAddress;
+    }
 
-	/**
-	 * @return the fundType
-	 */
-	public String getFundType() {
-		return fundType;
-	}
+    /**
+     * @param emailAddress the emailAddress to set
+     */
+    public void setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
+    }
 
-	/**
-	 * @param fundType the fundType to set
-	 */
-	public void setFundType(String fundType) {
-		this.fundType = fundType;
-	}
+    /**
+     * @return the fundType
+     */
+    public String getFundType() {
+        return fundType;
+    }
 
-	/**
-	 * @return the fundingAmount
-	 */
-	public BigDecimal getFundingAmount() {
-		return fundingAmount;
-	}
+    /**
+     * @param fundType the fundType to set
+     */
+    public void setFundType(String fundType) {
+        this.fundType = fundType;
+    }
 
-	/**
-	 * @param fundingAmount the fundingAmount to set
-	 */
-	public void setFundingAmount(BigDecimal fundingAmount) {
-		this.fundingAmount = fundingAmount;
-	}
+    /**
+     * @return the fundingAmount
+     */
+    public BigDecimal getFundingAmount() {
+        return fundingAmount;
+    }
 
-	/**
-	 * @return the termInMonths
-	 */
-	public int getTermInMonths() {
-		return termInMonths;
-	}
+    /**
+     * @param fundingAmount the fundingAmount to set
+     */
+    public void setFundingAmount(BigDecimal fundingAmount) {
+        this.fundingAmount = fundingAmount;
+    }
 
-	/**
-	 * @param termInMonths the termInMonths to set
-	 */
-	public void setTermInMonths(int termInMonths) {
-		this.termInMonths = termInMonths;
-	}
-	
-	
+    /**
+     * @return the termInMonths
+     */
+    public int getTermInMonths() {
+        return termInMonths;
+    }
+
+    /**
+     * @param termInMonths the termInMonths to set
+     */
+    public void setTermInMonths(int termInMonths) {
+        this.termInMonths = termInMonths;
+    }
 
 }

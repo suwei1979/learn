@@ -13,17 +13,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-  protected void registerAuthentication(AuthenticationManagerBuilder auth) throws Exception {
-    auth.inMemoryAuthentication()
-        .withUser("letsnosh").password("noshing").roles("USER");
-  }
+    protected void registerAuthentication(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .withUser("letsnosh").password("noshing").roles("USER");
+    }
 
-  @Override
-  protected void configure(HttpSecurity http) throws Exception {
-//    http.authorizeUrls()
-//        .antMatchers("/aggregators/**").hasRole("USER")
-//        .anyRequest().anonymous()
-//        .and()
-//        .httpBasic();
-  }
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        //    http.authorizeUrls()
+        //        .antMatchers("/aggregators/**").hasRole("USER")
+        //        .anyRequest().anonymous()
+        //        .and()
+        //        .httpBasic();
+    }
 }

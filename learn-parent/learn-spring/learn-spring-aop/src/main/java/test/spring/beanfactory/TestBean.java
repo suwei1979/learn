@@ -10,25 +10,24 @@ import org.springframework.beans.factory.BeanNameAware;
 
 /**
  * ʵ����BeanFactoryAware��BeanNameAware�ص��ӿ�
- * 
- * @author worldheart
  *
+ * @author worldheart
  */
 public class TestBean implements ITestBean, BeanFactoryAware, BeanNameAware {
 
-//	private BeanFactory bf;
-//	
-//	private String beanName;
-		
-	public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-//		this.bf = beanFactory;
-	}
+    //	private BeanFactory bf;
+    //
+    //	private String beanName;
 
-	public void setBeanName(String name) {
-//		this.beanName = name;
-	}
-	
-	public void testBean() {
-	}
-	
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        //		this.bf = beanFactory;
+    }
+
+    public void setBeanName(String name) {
+        //		this.beanName = name;
+    }
+
+    public void testBean() {
+    }
+
 }

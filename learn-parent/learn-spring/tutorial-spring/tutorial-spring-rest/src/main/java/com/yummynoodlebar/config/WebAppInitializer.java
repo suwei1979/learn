@@ -13,51 +13,51 @@ import org.springframework.web.context.support.AnnotationConfigWebApplicationCon
 
 public class WebAppInitializer implements WebApplicationInitializer {
 
-  private static Logger LOG = LoggerFactory.getLogger(WebAppInitializer.class);
+    private static Logger LOG = LoggerFactory.getLogger(WebAppInitializer.class);
 
-  @Override
-  public void onStartup(ServletContext servletContext) {
-    WebApplicationContext rootContext = createRootContext(servletContext);
+    @Override
+    public void onStartup(ServletContext servletContext) {
+        WebApplicationContext rootContext = createRootContext(servletContext);
 
-    configureSpringMvc(servletContext, rootContext);
+        configureSpringMvc(servletContext, rootContext);
 
-    configureSpringSecurity(servletContext, rootContext);
-  }
+        configureSpringSecurity(servletContext, rootContext);
+    }
 
-  private WebApplicationContext createRootContext(ServletContext servletContext) {
-    AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-    rootContext.register(CoreConfig.class, SecurityConfig.class);
-    rootContext.refresh();
+    private WebApplicationContext createRootContext(ServletContext servletContext) {
+        AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
+        rootContext.register(CoreConfig.class, SecurityConfig.class);
+        rootContext.refresh();
 
-//    servletContext.addListener(new ContextLoaderListener(rootContext));
-//    servletContext.setInitParameter("defaultHtmlEscape", "true");
+        //    servletContext.addListener(new ContextLoaderListener(rootContext));
+        //    servletContext.setInitParameter("defaultHtmlEscape", "true");
 
-    return rootContext;
-  }
+        return rootContext;
+    }
 
-  private void configureSpringMvc(ServletContext servletContext, WebApplicationContext rootContext) {
-    AnnotationConfigWebApplicationContext mvcContext = new AnnotationConfigWebApplicationContext();
-    mvcContext.register(MVCConfig.class);
+    private void configureSpringMvc(ServletContext servletContext, WebApplicationContext rootContext) {
+        AnnotationConfigWebApplicationContext mvcContext = new AnnotationConfigWebApplicationContext();
+        mvcContext.register(MVCConfig.class);
 
-    mvcContext.setParent(rootContext);
+        mvcContext.setParent(rootContext);
 
-////    ServletRegistration.Dynamic appServlet = servletContext.addServlet(
-////        "webservice", new DispatcherServlet(mvcContext));
-//    appServlet.setLoadOnStartup(1);
-//    Set<String> mappingConflicts = appServlet.addMapping("/");
-//
-//    if (!mappingConflicts.isEmpty()) {
-//      for (String s : mappingConflicts) {
-//        LOG.error("Mapping conflict: " + s);
-//      }
-//      throw new IllegalStateException(
-//          "'webservice' cannot be mapped to '/'");
-//    }
-  }
+        ////    ServletRegistration.Dynamic appServlet = servletContext.addServlet(
+        ////        "webservice", new DispatcherServlet(mvcContext));
+        //    appServlet.setLoadOnStartup(1);
+        //    Set<String> mappingConflicts = appServlet.addMapping("/");
+        //
+        //    if (!mappingConflicts.isEmpty()) {
+        //      for (String s : mappingConflicts) {
+        //        LOG.error("Mapping conflict: " + s);
+        //      }
+        //      throw new IllegalStateException(
+        //          "'webservice' cannot be mapped to '/'");
+        //    }
+    }
 
-  private void configureSpringSecurity(ServletContext servletContext, WebApplicationContext rootContext) {
-//    FilterRegistration.Dynamic springSecurity = servletContext.addFilter("springSecurityFilterChain",
-//        new DelegatingFilterProxy("springSecurityFilterChain", rootContext));
-//    springSecurity.addMappingForUrlPatterns(null, true, "/*");
-  }
+    private void configureSpringSecurity(ServletContext servletContext, WebApplicationContext rootContext) {
+        //    FilterRegistration.Dynamic springSecurity = servletContext.addFilter("springSecurityFilterChain",
+        //        new DelegatingFilterProxy("springSecurityFilterChain", rootContext));
+        //    springSecurity.addMappingForUrlPatterns(null, true, "/*");
+    }
 }

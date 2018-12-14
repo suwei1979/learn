@@ -10,10 +10,10 @@ import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 
 public class BeanCounter implements BeanFactoryPostProcessor {
-	private Log LOGGER = LogFactory.getLog(BeanCounter.class);
+    private Log LOGGER = LogFactory.getLog(BeanCounter.class);
 
-	public void postProcessBeanFactory(ConfigurableListableBeanFactory factory) throws BeansException {
-		LOGGER.info(factory.getBeanDefinitionCount());
-	}
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory factory) throws BeansException {
+        LOGGER.info(factory.getBeanDefinitionCount());
+    }
 
 }

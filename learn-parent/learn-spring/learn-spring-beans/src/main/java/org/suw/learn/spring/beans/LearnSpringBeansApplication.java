@@ -40,5 +40,4 @@ public class LearnSpringBeansApplication implements Application {
 
     }
 
-
 }

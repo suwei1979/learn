@@ -20,8 +20,8 @@ public class LoanApplicationFactory {
 
     @Autowired
     public LoanApplicationFactory(ProductRepository productRepo,
-            LoanApplicationRepository loanApplicationRepo,
-            LoanLimitRepository loanLimitRepo) {
+                                  LoanApplicationRepository loanApplicationRepo,
+                                  LoanLimitRepository loanLimitRepo) {
         this.productRepository = productRepo;
         this.loanApplicationRepository = loanApplicationRepo;
         this.partyFactoryLoader = new SpringPartyFactoryLoader();
@@ -30,18 +30,20 @@ public class LoanApplicationFactory {
 
     /**
      * Document example
-     * 
+     *
      * @param platformSeqNo
-     * @param productCode
-     *            产品码，必须在系统中存在，否则将抛出UnexistsProductException
+     * @param productCode   产品码，必须在系统中存在，否则将抛出UnexistsProductException
+     *
      * @return
+     *
      * @throws BusinessException
      */
     public LoanApplication createNewApplication(String platformSeqNo, String productCode) {
         //是否进行此检查，是一个需要架构师决策的问题。可以在此处检查，也可以不在此处检查，待数据库抛出异常后发现主键重复异常，再封装后转抛。
         //无论怎样，这都是一个公共的处理标准，我们甚至可以通过接口和切面将此部分工作抽取出来。
-        if (loanApplicationRepository.exist(platformSeqNo))
+        if (loanApplicationRepository.exist(platformSeqNo)) {
             throw new DuplicatedApplicationException("");
+        }
         ProductType productType = productRepository.findByProductCode(productCode);
         if (productType == null) {
             throw new UnexistsProductException("");
@@ -50,9 +52,9 @@ public class LoanApplicationFactory {
         Party applicant = partyFactoryLoader.getPartyFactory(applicantType.getName()).create();
 
         LoanLimit loanLimit = new LoanLimit(platformSeqNo);
-        
+
         LoanApplication loanApplication = new LoanApplication(platformSeqNo, productType, applicant, loanLimit);
 
         return loanApplication;
-    } 
+    }
 }

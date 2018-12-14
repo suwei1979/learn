@@ -25,42 +25,42 @@ import com.bocsoft.bocebiz.eloan.domain.service.spi.impl.spring.ExtensionProcess
  * Top Configuration of spring.
  */
 @ComponentScan(basePackages = "com.bocsoft.bocebiz.eloan.domain",
-    includeFilters = @ComponentScan.Filter(value = Aspect.class, type = FilterType.ANNOTATION))
+        includeFilters = @ComponentScan.Filter(value = Aspect.class, type = FilterType.ANNOTATION))
 @Configuration
 @EnableAspectJAutoProxy(proxyTargetClass = true)
 @EnableAutoConfiguration
-public class Application implements Loader{
+public class Application implements Loader {
 
-	  private ApplicationContext ctx;
+    private ApplicationContext ctx;
 
-	  @Override
-	  public void start() {
-	    SpringApplication application = new SpringApplicationBuilder()
-	        .sources(Application.class)
-	        .showBanner(false).web(false).build();
-	    application.addListeners(new AppArgsLogInitializationListener());
-	    ctx = application.run();
-	  }
+    @Override
+    public void start() {
+        SpringApplication application = new SpringApplicationBuilder()
+                .sources(Application.class)
+                .showBanner(false).web(false).build();
+        application.addListeners(new AppArgsLogInitializationListener());
+        ctx = application.run();
+    }
 
-	  @Override
-	  public void stop() {
-	    if (ctx != null) {
-	      SpringApplication.exit(ctx);
-	    }
-	  }
-	  
-	  @Bean
-	  public ApplyService applyService() {
-		  return new ApplyServiceImpl();
-	  }
-	  
-	  @Bean
-	  public ExtensionProcessAssembler extensionProcessAssembler() {
-		  return new ExtensionProcessAssembler();
-	  }
-	  
-	  @Bean
-	  public SpringUtils springUtils() {
-		  return new SpringUtils();
-	  }
+    @Override
+    public void stop() {
+        if (ctx != null) {
+            SpringApplication.exit(ctx);
+        }
+    }
+
+    @Bean
+    public ApplyService applyService() {
+        return new ApplyServiceImpl();
+    }
+
+    @Bean
+    public ExtensionProcessAssembler extensionProcessAssembler() {
+        return new ExtensionProcessAssembler();
+    }
+
+    @Bean
+    public SpringUtils springUtils() {
+        return new SpringUtils();
+    }
 }

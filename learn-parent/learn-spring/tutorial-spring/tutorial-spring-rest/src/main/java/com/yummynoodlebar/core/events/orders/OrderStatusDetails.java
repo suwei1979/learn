@@ -7,19 +7,19 @@ import java.util.Date;
 
 public class OrderStatusDetails {
 
-  private Date statusDate;
-  private String status;
+    private Date statusDate;
+    private String status;
 
-  public OrderStatusDetails(Date statusDate, String status) {
-    this.status = status;
-    this.statusDate = statusDate;
-  }
+    public OrderStatusDetails(Date statusDate, String status) {
+        this.status = status;
+        this.statusDate = statusDate;
+    }
 
-  public Date getStatusDate() {
-    return statusDate;
-  }
+    public Date getStatusDate() {
+        return statusDate;
+    }
 
-  public String getStatus() {
-    return status;
-  }
+    public String getStatus() {
+        return status;
+    }
 }

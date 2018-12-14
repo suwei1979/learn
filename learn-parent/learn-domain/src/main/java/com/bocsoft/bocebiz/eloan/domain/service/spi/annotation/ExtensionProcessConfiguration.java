@@ -13,14 +13,16 @@ import java.lang.annotation.Target;
 
 /**
  * 扩展流程执行策略标记
- * @author sw0876
  *
+ * @author sw0876
  */
 @Documented
-@Target( {ANNOTATION_TYPE, TYPE})
+@Target({ANNOTATION_TYPE, TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ExtensionProcessConfiguration {
-	public ProcessExecutionPolicy executionPolicy() default ProcessExecutionPolicy.ASYCHRONIZED;
-	public boolean inMainProcessTransaction() default false;
-	public ExtensionProcessType type() default ExtensionProcessType.POST_PROCESS;
+    public ProcessExecutionPolicy executionPolicy() default ProcessExecutionPolicy.ASYCHRONIZED;
+
+    public boolean inMainProcessTransaction() default false;
+
+    public ExtensionProcessType type() default ExtensionProcessType.POST_PROCESS;
 }

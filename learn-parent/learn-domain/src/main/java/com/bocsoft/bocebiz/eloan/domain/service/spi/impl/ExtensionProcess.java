@@ -9,7 +9,7 @@ import com.bocsoft.bocebiz.eloan.domain.service.spi.annotation.ExtensionProcessT
 
 public interface ExtensionProcess {
 
-	Object process(Method method, Object... args);
-	
-	ExtensionProcessType getType();
+    Object process(Method method, Object... args);
+
+    ExtensionProcessType getType();
 }

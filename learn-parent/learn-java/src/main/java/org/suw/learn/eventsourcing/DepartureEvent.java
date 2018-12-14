@@ -13,21 +13,21 @@ import lombok.Setter;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class DepartureEvent extends DomainEvent {
-	@Setter(value = AccessLevel.NONE)
-	private Port port;
+    @Setter(value = AccessLevel.NONE)
+    private Port port;
 
-	@Setter(value = AccessLevel.NONE)
-	private Ship ship;
+    @Setter(value = AccessLevel.NONE)
+    private Ship ship;
 
-	public DepartureEvent(Date time, Port aPort, Ship aShip) {
-		super(time);
-		this.port = aPort;
-		this.ship = aShip;
-	}
+    public DepartureEvent(Date time, Port aPort, Ship aShip) {
+        super(time);
+        this.port = aPort;
+        this.ship = aShip;
+    }
 
-	@Override
-	public void process() {
-		ship.handleDeparture(this);
-	}
+    @Override
+    public void process() {
+        ship.handleDeparture(this);
+    }
 
 }

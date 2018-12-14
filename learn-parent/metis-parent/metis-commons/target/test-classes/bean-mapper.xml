@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="springUtils" class="com.bocsoft.metis.commons.utils.SpringUtils" />
+	<bean id="beanMapper" class="org.dozer.spring.DozerBeanMapperFactoryBean">
+		<!--<property name="mappingFiles" value="classpath*:META-INF/dozer/*Mappings.xml"/> -->
+	</bean>
+</beans>

@@ -7,10 +7,14 @@ import com.bocsoft.bocebiz.eloan.domain.model.application.LoanApplication;
 
 public interface LoanApplicationRepository {
 
-	LoanApplication store(LoanApplication loanApplication);
-	boolean exist(String platformSeqNo);
-	void updateStatus(String platformSeqNo);
-	LoanApplication rebuild(String platformSeqNo, String productCode);
-	LoanApplication update(LoanApplication loanApplication);
+    LoanApplication store(LoanApplication loanApplication);
+
+    boolean exist(String platformSeqNo);
+
+    void updateStatus(String platformSeqNo);
+
+    LoanApplication rebuild(String platformSeqNo, String productCode);
+
+    LoanApplication update(LoanApplication loanApplication);
 
 }

@@ -12,28 +12,28 @@ import org.springframework.core.io.Resource;
 
 /**
  * ��ʾfactory-provider
- * 
+ *
  * @author worldheart
  */
 public class BeanFactoryDemo2 {
 
-	protected static final Log log = LogFactory.getLog(BeanFactoryDemo2.class);
+    protected static final Log log = LogFactory.getLog(BeanFactoryDemo2.class);
 
-	public String getContent(){
-		//��classpath·����װ��XML������Ϣ
-		Resource resource = new ClassPathResource("beanFactory2.xml");
-		//ʵ����IoC����
-		BeanFactory factory = new XmlBeanFactory(resource);
-		//����ܹ�POJO
-		IHelloWorld hw = (IHelloWorld) factory.getBean("helloWorld");
-		//�����ַ���
-		return hw.getContent();
-	}
+    public static void main(String[] args) {
+        BeanFactoryDemo2 bfd = new BeanFactoryDemo2();
+        //������ؽ��
+        log.info(bfd.getContent());
+    }
 
-	public static void main(String[] args) {
-		BeanFactoryDemo2 bfd = new BeanFactoryDemo2();
-		//������ؽ��
-		log.info(bfd.getContent());
-	}
-	
+    public String getContent() {
+        //��classpath·����װ��XML������Ϣ
+        Resource resource = new ClassPathResource("beanFactory2.xml");
+        //ʵ����IoC����
+        BeanFactory factory = new XmlBeanFactory(resource);
+        //����ܹ�POJO
+        IHelloWorld hw = (IHelloWorld) factory.getBean("helloWorld");
+        //�����ַ���
+        return hw.getContent();
+    }
+
 }

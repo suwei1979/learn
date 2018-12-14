@@ -20,37 +20,37 @@ import com.yummynoodlebar.rest.controller.OrderStatusController;
 @XmlRootElement
 public class OrderStatus extends ResourceSupport {
 
-  @XmlElement
-  private UUID orderId;
+    @XmlElement
+    private UUID orderId;
 
-  @XmlElement
-  private Date statusDate;
+    @XmlElement
+    private Date statusDate;
 
-  @XmlElement
-  private String status;
+    @XmlElement
+    private String status;
 
-  public static OrderStatus fromOrderStatusDetails(UUID key, OrderStatusDetails orderDetails) {
-    OrderStatus status = new OrderStatus();
+    public static OrderStatus fromOrderStatusDetails(UUID key, OrderStatusDetails orderDetails) {
+        OrderStatus status = new OrderStatus();
 
-    status.orderId = key;
-    status.status = orderDetails.getStatus();
-    status.statusDate = orderDetails.getStatusDate();
+        status.orderId = key;
+        status.status = orderDetails.getStatus();
+        status.statusDate = orderDetails.getStatusDate();
 
-    status.add(linkTo(OrderStatusController.class, key.toString()).withSelfRel());
-    status.add(linkTo(OrderQueriesController.class).slash(key).withRel("Order"));
+        status.add(linkTo(OrderStatusController.class, key.toString()).withSelfRel());
+        status.add(linkTo(OrderQueriesController.class).slash(key).withRel("Order"));
 
-    return status;
-  }
+        return status;
+    }
 
-  public UUID getOrderId() {
-    return orderId;
-  }
+    public UUID getOrderId() {
+        return orderId;
+    }
 
-  public Date getStatusDate() {
-    return statusDate;
-  }
+    public Date getStatusDate() {
+        return statusDate;
+    }
 
-  public String getStatus() {
-    return status;
-  }
+    public String getStatus() {
+        return status;
+    }
 }

@@ -11,37 +11,37 @@ import lombok.Setter;
 
 @Data
 public class Ship {
-	@Setter(value = AccessLevel.NONE)
-	private String name;
+    @Setter(value = AccessLevel.NONE)
+    private String name;
 
-	private Port port;
-	
-	@Setter(value = AccessLevel.NONE)
-	private List<Cargo> cargoes;
+    private Port port;
 
-	public Ship(String aName) {
-		this.name = aName;
-	}
+    @Setter(value = AccessLevel.NONE)
+    private List<Cargo> cargoes;
 
-	public void handleDeparture(DepartureEvent departureEvent) {
-		this.port = Port.AT_SEA;
-	}
+    public Ship(String aName) {
+        this.name = aName;
+    }
 
-	public void handleArrival(ArrivalEvent arrivalEvent) {
-		this.port = arrivalEvent.getPort();
-		for (Cargo cargo : cargoes) {
-			cargo.handleArrival(arrivalEvent);
-		}
-	}
+    public static Ship find(int shipCode) {
+        // TODO Auto-generated provider stub
+        return null;
+    }
 
-	public static Ship find(int shipCode) {
-		// TODO Auto-generated provider stub
-		return null;
-	}
+    public void handleDeparture(DepartureEvent departureEvent) {
+        this.port = Port.AT_SEA;
+    }
 
-	public void handleLoad(LoadEvent loadEvent) {
-		// TODO Auto-generated provider stub
-		
-	}
+    public void handleArrival(ArrivalEvent arrivalEvent) {
+        this.port = arrivalEvent.getPort();
+        for (Cargo cargo : cargoes) {
+            cargo.handleArrival(arrivalEvent);
+        }
+    }
+
+    public void handleLoad(LoadEvent loadEvent) {
+        // TODO Auto-generated provider stub
+
+    }
 
 }

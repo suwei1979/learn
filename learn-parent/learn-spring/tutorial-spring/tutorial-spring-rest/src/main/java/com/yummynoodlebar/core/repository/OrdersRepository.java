@@ -11,11 +11,11 @@ import com.yummynoodlebar.core.domain.Order;
 //TODO, make this event based again, with persistence integration events.
 public interface OrdersRepository {
 
-  Order save(Order order);
+    Order save(Order order);
 
-  void delete(UUID key);
+    void delete(UUID key);
 
-  Order findById(UUID key);
+    Order findById(UUID key);
 
-  List<Order> findAll();
+    List<Order> findAll();
 }

@@ -16,66 +16,66 @@ import com.yummynoodlebar.core.events.orders.OrderDetails;
 
 public class Order {
 
-  private final Date dateTimeOfSubmission;
-  private Map<String, Integer> orderItems;
-  private final UUID key;
-  private Customer customer;
+    private final Date dateTimeOfSubmission;
+    private final UUID key;
+    private Map<String, Integer> orderItems;
+    private Customer customer;
 
-  private OrderStatus status;
-  private List<OrderStatus> statusHistory;
+    private OrderStatus status;
+    private List<OrderStatus> statusHistory;
 
-  public Order(final Date dateTimeOfSubmission) {
-    this.key = UUID.randomUUID();
-    this.dateTimeOfSubmission = dateTimeOfSubmission;
-    statusHistory = new ArrayList<OrderStatus>();
-  }
-
-  public void addStatus(OrderStatus newStatus) {
-    statusHistory.add(newStatus);
-    status = newStatus;
-  }
-
-  public OrderStatus getStatus() {
-    return status;
-  }
-
-  public Date getDateTimeOfSubmission() {
-    return dateTimeOfSubmission;
-  }
-
-  public UUID getKey() {
-    return key;
-  }
-
-  public void setOrderItems(Map<String, Integer> orderItems) {
-    if (orderItems == null) {
-      this.orderItems = Collections.emptyMap();
-    } else {
-      this.orderItems = Collections.unmodifiableMap(orderItems);
+    public Order(final Date dateTimeOfSubmission) {
+        this.key = UUID.randomUUID();
+        this.dateTimeOfSubmission = dateTimeOfSubmission;
+        statusHistory = new ArrayList<OrderStatus>();
     }
-  }
 
-  public Map<String, Integer> getOrderItems() {
-    return orderItems;
-  }
+    public static Order fromOrderDetails(OrderDetails orderDetails) {
+        Order order = new Order(orderDetails.getDateTimeOfSubmission());
 
-  public boolean canBeDeleted() {
-    return true;
-  }
+        BeanUtils.copyProperties(orderDetails, order);
 
-  public OrderDetails toOrderDetails() {
-    OrderDetails details = new OrderDetails();
+        return order;
+    }
 
-    BeanUtils.copyProperties(this, details);
+    public void addStatus(OrderStatus newStatus) {
+        statusHistory.add(newStatus);
+        status = newStatus;
+    }
 
-    return details;
-  }
+    public OrderStatus getStatus() {
+        return status;
+    }
 
-  public static Order fromOrderDetails(OrderDetails orderDetails) {
-    Order order = new Order(orderDetails.getDateTimeOfSubmission());
+    public Date getDateTimeOfSubmission() {
+        return dateTimeOfSubmission;
+    }
 
-    BeanUtils.copyProperties(orderDetails, order);
+    public UUID getKey() {
+        return key;
+    }
 
-    return order;
-  }
+    public Map<String, Integer> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(Map<String, Integer> orderItems) {
+        if (orderItems == null) {
+            this.orderItems = Collections.emptyMap();
+        } else {
+            this.orderItems = Collections.unmodifiableMap(orderItems);
+        }
+    }
+
+    public boolean canBeDeleted() {
+        return true;
+    }
+
+    public OrderDetails toOrderDetails() {
+        OrderDetails details = new OrderDetails();
+
+        BeanUtils.copyProperties(this, details);
+
+        return details;
+    }
 }

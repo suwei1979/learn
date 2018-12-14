@@ -4,9 +4,9 @@
 package test.spring.aop;
 
 public interface ITarget {
-	public void doSomething();
+    public void doSomething();
 
-	public void doA();
+    public void doA();
 
-	public void otherThing();
+    public void otherThing();
 }

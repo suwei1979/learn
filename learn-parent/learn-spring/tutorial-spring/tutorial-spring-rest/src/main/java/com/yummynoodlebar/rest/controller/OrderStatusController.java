@@ -22,22 +22,22 @@ import com.yummynoodlebar.rest.domain.OrderStatus;
 @RequestMapping("/aggregators/orders/{id}/status")
 public class OrderStatusController {
 
-  @Autowired
-  private OrderService orderService;
+    @Autowired
+    private OrderService orderService;
 
-  @RequestMapping(method = RequestMethod.GET)
-  public ResponseEntity<OrderStatus> getOrderStatus(@PathVariable String id) {
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<OrderStatus> getOrderStatus(@PathVariable String id) {
 
-    OrderStatusEvent orderStatusEvent = orderService.requestOrderStatus(new RequestOrderStatusEvent(UUID.fromString(id)));
+        OrderStatusEvent orderStatusEvent = orderService.requestOrderStatus(new RequestOrderStatusEvent(UUID.fromString(id)));
 
-    if (!orderStatusEvent.isEntityFound()) {
-      return new ResponseEntity<OrderStatus>(HttpStatus.NOT_FOUND);
+        if (!orderStatusEvent.isEntityFound()) {
+            return new ResponseEntity<OrderStatus>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<OrderStatus>(
+                OrderStatus.fromOrderStatusDetails(
+                        orderStatusEvent.getKey(),
+                        orderStatusEvent.getOrderStatus()),
+                HttpStatus.OK);
     }
-
-    return new ResponseEntity<OrderStatus>(
-            OrderStatus.fromOrderStatusDetails(
-                    orderStatusEvent.getKey(),
-                    orderStatusEvent.getOrderStatus()),
-            HttpStatus.OK);
-  }
 }

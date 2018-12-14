@@ -4,5 +4,5 @@
 package test.spring.helloworld;
 
 public interface IHelloWorld {
-	public void sayGreeting();
+    public void sayGreeting();
 }

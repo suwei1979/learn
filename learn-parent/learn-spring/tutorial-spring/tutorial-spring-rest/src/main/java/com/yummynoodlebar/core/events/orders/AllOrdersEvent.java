@@ -11,13 +11,13 @@ import com.yummynoodlebar.core.events.ReadEvent;
 
 public class AllOrdersEvent extends ReadEvent {
 
-  private final List<OrderDetails> ordersDetails;
+    private final List<OrderDetails> ordersDetails;
 
-  public AllOrdersEvent(List<OrderDetails> orders) {
-    this.ordersDetails = Collections.unmodifiableList(orders);
-  }
+    public AllOrdersEvent(List<OrderDetails> orders) {
+        this.ordersDetails = Collections.unmodifiableList(orders);
+    }
 
-  public Collection<OrderDetails> getOrdersDetails() {
-    return this.ordersDetails;
-  }
+    public Collection<OrderDetails> getOrdersDetails() {
+        return this.ordersDetails;
+    }
 }

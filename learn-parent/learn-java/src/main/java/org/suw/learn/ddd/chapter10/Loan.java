@@ -77,5 +77,4 @@ public class Loan {
         return 0;
     }
 
-
 }

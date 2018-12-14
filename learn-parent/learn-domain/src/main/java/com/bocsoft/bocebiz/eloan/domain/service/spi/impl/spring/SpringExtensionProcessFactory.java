@@ -15,25 +15,25 @@ import com.bocsoft.bocebiz.eloan.domain.service.spi.impl.ExtensionProcessFactory
 
 public class SpringExtensionProcessFactory implements ExtensionProcessFactory, ApplicationContextAware {
 
-	private ApplicationContext applicationContext;
-	@Autowired(required = true)
-	private Executor executor;
+    private ApplicationContext applicationContext;
+    @Autowired(required = true)
+    private Executor executor;
 
-	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) {
-		this.applicationContext = applicationContext;
-	}
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) {
+        this.applicationContext = applicationContext;
+    }
 
-	/**
-	 * 
-	 */
-	@Override
-	public ExtensionProcess load(String processName) {
-		return new DefaultExtensionProcess(applicationContext.getBean(processName), executor);
-	}
+    /**
+     *
+     */
+    @Override
+    public ExtensionProcess load(String processName) {
+        return new DefaultExtensionProcess(applicationContext.getBean(processName), executor);
+    }
 
-	public void setThreadPool(Executor executor) {
-		this.executor = executor;
-	}
+    public void setThreadPool(Executor executor) {
+        this.executor = executor;
+    }
 
 }

@@ -5,53 +5,52 @@ package com.ideature.loanapp.domain;
 
 public class UnderwritingDecision {
 
-	private long loanId;
-	
-	private String underwritingDecision;
-	
-	private String reason;
+    private long loanId;
 
-	/**
-	 * @return the loanId
-	 */
-	public long getLoanId() {
-		return loanId;
-	}
+    private String underwritingDecision;
 
-	/**
-	 * @param loanId the loanId to set
-	 */
-	public void setLoanId(long loanId) {
-		this.loanId = loanId;
-	}
+    private String reason;
 
-	/**
-	 * @return the underwritingDecision
-	 */
-	public String getUnderwritingDecision() {
-		return underwritingDecision;
-	}
+    /**
+     * @return the loanId
+     */
+    public long getLoanId() {
+        return loanId;
+    }
 
-	/**
-	 * @param underwritingDecision the underwritingDecision to set
-	 */
-	public void setUnderwritingDecision(String underwritingDecision) {
-		this.underwritingDecision = underwritingDecision;
-	}
+    /**
+     * @param loanId the loanId to set
+     */
+    public void setLoanId(long loanId) {
+        this.loanId = loanId;
+    }
 
-	/**
-	 * @return the reason
-	 */
-	public String getReason() {
-		return reason;
-	}
+    /**
+     * @return the underwritingDecision
+     */
+    public String getUnderwritingDecision() {
+        return underwritingDecision;
+    }
 
-	/**
-	 * @param reason the reason to set
-	 */
-	public void setReason(String reason) {
-		this.reason = reason;
-	}
-	
-	
+    /**
+     * @param underwritingDecision the underwritingDecision to set
+     */
+    public void setUnderwritingDecision(String underwritingDecision) {
+        this.underwritingDecision = underwritingDecision;
+    }
+
+    /**
+     * @return the reason
+     */
+    public String getReason() {
+        return reason;
+    }
+
+    /**
+     * @param reason the reason to set
+     */
+    public void setReason(String reason) {
+        this.reason = reason;
+    }
+
 }

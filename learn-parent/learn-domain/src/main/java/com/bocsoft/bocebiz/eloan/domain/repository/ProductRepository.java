@@ -7,6 +7,6 @@ import com.bocsoft.bocebiz.eloan.domain.model.application.ProductType;
 
 public interface ProductRepository {
 
-	ProductType findByProductCode(String productCode);
+    ProductType findByProductCode(String productCode);
 
 }

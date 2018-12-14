@@ -3,9 +3,9 @@
  */
 package com.bocsoft.bocebiz.eloan.domain.model.application;
 
-import lombok.Data;
-
 import com.bocsoft.bocebiz.eloan.domain.model.application.customerDecision.CustomerDecisionInfo;
+
+import lombok.Data;
 
 @Data
 public abstract class Party {

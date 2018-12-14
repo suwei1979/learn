@@ -10,25 +10,27 @@ import com.bocsoft.bocebiz.eloan.domain.repository.PreCreditRepository;
 
 public class PreCreditServiceImpl implements PreCreditService {
 
-	private PreCreditRepository preCreditRepostory;
-	@Override
-	public PreCredit init(String customerNo) {
-		PreCredit tran = new PreCredit(customerNo);
-		return tran;
-	}
+    private PreCreditRepository preCreditRepostory;
 
-	/**
-	 * 批量导入
-	 * @param trans
-	 */
-	@Override
-	public void bookNewBatch(List<PreCredit> trans) {
+    @Override
+    public PreCredit init(String customerNo) {
+        PreCredit tran = new PreCredit(customerNo);
+        return tran;
+    }
 
-	}
+    /**
+     * 批量导入
+     *
+     * @param trans
+     */
+    @Override
+    public void bookNewBatch(List<PreCredit> trans) {
 
-	@Override
-	public void finish() {
+    }
 
-	}
+    @Override
+    public void finish() {
+
+    }
 
 }

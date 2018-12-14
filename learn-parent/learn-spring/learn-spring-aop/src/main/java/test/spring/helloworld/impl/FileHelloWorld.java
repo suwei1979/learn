@@ -7,9 +7,9 @@ import test.spring.helloworld.IHelloWorld;
 
 public class FileHelloWorld implements IHelloWorld {
 
-	public void sayGreeting() {
-		// TODO Auto-generated provider stub
+    public void sayGreeting() {
+        // TODO Auto-generated provider stub
 
-	}
+    }
 
 }

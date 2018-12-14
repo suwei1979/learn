@@ -9,19 +9,19 @@ import com.yummynoodlebar.core.events.UpdateEvent;
 
 public class SetPaymentEvent extends UpdateEvent {
 
-  private UUID key;
-  private OrderDetails orderDetails;
+    private UUID key;
+    private OrderDetails orderDetails;
 
-  public SetPaymentEvent(UUID key, OrderDetails orderDetails) {
-    this.key = key;
-    this.orderDetails = orderDetails;
-  }
+    public SetPaymentEvent(UUID key, OrderDetails orderDetails) {
+        this.key = key;
+        this.orderDetails = orderDetails;
+    }
 
-  public UUID getKey() {
-    return key;
-  }
+    public UUID getKey() {
+        return key;
+    }
 
-  public OrderDetails getOrderDetails() {
-    return orderDetails;
-  }
+    public OrderDetails getOrderDetails() {
+        return orderDetails;
+    }
 }

@@ -7,6 +7,6 @@ import com.bocsoft.bocebiz.eloan.domain.model.contract.ContractTemplate;
 
 public interface CMSServiceFacade {
 
-	ContractTemplate queryContract(String templateId);
+    ContractTemplate queryContract(String templateId);
 
 }

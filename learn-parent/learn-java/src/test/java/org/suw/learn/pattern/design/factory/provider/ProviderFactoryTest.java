@@ -3,11 +3,11 @@
  */
 package org.suw.learn.pattern.design.factory.provider;
 
-import org.suw.learn.pattern.design.factory.service.Sender;
+import org.suw.learn.pattern.design.factory.service.sender.Sender;
 
 public class ProviderFactoryTest {
     public static void main(String args[]) {
-        SenderProvider provider = new SendMailFactory();
+        SenderProvider provider = new MailSenderFactory();
         Sender sender = provider.produce();
         sender.send();
     }

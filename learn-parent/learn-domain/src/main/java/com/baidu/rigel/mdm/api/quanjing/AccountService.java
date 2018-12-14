@@ -5,7 +5,6 @@ package com.baidu.rigel.mdm.api.quanjing;
 
 /**
  * @author suwei
- *
  */
 public interface AccountService {
 

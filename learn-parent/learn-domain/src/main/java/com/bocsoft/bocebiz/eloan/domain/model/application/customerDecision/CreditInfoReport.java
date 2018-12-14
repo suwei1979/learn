@@ -10,10 +10,10 @@ import lombok.Data;
  * ClassName:CreditInfoReport <br/>
  * Function: 征信报告. <br/>
  * Date:     2015年6月27日 下午3:57:27 <br/>
- * @author   st-wg-lbw5833
- * @version  
- * @since    JDK 1.6
- * @see 	 
+ *
+ * @author st-wg-lbw5833
+ * @see
+ * @since JDK 1.6
  */
 @Data
 public class CreditInfoReport {

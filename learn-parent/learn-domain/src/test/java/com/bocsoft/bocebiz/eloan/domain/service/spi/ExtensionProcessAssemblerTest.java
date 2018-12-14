@@ -18,24 +18,26 @@ import com.bocsoft.bocebiz.eloan.domain.service.spi.impl.ExtensionProcessFactory
 import com.bocsoft.bocebiz.eloan.domain.service.spi.impl.ProcessRouteTableFactory;
 import com.bocsoft.bocebiz.eloan.domain.service.spi.impl.spring.ExtensionProcessAssembler;
 
-public class ExtensionProcessAssemblerTest  extends ITContext implements ApplicationContextAware {
+public class ExtensionProcessAssemblerTest extends ITContext implements ApplicationContextAware {
 
-	private ExpectedException exception = ExpectedException.none();
-	@Test
-	public void testAssembleResult() {
-		ExtensionProcessAssembler assembler = SpringUtils.getBean(ExtensionProcessAssembler.class);
-		ProcessRouteTableFactory routeTable = SpringUtils.getBean(ProcessRouteTableFactory.class);
-		ExtensionProcessFactory extensionProcessFactory = SpringUtils.getBean(ExtensionProcessFactory.class);
-		assertThat(assembler).isNotNull();
-		assertThat(routeTable).isNotNull();
-		assertThat(extensionProcessFactory).isNotNull();
-		
-		ApplyService testApplyService =SpringUtils.getBean("testApplyService", ApplyService.class);
-		testApplyService.initApplication("test", "test");
-	}
-	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-		// TODO Auto-generated provider stub
-		
-	}
+    private ExpectedException exception = ExpectedException.none();
+
+    @Test
+    public void testAssembleResult() {
+        ExtensionProcessAssembler assembler = SpringUtils.getBean(ExtensionProcessAssembler.class);
+        ProcessRouteTableFactory routeTable = SpringUtils.getBean(ProcessRouteTableFactory.class);
+        ExtensionProcessFactory extensionProcessFactory = SpringUtils.getBean(ExtensionProcessFactory.class);
+        assertThat(assembler).isNotNull();
+        assertThat(routeTable).isNotNull();
+        assertThat(extensionProcessFactory).isNotNull();
+
+        ApplyService testApplyService = SpringUtils.getBean("testApplyService", ApplyService.class);
+        testApplyService.initApplication("test", "test");
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        // TODO Auto-generated provider stub
+
+    }
 }

@@ -8,23 +8,24 @@ import lombok.Data;
 @Data
 public class Port {
 
-	public static final Port AT_SEA = null;
+    public static final Port AT_SEA = null;
 
-	private Country country;
+    private Country country;
 
-	private String name;
-	public Port(String name, Country country) {
-		this.name = name;
-		this.country = country;
-	}
-	public void handleArrival(ArrivalEvent arrivalEvent) {
-		arrivalEvent.getShip().setPort(this);
-		Registry.customsNotificationGateway().notify(arrivalEvent.occurred, arrivalEvent.getShip(), arrivalEvent.getPort());
+    private String name;
 
-	}
+    public Port(String name, Country country) {
+        this.name = name;
+        this.country = country;
+    }
 
+    public void handleArrival(ArrivalEvent arrivalEvent) {
+        arrivalEvent.getShip().setPort(this);
+        Registry.customsNotificationGateway().notify(arrivalEvent.occurred, arrivalEvent.getShip(), arrivalEvent.getPort());
 
-	public Country getCountry() {
-		return country;
-	}
+    }
+
+    public Country getCountry() {
+        return country;
+    }
 }

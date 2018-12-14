@@ -7,6 +7,6 @@ import com.bocsoft.bocebiz.eloan.domain.model.application.LoanLimit;
 
 public interface LoanLimitRepository {
 
-	LoanLimit nextLimitId();
+    LoanLimit nextLimitId();
 
 }

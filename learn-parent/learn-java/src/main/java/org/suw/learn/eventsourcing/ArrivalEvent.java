@@ -14,26 +14,25 @@ import lombok.Setter;
 @EqualsAndHashCode(callSuper = false)
 public class ArrivalEvent extends DomainEvent {
 
-	public Port getPort() {
-		return port;
-	}
+    @Setter(value = AccessLevel.NONE)
+    private Port port;
+    @Setter(value = AccessLevel.NONE)
+    private Ship ship;
 
-	@Setter(value = AccessLevel.NONE)
-	private Port port;
-	
-	@Setter(value = AccessLevel.NONE)
-	private Ship ship;
+    public ArrivalEvent(Date time, Port sfo, Ship kr) {
+        super(time);
+        this.port = sfo;
+        this.ship = kr;
+    }
 
-	public ArrivalEvent(Date time, Port sfo, Ship kr) {
-		super(time);
-		this.port = sfo;
-		this.ship = kr;
-	}
+    public Port getPort() {
+        return port;
+    }
 
-	@Override
-	public void process() {
-		ship.handleArrival(this);
-		
-	}
+    @Override
+    public void process() {
+        ship.handleArrival(this);
+
+    }
 
 }

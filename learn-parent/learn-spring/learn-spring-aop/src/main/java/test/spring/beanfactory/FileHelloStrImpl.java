@@ -13,31 +13,31 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  * �����ļ���ʽ����ȡHelloWorld������ַ�����
- * 
+ *
  * @author worldheart
  */
 public class FileHelloStrImpl implements IHelloStr {
-	
+
     protected static final Log log = LogFactory.getLog(FileHelloStrImpl.class);
 
     private String propfilename;
-    
+
     private ITestBean tbean;
 
     public FileHelloStrImpl(String propfilename) {
         this.propfilename = propfilename;
     }
-    
-    public FileHelloStrImpl(String propfilename, ITestBean testBean){
-    	this.propfilename = propfilename;
-    	this.tbean = testBean;
+
+    public FileHelloStrImpl(String propfilename, ITestBean testBean) {
+        this.propfilename = propfilename;
+        this.tbean = testBean;
     }
-    
-    public FileHelloStrImpl(ITestBean testBean, String propfilename){
-    	this.tbean = testBean;
-    	this.propfilename = propfilename;
+
+    public FileHelloStrImpl(ITestBean testBean, String propfilename) {
+        this.tbean = testBean;
+        this.propfilename = propfilename;
     }
-    
+
     public String getContent() {
         String helloworld = "";
 
@@ -58,5 +58,5 @@ public class FileHelloStrImpl implements IHelloStr {
 
         return helloworld;
     }
-    
+
 }
