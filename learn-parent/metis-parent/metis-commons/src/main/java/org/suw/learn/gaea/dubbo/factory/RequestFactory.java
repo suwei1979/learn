@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2018 suwei1979@139.com. All Rights Reserved.
+ */
 package org.suw.learn.gaea.dubbo.factory;
 
 import java.io.Serializable;

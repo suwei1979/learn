@@ -1,3 +1,6 @@
+/*
+ * Copyright (C) 2018 suwei1979@139.com. All Rights Reserved.
+ */
 package com.bocsoft.metis.commons.log;
 
 import com.google.common.collect.ImmutableMap;
