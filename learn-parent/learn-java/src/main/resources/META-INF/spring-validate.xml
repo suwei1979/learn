@@ -18,7 +18,7 @@
             class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"
             autowire="no"/>
 
-    <!-- <context:annotation-config></context:annotation-config> -->
+    <!-- <context:annotation-configurer></context:annotation-configurer> -->
     <bean id="item" class="org.suw.learn.domain.model.Item" scope="prototype">
     </bean>
 

@@ -1,0 +1,6 @@
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/edge-service/src/main/java/org/suw/learn/spring/security/okta/edge/controller/GoodBeerApiAdapterRestController.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/edge-service/src/main/java/org/suw/learn/spring/security/okta/edge/configuration/ResourceServerConfig.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/edge-service/src/main/java/org/suw/learn/spring/security/okta/edge/feign/BeerClient.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/edge-service/src/main/java/org/suw/learn/spring/security/okta/edge/EdgeServiceApplication.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/edge-service/src/main/java/org/suw/learn/spring/security/okta/edge/model/Beer.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/edge-service/src/main/java/org/suw/learn/spring/security/okta/edge/interceptor/UserFeignClientInterceptor.java

@@ -1,0 +1,6 @@
+org/suw/learn/spring/security/okta/edge/feign/BeerClient.class
+org/suw/learn/spring/security/okta/edge/controller/GoodBeerApiAdapterRestController.class
+org/suw/learn/spring/security/okta/edge/configuration/ResourceServerConfig.class
+org/suw/learn/spring/security/okta/edge/EdgeServiceApplication.class
+org/suw/learn/spring/security/okta/edge/interceptor/UserFeignClientInterceptor.class
+org/suw/learn/spring/security/okta/edge/model/Beer.class

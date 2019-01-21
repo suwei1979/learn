@@ -1,0 +1,8 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    refresh:
+      refreshable: none
+  application:
+    name: beer-catalog-service

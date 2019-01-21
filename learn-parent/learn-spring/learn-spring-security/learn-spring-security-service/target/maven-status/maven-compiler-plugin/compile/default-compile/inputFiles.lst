@@ -1,0 +1,15 @@
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/model/User.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/SecuredWebApplication.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/service/RoleService.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/controller/UserRestController.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/service/UserService.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/model/support/UserHelper.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/model/UserRoleRelation.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/model/Role.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/service/RoleServiceImpl.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/configurer/SecurityConfigurer.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/configurer/CustomAuthenticationEntryPoint.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/exception/UserNotExistException.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/model/support/RoleHelper.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/service/UserServiceImpl.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/learn-spring-security-service/src/main/java/org/suw/learn/spring/security/service/AuthorityService.java

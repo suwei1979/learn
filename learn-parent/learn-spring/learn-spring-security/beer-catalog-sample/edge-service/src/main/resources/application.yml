@@ -1,0 +1,43 @@
+zuul:
+  routes:
+    beer-catalog-service:
+      path: /beers
+      url: http://localhost:8080
+    home:
+      path: /home
+      url: http://localhost:8080
+#    goodbeer:
+#      path: /good-beers
+#      url: http://localhost:8081
+  sensitive-headers: Cookie,Set-Cookie
+feign:
+  client:
+    config:
+      default:
+        requestInterceptors: org.suw.learn.spring.security.okta.edge.interceptor.UserFeignClientInterceptor
+management:
+  endpoint:
+    hystrix:
+      config:
+        sharedSecurityContext: true
+security:
+  oauth2:
+    client:
+      client-id: 0oaiioewpkgYHzVcj0h7
+      client-secret: LvrM97ScjQxU0ZyfqhaiLZXEfQ1VbGygqDo9Oyov
+      access-token-uri: https://dev-804753.oktapreview.com/oauth2/default/v1/token
+      user-authorization-uri: https://dev-804753.oktapreview.com/oauth2/default/v1/authorize
+      scope: openid profile email
+    resource:
+      user-info-uri: https://dev-804753.oktapreview.com/oauth2/default/v1/userinfo
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+feign:
+  hystrix:
+    enabled: false
+hystrix:
+  shareSecurityContext: true
+  metrics:
+    enabled: false

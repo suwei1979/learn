@@ -1,0 +1,16 @@
+#
+# Copyright (C) 2018 suwei1979@139.com. All Rights Reserved.
+#
+server:
+  port: 8761
+spring:
+  application:
+    name: eureka-server
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+    register-with-eureka: false
+    fetch-registry: false

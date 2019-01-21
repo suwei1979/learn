@@ -1,0 +1,75 @@
+<!--
+  ~ Copyright (C) 2018 suwei1979@139.com. All Rights Reserved.
+  -->
+<!DOCTYPE HTML>
+<html xmlns:thy="http://www.thymeleaf.org">
+<head>
+    <style>
+        th {
+            text-align: left;
+        }
+
+        td {
+            white-space: nowrap;
+        }
+
+        td:first-child {
+            font-family: "Courier", monospace;
+            font-size: 0.9em;
+            color: #343434;
+        }
+    </style>
+</head>
+<body>
+<h1>Hello <span thy:if="${user}" thy:text="' ' + ${user.name}"></span></h1>
+
+    <div thy:unless="${user}">
+        <a thy:href="@{/login}">Login</a>
+    </div>
+    <div thy:if="${user}">
+        <form thy:action="@{/logout}" method="post">
+            <input type="submit" value="Logout">
+        </form>
+    </div>
+<h2>User Properties</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Attribute</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>sub</td>
+            <td thy:text="${user.sub}"></td>
+        </tr>
+        <tr>
+            <td>name</td>
+            <td thy:text="${user.name}"></td>
+        </tr>
+        <tr>
+            <td>given_name</td>
+            <td thy:text="${user.given_name}"></td>
+        </tr>
+        <tr>
+            <td>family_name</td>
+            <td thy:text="${user.family_name}"></td>
+        </tr>
+        <tr>
+            <td>preferred_username</td>
+            <td thy:text="${user.preferred_username}"></td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td thy:text="${user.email}"></td>
+        </tr>
+        <tr>
+            <td>roles</td>
+            <td thy:text="${user.roles}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+
+</html>
