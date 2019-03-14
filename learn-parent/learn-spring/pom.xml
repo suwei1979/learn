@@ -48,6 +48,8 @@
         <module>tutorial-spring</module>
         <module>learn-spring-batch</module>
         <module>learn-spring-security</module>
+        <module>tutorial-vhr</module>
+        <module>learn-spring-cloud</module>
     </modules>
     <dependencyManagement>
         <dependencies>

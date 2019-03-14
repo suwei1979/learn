@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 suwei1979@139.com. All Rights Reserved.
+ * Copyright (C) 2019 suwei1979@139.com. All Rights Reserved.
  */
 package org.suw.learn.spring.security.okta.beer.controller;
 
@@ -25,8 +25,10 @@ public class HomeController {
     @SuppressWarnings("unchecked")
     public String howdy(Model model, Principal principal) {
         OAuth2Authentication authentication = (OAuth2Authentication) principal;
-        Map<String, Object> user = (Map<String, Object>) authentication.getUserAuthentication().getDetails();
-        model.addAttribute("user", user);
+        if (principal != null) {
+            Map<String, Object> user = (Map<String, Object>) authentication.getUserAuthentication().getDetails();
+            model.addAttribute("user", user);
+        }
         return "home";
     }
 }

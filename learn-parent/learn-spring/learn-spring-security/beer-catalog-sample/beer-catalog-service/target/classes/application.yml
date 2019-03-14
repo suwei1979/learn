@@ -4,6 +4,14 @@
 
 
 #  这个配置具体的作用需要再看看，但是能够解决actuator和h2database循环依赖的问题
+server:
+  port: 8080
+spring:
+  cloud:
+    refresh:
+      refreshable: none
+  application:
+    name: beer-catalog-service
 
 security:
   oauth2:
@@ -18,10 +26,18 @@ security:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://peer1:8761/eureka/, http://peer1:8761/eureka/
+
 #management:
 #  endpoints:
 #    web:
 #      exposure:
 #        include: health
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #<2>
+  endpoint:
+    health:
+      show-details: ALWAYS

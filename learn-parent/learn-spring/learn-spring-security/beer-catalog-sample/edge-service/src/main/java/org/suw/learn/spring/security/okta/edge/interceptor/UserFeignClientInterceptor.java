@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 suwei1979@139.com. All Rights Reserved.
+ * Copyright (C) 2019 suwei1979@139.com. All Rights Reserved.
  */
 package org.suw.learn.spring.security.okta.edge.interceptor;
 
@@ -30,7 +30,7 @@ public class UserFeignClientInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate template) {
         logger.info("=======entering the apply method!========");
-
+        logger.info(template.url());
         SecurityContext securityContext = SecurityContextHolder.getContext();
         Authentication authentication = securityContext.getAuthentication();
         logger.info("====================" + authentication);

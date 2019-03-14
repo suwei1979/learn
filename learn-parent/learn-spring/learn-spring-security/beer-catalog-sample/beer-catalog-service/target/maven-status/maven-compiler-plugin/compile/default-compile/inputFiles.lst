@@ -1,7 +1,8 @@
 /Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/beer-catalog-service/src/main/java/org/suw/learn/spring/security/okta/beer/configuration/ResourceServerConfig.java
 /Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/beer-catalog-service/src/main/java/org/suw/learn/spring/security/okta/beer/BeerInitializer.java
 /Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/beer-catalog-service/src/main/java/org/suw/learn/spring/security/okta/beer/controller/HomeController.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/beer-catalog-service/src/main/java/org/suw/learn/spring/security/okta/beer/controller/BeerController.java
 /Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/beer-catalog-service/src/main/java/org/suw/learn/spring/security/okta/beer/model/Beer.java
-/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/beer-catalog-service/src/main/java/org/suw/learn/spring/security/okta/beer/configuration/SecurityConfig.java
+/Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/beer-catalog-service/src/main/java/org/suw/learn/spring/security/okta/beer/configuration/WebSecurityConfig.java
 /Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/beer-catalog-service/src/main/java/org/suw/learn/spring/security/okta/beer/repository/BeerRepository.java
 /Users/suwei/git/learn/learn-parent/learn-spring/learn-spring-security/beer-catalog-sample/beer-catalog-service/src/main/java/org/suw/learn/spring/security/okta/beer/BeerServiceApplication.java

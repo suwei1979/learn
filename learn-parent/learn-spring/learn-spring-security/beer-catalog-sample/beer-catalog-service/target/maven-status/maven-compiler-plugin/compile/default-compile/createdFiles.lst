@@ -1,7 +1,8 @@
-org/suw/learn/spring/security/okta/beer/configuration/SecurityConfig.class
 org/suw/learn/spring/security/okta/beer/model/Beer.class
 org/suw/learn/spring/security/okta/beer/configuration/ResourceServerConfig.class
 org/suw/learn/spring/security/okta/beer/repository/BeerRepository.class
 org/suw/learn/spring/security/okta/beer/controller/HomeController.class
 org/suw/learn/spring/security/okta/beer/BeerServiceApplication.class
+org/suw/learn/spring/security/okta/beer/configuration/WebSecurityConfig.class
 org/suw/learn/spring/security/okta/beer/BeerInitializer.class
+org/suw/learn/spring/security/okta/beer/controller/BeerController.class

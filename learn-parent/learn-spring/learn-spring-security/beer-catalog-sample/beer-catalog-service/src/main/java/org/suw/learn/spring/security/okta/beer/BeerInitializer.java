@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 suwei1979@139.com. All Rights Reserved.
+ * Copyright (C) 2019 suwei1979@139.com. All Rights Reserved.
  */
 package org.suw.learn.spring.security.okta.beer;
 
@@ -11,8 +11,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.suw.learn.spring.security.okta.beer.model.Beer;
 import org.suw.learn.spring.security.okta.beer.repository.BeerRepository;
-
-import com.netflix.discovery.converters.Auto;
 
 /**
  * @classname: BeerInitializer

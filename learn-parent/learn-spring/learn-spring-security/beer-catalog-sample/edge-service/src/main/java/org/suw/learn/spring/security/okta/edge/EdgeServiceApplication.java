@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 suwei1979@139.com. All Rights Reserved.
+ * Copyright (C) 2019 suwei1979@139.com. All Rights Reserved.
  */
 package org.suw.learn.spring.security.okta.edge;
 
@@ -10,10 +10,6 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.cloud.openfeign.EnableFeignClients;
-import org.springframework.context.annotation.Bean;
-import org.suw.learn.spring.security.okta.edge.interceptor.UserFeignClientInterceptor;
-
-import feign.RequestInterceptor;
 
 /**
  * @classname: EdgeServiceApplication

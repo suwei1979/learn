@@ -1,3 +1,8 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: edge-service
 zuul:
   routes:
     beer-catalog-service:
@@ -6,20 +11,16 @@ zuul:
     home:
       path: /home
       url: http://localhost:8080
-#    goodbeer:
-#      path: /good-beers
-#      url: http://localhost:8081
   sensitive-headers: Cookie,Set-Cookie
-feign:
-  client:
-    config:
-      default:
-        requestInterceptors: org.suw.learn.spring.security.okta.edge.interceptor.UserFeignClientInterceptor
 management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
   endpoint:
-    hystrix:
-      config:
-        sharedSecurityContext: true
+    health:
+      show-details: ALWAYS
+
 security:
   oauth2:
     client:
@@ -31,13 +32,27 @@ security:
     resource:
       user-info-uri: https://dev-804753.oktapreview.com/oauth2/default/v1/userinfo
 eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    health-check-url-path: /actuator/health
+    metadata-map:
+      startup: ${random.int}  #needed to trigger info and endpoint update after restart
   client:
+    registry-fetch-interval-seconds: 5
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://peer2:8762/eureka, http://peer1:8761/eureka
+
+#  instance:
+#    prefer-ip-address: false
+
 feign:
   hystrix:
     enabled: false
-hystrix:
-  shareSecurityContext: true
-  metrics:
-    enabled: false
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+#hystrix:
+#  shareSecurityContext: false
+#ribbon:
+#  metrics:
+#    enabled: false

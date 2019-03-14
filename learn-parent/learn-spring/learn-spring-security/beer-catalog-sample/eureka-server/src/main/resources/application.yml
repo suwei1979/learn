@@ -1,0 +1,19 @@
+#
+# Copyright (C) 2018 suwei1979@139.com. All Rights Reserved.
+#
+spring:
+  application:
+    name: eureka-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_DEFAULT_ZONE}:${EUREKA_DEFAULT_ZONE_PORT}/eureka
+    register-with-eureka: true
+    fetch-registry: false
+  instance:
+    hostname: peer${EUREKA_NODE_IDX}
+
+  server:
+    peer-node-read-timeout-ms: 2000
+server:
+  port: 876${EUREKA_NODE_IDX}

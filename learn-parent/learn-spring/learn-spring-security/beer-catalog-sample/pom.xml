@@ -19,7 +19,8 @@
     <modules>
         <module>edge-service</module>
         <module>beer-catalog-service</module>
-        <module>eureka-service</module>
+        <module>eureka-server</module>
+        <module>admin-server</module>
     </modules>
 
     <dependencies>
@@ -44,5 +45,25 @@
             <!--</plugin>-->
         <!--</plugins>-->
     <!--</build>-->
-
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>de.codecentric.boot.admin.SpringBootAdminApplication</mainClass>
+                    <addResources>false</addResources>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

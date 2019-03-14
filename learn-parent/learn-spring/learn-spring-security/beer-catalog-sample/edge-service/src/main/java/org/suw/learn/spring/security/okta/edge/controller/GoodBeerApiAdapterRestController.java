@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 suwei1979@139.com. All Rights Reserved.
+ * Copyright (C) 2019 suwei1979@139.com. All Rights Reserved.
  */
 package org.suw.learn.spring.security.okta.edge.controller;
 
@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.suw.learn.spring.security.okta.edge.feign.BeerClient;
 import org.suw.learn.spring.security.okta.edge.model.Beer;
-
-import com.netflix.discovery.converters.Auto;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 /**
  * @classname: GoodBeerApiAdapterRestController

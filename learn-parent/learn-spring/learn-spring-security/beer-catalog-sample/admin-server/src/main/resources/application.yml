@@ -1,0 +1,55 @@
+#
+# Copyright (C) 2018 suwei1979@139: com:  All Rights Reserved:
+#
+
+
+spring:
+  application:
+    name: spring-boot-admin-sample-eureka
+  profiles:
+    active:
+      - insecure
+server:
+  port: 8768
+
+
+# tag::configuration-eureka[]
+eureka:   #<1>
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    health-check-url-path: /actuator/health
+    metadata-map:
+      startup: ${random.int}    #needed to trigger info and endpoint update after restart
+  client:
+    registryFetchIntervalSeconds: 5
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVICE_URL:http://localhost:8762}/eureka/
+    register-with-eureka: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #<2>
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+# end::configuration-eureka[]
+
+---
+spring:
+  profiles: insecure
+
+---
+spring:
+  profiles: secure
+  security:
+    user:
+      name: "user"
+      password: "password"
+eureka:
+  instance:
+    metadata-map:
+      user.name: ${spring.security.user.name}          #These two are needed so that the server
+      user.password: ${spring.security.user.password}  #can access the protected client endpoints
