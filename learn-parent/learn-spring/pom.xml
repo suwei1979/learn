@@ -41,12 +41,11 @@
     </dependencies>
     <modules>
 
-        <module>learn-spring-boot</module>
-        <module>learn-spring-aop</module>
-        <module>learn-spring-beans</module>
+        <module>lab-spring-aop</module>
+        <module>lab-spring-beans</module>
         <module>tutorial-spring</module>
-        <module>learn-spring-batch</module>
-        <module>learn-spring-security</module>
+        <module>lab-spring-batch</module>
+        <module>lab-spring-security</module>
     </modules>
     <dependencyManagement>
         <dependencies>
