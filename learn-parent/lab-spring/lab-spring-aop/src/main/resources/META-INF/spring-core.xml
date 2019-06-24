@@ -7,24 +7,24 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
     <alias name="helloWorld1" alias="anotherHelloWorld"/>
     <!-- HelloWorld -->
-    <bean name="helloWorld helloWorld1" class="test.spring.helloworld.impl.DefaultHelloWorld">
+    <bean name="helloWorld helloWorld1" class="org.suw.learn.spring.helloworld.impl.DefaultHelloWorld">
         <property name="greeting" value="Hello, World"/>
     </bean>
 
     <!-- ioc example -->
-    <bean name="aBoy" class="test.spring.sample.Boy" autowire="byName">
+    <bean name="aBoy" class="org.suw.learn.spring.sample.Boy" autowire="byName">
         <constructor-arg index="0" value="xieding"></constructor-arg>
 
     </bean>
 
     <!-- provider injection -->
-    <bean id="commandManager" class="test.spring.methodinjection.CommandManager"
+    <bean id="commandManager" class="org.suw.learn.spring.methodinjection.CommandManager"
           abstract="true">
         <lookup-method name="createCommand" bean="command"/>
     </bean>
-    <bean id="command" class="test.spring.methodinjection.impl.ConcreteCommand"/>
+    <bean id="command" class="org.suw.learn.spring.methodinjection.impl.ConcreteCommand"/>
 
-    <bean id="beanCounter" class="test.spring.container.BeanCounter"/>
+    <bean id="beanCounter" class="org.suw.learn.spring.container.BeanCounter"/>
 
     <bean id="propertyConfigurer"
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -33,7 +33,7 @@
         </property>
     </bean>
 
-    <bean id="databaseConfig" class="test.spring.DatabaseConfig">
+    <bean id="databaseConfig" class="org.suw.learn.spring.DatabaseConfig">
         <property name="url">
             <value>${database.url}</value>
         </property>

@@ -8,37 +8,37 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
-    <bean name="fileHello1" class="test.spring.beanfactory.FileHelloStrImpl">
+    <bean name="fileHello1" class="org.suw.learn.spring.beanfactory.FileHelloStrImpl">
         <constructor-arg value="helloworld.properties"/>
         <constructor-arg ref="testBean"/>
     </bean>
 
-    <bean name="fileHello2" class="test.spring.beanfactory.FileHelloStrImpl">
+    <bean name="fileHello2" class="org.suw.learn.spring.beanfactory.FileHelloStrImpl">
         <constructor-arg ref="testBean"/>
         <constructor-arg value="helloworld.properties"/>
     </bean>
 
-    <bean name="fileHello3" class="test.spring.beanfactory.FileHelloStrImpl">
+    <bean name="fileHello3" class="org.suw.learn.spring.beanfactory.FileHelloStrImpl">
         <constructor-arg index="0" value="helloworld.properties"/>
         <constructor-arg index="1" ref="testBean"/>
     </bean>
 
-    <bean name="fileHello4" class="test.spring.beanfactory.FileHelloStrImpl">
+    <bean name="fileHello4" class="org.suw.learn.spring.beanfactory.FileHelloStrImpl">
         <constructor-arg index="0" ref="testBean"/>
         <constructor-arg index="1" value="helloworld.properties"/>
     </bean>
 
-    <bean name="fileHello5" class="test.spring.beanfactory.FileHelloStrImpl">
-        <constructor-arg type="test.spring.beanfactory.ITestBean"
+    <bean name="fileHello5" class="org.suw.learn.spring.beanfactory.FileHelloStrImpl">
+        <constructor-arg type="org.suw.learn.spring.beanfactory.ITestBean"
                          ref="testBean"/>
         <constructor-arg type="java.lang.String" value="helloworld.properties"/>
     </bean>
 
-    <bean name="fileHello6" class="test.spring.beanfactory.FileHelloStrImpl">
+    <bean name="fileHello6" class="org.suw.learn.spring.beanfactory.FileHelloStrImpl">
         <constructor-arg index="0" ref="testBean"/>
         <constructor-arg type="java.lang.String" value="helloworld.properties"/>
     </bean>
 
-    <bean id="testBean" class="test.spring.beanfactory.TestBean"/>
+    <bean id="testBean" class="org.suw.learn.spring.beanfactory.TestBean"/>
 
 </beans>

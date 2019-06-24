@@ -8,25 +8,25 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 		http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
 
-    <bean name="helloWorld" class="test.spring.beanfactory.HelloWorld">
+    <bean name="helloWorld" class="org.suw.learn.spring.beanfactory.HelloWorld">
         <property name="helloStr" ref="fileHello"/>
     </bean>
 
-    <bean name="fileHello" class="test.spring.beanfactory.FileHelloStrImpl">
+    <bean name="fileHello" class="org.suw.learn.spring.beanfactory.FileHelloStrImpl">
         <constructor-arg>
             <value>helloworld.properties</value>
         </constructor-arg>
     </bean>
 
     <!-- 默认时，单例 -->
-    <bean name="helloWorld1" class="test.spring.beanfactory.HelloWorld"/>
+    <bean name="helloWorld1" class="org.suw.learn.spring.beanfactory.HelloWorld"/>
 
     <!-- 单例 -->
     <bean name="helloWorld2" scope="singleton"
-          class="test.spring.beanfactory.HelloWorld"/>
+          class="org.suw.learn.spring.beanfactory.HelloWorld"/>
 
     <!-- 原型 -->
     <bean name="helloWorld3" scope="prototype"
-          class="test.spring.beanfactory.HelloWorld"/>
+          class="org.suw.learn.spring.beanfactory.HelloWorld"/>
 
 </beans>

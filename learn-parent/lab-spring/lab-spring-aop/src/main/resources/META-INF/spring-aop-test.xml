@@ -20,10 +20,10 @@
     <bean id="service2" class="ConcreteService1">
     </bean>
 
-    <bean id="targetBean" class="test.spring.aop.Target"/>
-    <bean id="welcomeAdvice" class="test.spring.aop.WelcomeAdvice"/>
-    <bean id="thankYouAdvice" class="test.spring.aop.ThankYouAdvice"/>
-    <bean id="targetInterceptor" class="test.spring.aop.TargetInterceptor"/>
+    <bean id="targetBean" class="org.suw.learn.spring.aop.Target"/>
+    <bean id="welcomeAdvice" class="org.suw.learn.spring.aop.WelcomeAdvice"/>
+    <bean id="thankYouAdvice" class="org.suw.learn.spring.aop.ThankYouAdvice"/>
+    <bean id="targetInterceptor" class="org.suw.learn.spring.aop.TargetInterceptor"/>
 
     <!-- 决定targetInteceptor的切入点(Pointcut) -->
     <bean id="targetInterceptorMatcher"
@@ -38,7 +38,7 @@
 
     <bean id="target" class="org.springframework.aop.framework.ProxyFactoryBean">
         <property name="proxyInterfaces">
-            <value>test.spring.aop.ITarget</value>
+            <value>org.suw.learn.spring.aop.ITarget</value>
         </property>
         <property name="interceptorNames">
             <list>

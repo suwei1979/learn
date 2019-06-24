@@ -14,6 +14,10 @@
 
     <groupId>org.suw.lab.spring.cloud</groupId>
     <artifactId>lab-spring-cloud-netflix</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>lab-spring-cloud-netflix-eureka-server</module>
+    </modules>
 
 
 </project>

@@ -22,7 +22,7 @@ public class JvmServiceFactory<S> extends AbstractReloadableServiceFactory<S> {
     }
 
     /**
-     * @see org.suw.learn.mdm.common.spi.ReloadableServiceFactory#load(java.lang.Class, java.lang.String)
+     * @see org.suw.lab.mdm.common.spi.ReloadableServiceFactory#load(java.lang.Class, java.lang.String)
      */
     @Override
     public S load(Class<S> serviceInterface, String providerName) {
@@ -37,7 +37,7 @@ public class JvmServiceFactory<S> extends AbstractReloadableServiceFactory<S> {
     /*
      * (non-Javadoc)
      *
-     * @see org.suw.learn.mdm.common.spi.ReloadableServiceFactory#reload()
+     * @see org.suw.lab.mdm.common.spi.ReloadableServiceFactory#reload()
      */
     @Override
     public void reload() {

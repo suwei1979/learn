@@ -19,7 +19,7 @@
             autowire="no"/>
 
     <!-- <context:annotation-config></context:annotation-config> -->
-    <bean id="item" class="org.suw.learn.domain.model.Item" scope="prototype">
+    <bean id="item" class="org.suw.learn.Item" scope="prototype">
     </bean>
 
 
@@ -29,6 +29,6 @@
     <!--<bean id="orderService" class="org.suw.learn.domain.service.impl.OrderServiceImpl">-->
     <!--</bean>-->
     <bean id="creditCardProcessor"
-          class="org.suw.learn.domain.service.impl.DefaultCreditCardProcessor">
+          class="org.suw.learn.DefaultCreditCardProcessor">
     </bean>
 </beans>

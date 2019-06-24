@@ -37,7 +37,9 @@ public class Application implements Loader {
     public void start() {
         SpringApplication application = new SpringApplicationBuilder()
                 .sources(Application.class)
-                .showBanner(false).web(false).build();
+//                .showBanner(false)
+                .web(false)
+                .build();
         application.addListeners(new AppArgsLogInitializationListener());
         ctx = application.run();
     }

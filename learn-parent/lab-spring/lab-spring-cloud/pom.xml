@@ -17,6 +17,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>lab-spring-cloud-netflix</module>
+        <module>lab-spring-cloud-openfeign</module>
     </modules>
 
 
