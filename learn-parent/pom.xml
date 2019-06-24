@@ -134,7 +134,7 @@
     </dependencies>
     <modules>
         <module>learn-java</module>
-        <module>learn-spring</module>
+        <module>lab-spring</module>
         <module>learn-domain</module>
         <module>learn-domain-event-sourcing</module>
         <module>learn-build</module>
