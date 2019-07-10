@@ -1,0 +1,5 @@
+ribbon:
+  eager-load:
+    enabled: false
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
