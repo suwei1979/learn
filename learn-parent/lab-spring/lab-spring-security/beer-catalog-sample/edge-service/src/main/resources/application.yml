@@ -1,0 +1,58 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: edge-service
+zuul:
+  routes:
+    beer-catalog-service:
+      path: /beers
+      url: http://localhost:8080
+    home:
+      path: /home
+      url: http://localhost:8080
+  sensitive-headers: Cookie,Set-Cookie
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+security:
+  oauth2:
+    client:
+      client-id: 0oaiioewpkgYHzVcj0h7
+      client-secret: LvrM97ScjQxU0ZyfqhaiLZXEfQ1VbGygqDo9Oyov
+      access-token-uri: https://dev-804753.oktapreview.com/oauth2/default/v1/token
+      user-authorization-uri: https://dev-804753.oktapreview.com/oauth2/default/v1/authorize
+      scope: openid profile email
+    resource:
+      user-info-uri: https://dev-804753.oktapreview.com/oauth2/default/v1/userinfo
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 10
+    health-check-url-path: /actuator/health
+    metadata-map:
+      startup: ${random.int}  #needed to trigger info and endpoint update after restart
+  client:
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://peer2:8762/eureka, http://peer1:8761/eureka
+
+#  instance:
+#    prefer-ip-address: false
+
+feign:
+  hystrix:
+    enabled: false
+ribbon:
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+#hystrix:
+#  shareSecurityContext: false
+#ribbon:
+#  metrics:
+#    enabled: false

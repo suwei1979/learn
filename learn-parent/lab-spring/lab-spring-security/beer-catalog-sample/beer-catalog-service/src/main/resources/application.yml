@@ -1,0 +1,43 @@
+#
+# Copyright (C) 2018 suwei1979@139: com:  All Rights Reserved:
+#
+
+
+#  这个配置具体的作用需要再看看，但是能够解决actuator和h2database循环依赖的问题
+server:
+  port: 8080
+spring:
+  cloud:
+    refresh:
+      refreshable: none
+  application:
+    name: beer-catalog-service
+
+security:
+  oauth2:
+    client:
+      client-id: 0oaiioewpkgYHzVcj0h7
+      client-secret: LvrM97ScjQxU0ZyfqhaiLZXEfQ1VbGygqDo9Oyov
+      access-token-uri: https://dev-804753.oktapreview.com/oauth2/default/v1/token
+      user-authorization-uri: https://dev-804753.oktapreview.com/oauth2/default/v1/authorize
+      scope: openid profile email
+    resource:
+      user-info-uri: https://dev-804753.oktapreview.com/oauth2/default/v1/userinfo
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8761/eureka/, http://peer1:8761/eureka/
+
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"  #<2>
+  endpoint:
+    health:
+      show-details: ALWAYS

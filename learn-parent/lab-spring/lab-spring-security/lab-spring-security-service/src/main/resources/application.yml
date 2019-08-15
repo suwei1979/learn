@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: learn-spring-security-service
+server:
+  port: 8088
