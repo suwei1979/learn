@@ -21,8 +21,8 @@ public class GenericServiceInjector implements BeanFactoryPostProcessor {
      * (non-Javadoc)
      *
      * @see
-     * org.springframework.beans.factory.config.BeanFactoryPostProcessor#postProcessBeanFactory(org.springframework.
-     * beans.factory.config.ConfigurableListableBeanFactory)
+     * org.springframework.beans.factory.configurer.BeanFactoryPostProcessor#postProcessBeanFactory(org.springframework.
+     * beans.factory.configurer.ConfigurableListableBeanFactory)
      */
     @SuppressWarnings({"rawtypes", "unchecked"})
     @Override

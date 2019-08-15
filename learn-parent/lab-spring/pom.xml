@@ -1,3 +1,4 @@
+<<<<<<< HEAD:learn-parent/lab-spring/pom.xml
 <!--
   ~ Copyright (C) 2018 suwei1979@139.com. All Rights Reserved.
   -->
@@ -83,4 +84,93 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+=======
+<!--
+  ~ Copyright (C) 2018 suwei1979@139.com. All Rights Reserved.
+  -->
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.suw.learn</groupId>
+        <artifactId>learn-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <groupId>org.suw.learn.spring</groupId>
+    <artifactId>learn-spring</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <dependencies>
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-core</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-context</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-jdbc</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>javax.servlet</groupId>-->
+        <!--<artifactId>servlet-api</artifactId>-->
+        <!--<scope>provided</scope>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-configurer</artifactId>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-webmvc</artifactId>-->
+        <!--</dependency>-->
+    </dependencies>
+    <modules>
+
+        <module>learn-spring-boot</module>
+        <module>learn-spring-aop</module>
+        <module>learn-spring-beans</module>
+        <module>tutorial-spring</module>
+        <module>learn-spring-batch</module>
+        <module>learn-spring-security</module>
+        <module>tutorial-vhr</module>
+        <module>learn-spring-cloud</module>
+    </modules>
+    <dependencyManagement>
+        <dependencies>
+            <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-context</artifactId>-->
+            <!--<version>${spring.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-core</artifactId>-->
+            <!--<version>${spring.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-jdbc</artifactId>-->
+            <!--<version>${spring.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+            <!--<groupId>javax.servlet</groupId>-->
+            <!--<artifactId>servlet-api</artifactId>-->
+            <!--<version>2.5</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-controller</artifactId>-->
+            <!--<version>${spring.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+            <!--<groupId>org.springframework</groupId>-->
+            <!--<artifactId>spring-webmvc</artifactId>-->
+            <!--<version>${spring.version}</version>-->
+            <!--</dependency>-->
+        </dependencies>
+    </dependencyManagement>
+>>>>>>> master:learn-parent/learn-spring/pom.xml
 </project>
