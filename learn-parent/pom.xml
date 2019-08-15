@@ -4,8 +4,8 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.suw.learn</groupId>
-    <artifactId>learn-parent</artifactId>
+    <groupId>org.suw.lab</groupId>
+    <artifactId>lab-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <parent>
@@ -135,11 +135,11 @@
     <modules>
         <module>lab-java</module>
         <module>lab-spring</module>
-        <module>learn-domain</module>
-        <module>learn-build</module>
-        <module>learn-aspectj</module>
-        <module>learn-mybatis</module>
+        <module>lab-domain</module>
+        <module>lab-build</module>
+        <module>lab-aspectj</module>
+        <module>lab-mybatis</module>
         <module>metis-parent</module>
-        <module>learn-3rd-party</module>
+        <module>lab-3rd-party</module>
     </modules>
 </project>

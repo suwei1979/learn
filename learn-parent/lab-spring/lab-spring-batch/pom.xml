@@ -8,8 +8,8 @@
         <artifactId>lab-spring</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <groupId>org.suw.learn.spring.batch</groupId>
-    <artifactId>learn-spring-batch</artifactId>
+    <groupId>org.suw.lab.spring.batch</groupId>
+    <artifactId>lab-spring-batch</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.springframework.batch</groupId>

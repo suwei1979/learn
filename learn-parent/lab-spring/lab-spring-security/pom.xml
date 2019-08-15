@@ -5,8 +5,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <modules>
-        <module>learn-spring-security-web</module>
-        <module>learn-spring-security-service</module>
+        <module>lab-spring-security-web</module>
+        <module>lab-spring-security-service</module>
         <module>beer-catalog-sample</module>
     </modules>
     <parent>
@@ -14,7 +14,7 @@
         <artifactId>lab-spring</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>learn-spring-security</artifactId>
-    <groupId>org.suw.learn.spring.security</groupId>
+    <artifactId>lab-spring-security</artifactId>
+    <groupId>org.suw.lab.spring.security</groupId>
     <packaging>pom</packaging>
 </project>

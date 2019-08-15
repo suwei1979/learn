@@ -9,7 +9,8 @@
         <artifactId>lab-spring</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>learn-spring-aop</artifactId>
+    <groupId>org.suw.learn.spring.aop</groupId>
+    <artifactId>lab-spring-aop</artifactId>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
