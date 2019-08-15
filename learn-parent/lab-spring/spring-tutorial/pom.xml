@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.suw.lab.spring</groupId>
-        <artifactId>lab-spring-parent</artifactId>
+        <artifactId>lab-spring</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>spring-tutorial</artifactId>

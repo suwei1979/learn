@@ -11,20 +11,10 @@
     </modules>
     <parent>
         <groupId>org.suw.lab.spring</groupId>
-        <artifactId>lab-spring-parent</artifactId>
+        <artifactId>lab-spring</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-<<<<<<< HEAD:learn-parent/lab-spring/lab-spring-security/pom.xml
-    <artifactId>lab-spring-security</artifactId>
-    <packaging>jar</packaging>
-=======
-
     <artifactId>learn-spring-security</artifactId>
     <groupId>org.suw.learn.spring.security</groupId>
-    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
->>>>>>> master:learn-parent/learn-spring/learn-spring-security/pom.xml
-
-    <dependencies>
-     </dependencies>
 </project>
