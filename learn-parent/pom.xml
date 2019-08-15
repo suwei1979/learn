@@ -133,7 +133,7 @@
         </dependency>
     </dependencies>
     <modules>
-        <module>learn-java</module>
+        <module>lab-java</module>
         <module>lab-spring</module>
         <module>learn-domain</module>
         <module>learn-build</module>

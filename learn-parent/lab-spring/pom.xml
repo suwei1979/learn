@@ -47,6 +47,7 @@
         <module>lab-spring-batch</module>
         <module>lab-spring-security</module>
         <module>lab-spring-cloud</module>
+        <module>lab-spring-autoconfigure</module>
     </modules>
     <dependencyManagement>
         <dependencies>
