@@ -8,7 +8,7 @@ package org.suw.learn.pattern.analysis.specification;
  * criteria, and can be used for:<br>
  * <p>
  * <ol>
- * <li>Selection: You need to select a subset of objects based on some criteria, and to refresh the selection at various
+ * <li>Selection: You need to select a subset of objects based on some criteria, and to refresh the bySelection at various
  * <li>Validation: You need to check that only suitable objects are used for a certain purpose
  * <li>Construction-to-order: You need to describe what an object might do, without explaining the details of how the
  * object does it, but in such a way that a candidate might be built to fulfill the requirement
