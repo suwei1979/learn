@@ -28,6 +28,35 @@ public class Sort {
         return data;
     }
 
+    public static int[] byBubble(int[] data) {
+        int temp;
+
+        System.out.println("--------------冒泡排序--------------");
+        System.out.println("排序之前：");
+        printArray(data);
+        for (int i = 0; i < data.length; i++) {
+            for (int j = data.length - 1; j > i; j--) {
+                if (data[j] < data[j - 1]) {
+                    temp = data[j - 1];
+                    data[j - 1] = data[j];
+                    data[j] = temp;
+                }
+            }
+            System.out.println("排序中【轮次 " + i + "】");
+            printArray(data);
+        }
+        System.out.println("排序之后：");
+        printArray(data);
+        return data;
+    }
+
+    private static void printArray(int[] data) {
+        for (int i = 0; i < data.length; i++) {
+            System.out.print(data[i] + "\t");
+        }
+        System.out.println();
+    }
+
     public static String[] bySelection(String[] data) {
         for (int i = 0; i < data.length; i++) {
             int minIdx = i;
@@ -125,6 +154,42 @@ public class Sort {
         return data;
     }
 
+    /**
+     * 梳排序 </br>
+     *
+     * @param data
+     * @return
+     */
+    public static int[] byCombo(int[] data) {
+        int len = data.length;
+        int step = len;
+        int k;
+        int round = 1;
+        System.out.println("----------梳排序----------");
+        System.out.println("排序前：");
+        printArray(data);
+
+        while ((step /= 1.3) > 1) {
+            for (int i = len - 1; i >= step; i--) {
+                k = i - step;
+                if (data[k] > data[i]) {
+                    int temp = data[k];
+                    data[k] = data[i];
+                    data[i] = temp;
+                }
+            }
+            System.out.println("排序中【轮次" + round++ + "】");
+            printArray(data);
+        }
+
+
+        byBubble(data);
+
+        System.out.println("排序后：");
+        printArray(data);
+        return data;
+    }
+
     public static String[] byMerge(String[] data) {
         if (data.length < 2) {
             return data;
@@ -190,6 +255,26 @@ public class Sort {
         for (int i = 0; i < bubbleData.length; i++) {
             System.out.println(byBubble(bubbleData)[i]);
         }
+        end = System.nanoTime();
+        System.out.println("Time: " + (end - start));
+
+        System.out.println("####### byBubble sort[int]");
+        int[] bubbleDataInt = {3, 5, 2, 1, 4};
+        start = System.nanoTime();
+        byBubble(bubbleDataInt);
+        //        for (int i = 0; i < bubbleDataInt.length; i++) {
+        //            System.out.println(byBubble(bubbleDataInt)[i]);
+        //        }
+        end = System.nanoTime();
+        System.out.println("Time: " + (end - start));
+
+        System.out.println("####### byCombo sort[int]");
+        int[] comboDataInt = {3, 5, 2, 1, 4, 49, 38, 65, 97, 76, 13, 27, 49, 78, 34, 12, 6};
+        start = System.nanoTime();
+        byCombo(comboDataInt);
+        //        for (int i = 0; i < bubbleDataInt.length; i++) {
+        //            System.out.println(byBubble(bubbleDataInt)[i]);
+        //        }
         end = System.nanoTime();
         System.out.println("Time: " + (end - start));
 

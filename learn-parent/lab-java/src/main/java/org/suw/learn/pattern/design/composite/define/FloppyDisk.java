@@ -1,12 +1,12 @@
 /*
- * Copyright (C) 2018 suwei1979@139.com. All Rights Reserved.
+ * Copyright (C) 2019 Baidu, Inc. All Rights Reserved.
  */
-package org.suw.learn.pattern.design.composite;
+package org.suw.learn.pattern.design.composite.define;
 
 import java.util.ArrayList;
 import java.util.Currency;
 
-public class CompositeEquipment extends Equipment {
+public class FloppyDisk extends Equipment {
 
     @Override
     public Watt power() {
@@ -16,10 +16,6 @@ public class CompositeEquipment extends Equipment {
 
     @Override
     public Currency netPrice() {
-        ArrayList<Equipment> it = iterator();
-        for (Equipment equipment : it) {
-            equipment.netPrice();
-        }
         // TODO Auto-generated provider stub
         return null;
     }
